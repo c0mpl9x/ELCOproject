@@ -1,0 +1,38 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{geometry}
+\geometry{a4paper, margin=1in}
+
+\title{Bill of Materials}
+\author{}
+\date{}
+
+\begin{document}
+	
+	\maketitle
+	
+	
+	\begin{table}[h]
+		\centering
+		\resizebox{\textwidth}{!}{%
+			\begin{tabular}{l l l l}
+				\toprule
+				\textbf{Ref} & \textbf{Cantidad} & \textbf{Descripción} & \textbf{Observaciones} \\
+				\midrule
+				U1              & 1  & ESP32-WROOM-32UE                	& Microcontrolador principal 	\\
+				J1              & 1  & Conector USB-C                  	& Conector principal 			\\
+				R    			& -  & Resistencias                    	& -								\\
+				C   			& - & Condensadores                    	& - 							\\
+				U2              & 1  & Regulador de voltaje 3.3V      	& Ej.: AMS1117-3.3 				\\
+				DSP             & 1  & Display TFT                 		& Ej.: ST7789V 					\\
+				AMP             & 1  & Amplificador de micrófono  		& Ej.: MAX9814 					\\
+				MIC             & 1  & Micrófono omnidireccional        & - 							\\
+				\bottomrule
+			\end{tabular}%
+		}
+	\end{table}
+	
+\end{document}
