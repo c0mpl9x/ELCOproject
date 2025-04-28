@@ -34,6 +34,8 @@ unsigned int sampling_period_us;
 unsigned long microseconds;
 double vReal[SAMPLES];
 double vImag[SAMPLES];
+int band = 0;
+double max[6] = { 0 };
 ArduinoFFT<double> FFT = ArduinoFFT<double>(vReal, vImag, SAMPLES, SAMPLING_FREQUENCY);
 /*-----------Defines for automatic gain control------*/
 #define GAIN 13
@@ -45,7 +47,7 @@ unsigned long delayToLowerGainAgain = 150;
 bool bandSaturated[6] = { false }; // array to store if the bands are saturated to decrease the gain if so
 int numberOfTimesSaturated = 0;  // number of saturations in periodForSaturation time
 int saturationThreshold = 3; // maximum allowed saturations in periodForSaturation time
-unsigned long periodForSaturation = 100;  // each period the number of times saturated resets to 0
+unsigned long periodForSaturation = 90;  // each period the number of times saturated resets to 0
 unsigned long lastTimeForSaturation = 0; //
 int band_values = 0; // if this value is too low, the gain will increase
 
@@ -84,7 +86,7 @@ float getSmoothedValue(int barIndex, float t) {
   return bezier(controlPoints[barIndex][0].y, controlPoints[barIndex][1].y, controlPoints[barIndex][2].y, controlPoints[barIndex][3].y, t);
 }
 
-/////////////////////////////////////////////////////////////////////////
+/*---------Functions for dinamicly adjusting gain---------------------*/
 void gain_high(void) {
   pinMode(GAIN, OUTPUT);
   digitalWrite(GAIN, HIGH);  // Configures the GAIN pin to VCC
@@ -111,19 +113,27 @@ void setup() {
   sampling_period_us = round(1000000 * (1.0 / SAMPLING_FREQUENCY));
 }
 
-void loop() {
-// this loop might not be necessary but if it works, dont touch it ;)
-band_values = 0;
-for (int bucle = 0; bucle < 30; bucle++){
-  display.clear();
-  // Sample the audio signal
-  for (int i = 0; i < SAMPLES; i++) {
+/*---------------Functions to adquire audio and process FFT---------------------------*/
+void getSamples(void) {
+    for (int i = 0; i < SAMPLES; i++) {
     unsigned long newTime = micros();
     vReal[i] = analogRead(micPin);
     vImag[i] = 0;
     while ((micros() - newTime) < sampling_period_us) { /* do nothing to wait */
     }
   }
+}
+
+
+
+
+void loop() {
+// this loop might not be necessary but if it works, dont touch it ;)
+band_values = 0;
+for (int bucle = 0; bucle < 30; bucle++){
+  display.clear();
+  // Sample the audio signal
+  getSamples();
   // Compute the fft
   FFT.windowing(vReal, SAMPLES, FFT_WIN_TYP_HAMMING, FFT_FORWARD);
   FFT.compute(vReal, vImag, SAMPLES, FFT_FORWARD);
@@ -209,6 +219,20 @@ void displayBand(int band, int dsize) {
 #define threshold_3 20
 #define threshold_4 45
 #define threshold_5 70
+
+void getRawBands(void) {
+  for (int i = 2; i < (SAMPLES / 2); i++) {  // Don't use sample 0 and only the first SAMPLES/2 are usable.
+    if (i <= threshold_1) band = 0;
+    if (i > threshold_1 && i <= threshold_2) band = 1;
+    if (i > threshold_2 && i <= threshold_3) band = 2;
+    if (i > threshold_3 && i <= threshold_4) band = 3;
+    if (i > threshold_4 && i <= threshold_5) band = 4;
+    if (i > threshold_5) band = 5;
+
+    if (vReal[i] > max[band]) max[band] = vReal[i];
+  }
+}
+
 
 int getBand(int i) {
   if (i <= threshold_1) return 0;
