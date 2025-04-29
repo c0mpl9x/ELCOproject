@@ -20,6 +20,8 @@ u32 endBit[NUM_BITS][NUM_CHARS][NUM_MIRRORS];
 bool flipHorizontal = false;
 bool flipVertical   = false;
 
+uint8_t       scrollCounter        = 0;
+
 // tablas de mapeo
 u8 rowMap[NUM_MIRRORS];
 u8  bitMap[NUM_BITS];  // usamos u8 porque NUM_BITS ≤ 8
@@ -47,43 +49,33 @@ int compareEvents(const void* pa, const void* pb) {
 // Máximo número de caracteres en el mensaje
 
 // Variables globales
-#define MAX_MESSAGE_LEN 20
+#define MAX_MESSAGE_LEN 100
 uint8_t  messageLen = 0;  
 rowmask_t messageBitmap[MAX_MESSAGE_LEN][NUM_MIRRORS];
-
+char     fullMessage[MAX_MESSAGE_LEN+1];
+uint8_t  windowStart = 0;
+rowmask_t windowBitmap[NUM_CHARS][NUM_MIRRORS];
 // Convierte 'A'–'Z' o 'a'–'z' a índice 0–25, y cualquier otro a índice 26 (espacio)
 uint8_t charToIndex(char c) {
   if (c >= 'A' && c <= 'Z') return c - 'A';
   if (c >= 'a' && c <= 'z') return c - 'a';
-  return 26;  // índice 26 para espacio o carácter no válido
+  if (c == '<')             return 26;   // <-- corazón
+  if (c == '>')             return 27;
+  return 28;  // índice 27 para espacio o carácter no válido
 }
 
 // Llama a esta función para fijar el mensaje que se va a mostrar.
 // msg: puntero a cadena C-terminada
 // Devuelve messageLen y rellena messageBitmap[j][i].
 void setMessage(const char* msg) {
-  // 1) Calcula longitud y recorta
-  size_t len = strlen(msg);
-  messageLen = (len > MAX_MESSAGE_LEN) ? MAX_MESSAGE_LEN : len;
-  // 2) Copiar cada carácter nuevo
-  for (uint8_t j = 0; j < messageLen; j++) {
-    uint8_t idx = charToIndex(msg[j]);
-    for (uint8_t i = 0; i < NUM_MIRRORS; i++) {
-      if (idx < 26) {
-        messageBitmap[j][i] = pgm_read_word(&alphabet[idx][i]);
-      } else {
-        messageBitmap[j][i] = 0;
-      }
-    }
-  }
-  // 3) Borrar el resto del buffer para no dejar basura
-  for (uint8_t j = messageLen; j < MAX_MESSAGE_LEN; j++) {
-    for (uint8_t i = 0; i < NUM_MIRRORS; i++) {
-      messageBitmap[j][i] = 0;
-    }
-  }
-}
+  // 1) Guarda el texto crudo en fullMessage y su longitud
+  strncpy(fullMessage, msg, MAX_MESSAGE_LEN);
+  fullMessage[MAX_MESSAGE_LEN] = '\0';
+  messageLen = strlen(fullMessage);
 
+  // 2) Reinicia la ventana para que empiece desde el principio
+  windowStart = 0;
+}
 // Buffer y estado
 static char serialBuf[MAX_MESSAGE_LEN+1];
 static uint8_t serialPos = 0;
@@ -112,6 +104,24 @@ void pollSerial() {
   }
 }
 
+void updateWindowScroll() {
+  for (uint8_t j = 0; j < NUM_CHARS; j++) {
+    uint8_t idx = (windowStart + j) % messageLen;
+    uint8_t alpha = charToIndex(fullMessage[idx]);
+    for (uint8_t i = 0; i < NUM_MIRRORS; i++) {
+      windowBitmap[j][i] = (alpha < 28)
+        ? pgm_read_word(&alphabet[alpha][i])
+        : 0;
+    }
+  }
+  windowStart = (windowStart + 1) % messageLen;
+}
+
+// En tu ISR o en loop(), cuando veas newRevolution:
+//   updateWindowScroll();
+//   luego planificas eventos usando windowBitmap en lugar de messageBitmap.
+
+
 void setup() {
   Serial.begin(115200);
   pinMode(laserPin, OUTPUT);
@@ -130,11 +140,9 @@ void setup() {
   }
   // Fill bitMap: si flipHorizontal invierte los bits de cada carácter
   for (u8 k = 0; k < NUM_BITS; k++) {
-    bitMap[k] = flipHorizontal
-      ? k                // LSB primero
-      : (NUM_BITS - 1 - k);  // MSB primero
+    bitMap[k] = flipHorizontal ? k : (NUM_BITS - 1 - k);  // MSB primero
   }
-  setMessage("HOLA MUNDO");
+  setMessage("HOLA MUNDO ");
   attachInterrupt(digitalPinToInterrupt(sensorPin), sensorISR, FALLING);
   revolutionStart = micros();
 }
@@ -143,6 +151,11 @@ void loop() {
   unsigned long t = micros() - revolutionStart;
   if (newRevolution) {
     newRevolution = false;
+    // 1) Solo actualizamos la ventana cuando lleguen a 0
+    if (++scrollCounter >= SCROLL_INTERVAL_REVS) {
+     scrollCounter = 0;
+     updateWindowScroll();
+    }
     // === COMPUTE NEW TIMINGS FOR THE REVOLUTION ===
       events[0].timeUs = 0;
       events[0].on = false;
@@ -155,7 +168,7 @@ void loop() {
               u8 bitIdx = bitMap[k];            // ya mapea flipHorizontal
               rowmask_t mask = 1 << bitIdx;
               u8 j_inv = (NUM_CHARS - 1) - j;
-              bool bitIsOne = (pgm_read_byte(&messageBitmap[j_inv][row]) & mask) != 0;
+              bool bitIsOne = (pgm_read_byte(&windowBitmap[j_inv][row]) & mask) != 0;
               if (bitIsOne) {
                 startBit[k][j][i] = (u32)((pgm_read_word(&startAngleTenths[i]) + j * (widthCharTenths + widthSpaceTenths) + k * widthBitTenths) * step);
                 endBit[k][j][i] = (u32)((pgm_read_word(&startAngleTenths[i]) + j * (widthCharTenths + widthSpaceTenths) + widthBitTenths * (k + 1)) * step);

@@ -20,14 +20,15 @@ typedef uint16_t rowmask_t;
 
 // Display parameters
 static constexpr u8 NUM_MIRRORS    = 11;
-static constexpr u8 NUM_CHARS      = 10;
+static constexpr u8 NUM_CHARS      = 14;
 static constexpr u8 NUM_BITS       = 6;
 static constexpr u8 NUM_REPS       = 1;
 
+const uint8_t SCROLL_INTERVAL_REVS = 15;  // scroll cada 3 revs
 // Timing geometry (in tenths of a degree)
 static const u16 startAngleTenths[NUM_MIRRORS] PROGMEM = {
-    9099,  7290, 5535, 3715, 1863,
-    8275, 10034, 6369, 4560, 2817, 1011
+    9089,  7280, 5525, 3705, 1853,
+    8265, 10024, 6359, 4550, 2807, 1001
 };
 static const u16 endAngleTenths[NUM_MIRRORS] PROGMEM = {
     9609,  7800, 6042, 4221, 2373,
@@ -35,13 +36,13 @@ static const u16 endAngleTenths[NUM_MIRRORS] PROGMEM = {
 };
 
 // Line and character widths
-static const u16 widthLineTenths  = 450;
+static const u16 widthLineTenths  = 500;
 static const u16 widthCharTenths  = widthLineTenths / (NUM_CHARS + 1);
 static const u16 widthBitTenths   = round(widthCharTenths / NUM_BITS);
 static const u16 widthSpaceTenths = widthCharTenths / (NUM_CHARS - 1);
 
 // Alphabet bitmap 6×11 (A–Z)
-static const rowmask_t alphabet[26][NUM_MIRRORS] PROGMEM = {
+static const rowmask_t alphabet[28][NUM_MIRRORS] PROGMEM = {
   {0b011110,0b011110,0b110011,0b110011,0b110011,0b110011,0b111111,0b111111,0b110011,0b110011,0b110011}, // A
   {0b111110,0b110011,0b110011,0b110011,0b111110,0b110011,0b110011,0b110011,0b110011,0b111110,0b000000}, // B
   {0b011110,0b110011,0b110000,0b110000,0b110000,0b110000,0b110000,0b110000,0b110000,0b110011,0b011110}, // C
@@ -67,7 +68,9 @@ static const rowmask_t alphabet[26][NUM_MIRRORS] PROGMEM = {
   {0b110001,0b110001,0b110001,0b110001,0b110001,0b110001,0b110101,0b110101,0b111111,0b111111,0b111011}, // W
   {0b110011,0b110011,0b011110,0b001100,0b001100,0b001100,0b001100,0b011110,0b110011,0b110011,0b110011}, // X
   {0b110011,0b110011,0b110011,0b011110,0b001100,0b001100,0b001100,0b001100,0b001100,0b001100,0b001100}, // Y
-  {0b111111,0b000011,0b000110,0b001100,0b011000,0b110000,0b110000,0b110000,0b110000,0b110000,0b111111}  // Z
+  {0b111111,0b000011,0b000110,0b001100,0b011000,0b110000,0b110000,0b110000,0b110000,0b110000,0b111111}, // Z
+  {0b000000,0b001100,0b011110,0b111111,0b011111,0b001111,0b000111,0b000011,0b000001,0b000000,0b000000}, // HEART LEFT
+  {0b000000,0b001100,0b011110,0b111111,0b111110,0b111100,0b111000,0b110000,0b100000,0b000000,0b000000}  // HEART RIGHT
 };
 
 #endif // CONFIG_H
