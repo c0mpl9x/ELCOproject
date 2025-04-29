@@ -98,14 +98,4 @@ void loop() {
     }
   }
   digitalWrite(laserPin, laserOn ? HIGH : LOW);
-    /*
-  for (u16 i = 0; i < NUM_MIRRORS; i++) {
-    if (t >= startMicro[i] && t < endMicro[i]) {
-      // completar para que se encienda el laser si se está en el bit correspondiente al caracter Blanc
-      
-      laserOn = true; 
-      break;
-    }
-  }
-  */
 }
