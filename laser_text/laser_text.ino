@@ -1,0 +1,230 @@
+// Laser Control for ESP32
+#include "config.h"
+
+volatile unsigned long revolutionStart  = 0;
+volatile unsigned long revolutionPeriod = 0;
+volatile u8 revCount = 0;
+volatile unsigned long period = 0;
+volatile unsigned long sum = 0;
+
+
+volatile bool newRevolution = false;
+u32 startMicro[NUM_MIRRORS];
+u32 endMicro[NUM_MIRRORS];
+u32 startChar[NUM_CHARS][NUM_MIRRORS];
+u32 endChar[NUM_CHARS][NUM_MIRRORS];
+u32 startBit[NUM_BITS][NUM_CHARS][NUM_MIRRORS];
+u32 endBit[NUM_BITS][NUM_CHARS][NUM_MIRRORS];
+
+// habilitadores de flip
+bool flipHorizontal = false;
+bool flipVertical   = false;
+
+// tablas de mapeo
+u8 rowMap[NUM_MIRRORS];
+u8  bitMap[NUM_BITS];  // usamos u8 porque NUM_BITS ≤ 8
+
+// Evento
+struct Event { u32 timeUs; bool on; };
+static Event events[2 * NUM_MIRRORS * NUM_CHARS * NUM_BITS * NUM_REPS];  // ajustar tamaño: planCycles*NUM_MIRRORS*NUM_CHARS*NUM_BITS*2
+static u16   currentEvent = 0;
+
+void IRAM_ATTR sensorISR() {
+  unsigned long now = micros();
+  revolutionPeriod = now - revolutionStart;
+  revolutionStart  = now;
+  newRevolution    = true;
+}
+
+int compareEvents(const void* pa, const void* pb) {
+  const Event* a = (const Event*)pa;
+  const Event* b = (const Event*)pb;
+  if (a->timeUs < b->timeUs) return -1;
+  if (a->timeUs > b->timeUs) return  1;
+  return 0;
+}
+
+// Máximo número de caracteres en el mensaje
+
+// Variables globales
+#define MAX_MESSAGE_LEN 20
+uint8_t  messageLen = 0;  
+rowmask_t messageBitmap[MAX_MESSAGE_LEN][NUM_MIRRORS];
+
+// Convierte 'A'–'Z' o 'a'–'z' a índice 0–25, y cualquier otro a índice 26 (espacio)
+uint8_t charToIndex(char c) {
+  if (c >= 'A' && c <= 'Z') return c - 'A';
+  if (c >= 'a' && c <= 'z') return c - 'a';
+  return 26;  // índice 26 para espacio o carácter no válido
+}
+
+// Llama a esta función para fijar el mensaje que se va a mostrar.
+// msg: puntero a cadena C-terminada
+// Devuelve messageLen y rellena messageBitmap[j][i].
+void setMessage(const char* msg) {
+  // 1) Calcula longitud y recorta
+  size_t len = strlen(msg);
+  messageLen = (len > MAX_MESSAGE_LEN) ? MAX_MESSAGE_LEN : len;
+  // 2) Copiar cada carácter nuevo
+  for (uint8_t j = 0; j < messageLen; j++) {
+    uint8_t idx = charToIndex(msg[j]);
+    for (uint8_t i = 0; i < NUM_MIRRORS; i++) {
+      if (idx < 26) {
+        messageBitmap[j][i] = pgm_read_word(&alphabet[idx][i]);
+      } else {
+        messageBitmap[j][i] = 0;
+      }
+    }
+  }
+  // 3) Borrar el resto del buffer para no dejar basura
+  for (uint8_t j = messageLen; j < MAX_MESSAGE_LEN; j++) {
+    for (uint8_t i = 0; i < NUM_MIRRORS; i++) {
+      messageBitmap[j][i] = 0;
+    }
+  }
+}
+
+// Buffer y estado
+static char serialBuf[MAX_MESSAGE_LEN+1];
+static uint8_t serialPos = 0;
+static bool    msgPending = false;
+
+// Intervalo de polling en milisegundos
+const uint32_t SERIAL_POLL_INTERVAL_MS = 200;
+
+// Llamar **una sola** vez por iteración de loop():
+void pollSerial() {
+  if (Serial.available() > 0) {
+    char c = Serial.read();
+    if (c == '\n' || c == '\r') {
+      // fin de línea
+      if (serialPos > 0) {
+        serialBuf[serialPos] = '\0';
+        msgPending = true;
+      }
+      serialPos = 0;
+    } else {
+      // acumula caracter, sin overflow
+      if (serialPos < MAX_MESSAGE_LEN) {
+        serialBuf[serialPos++] = c;
+      }
+    }
+  }
+}
+
+void setup() {
+  Serial.begin(115200);
+  pinMode(laserPin, OUTPUT);
+  digitalWrite(laserPin, LOW);
+  pinMode(sensorPin, INPUT_PULLUP);
+  pinMode(13, INPUT_PULLDOWN);
+  pinMode(27, INPUT_PULLDOWN);
+  // → Inicializa flip según algún pin o valor fijo
+  flipHorizontal = !digitalRead(13);
+  flipVertical   = !digitalRead(27);
+  // Fill rowMap: si flipVertical invierte el orden de los espejos
+  for (u8 i = 0; i < NUM_MIRRORS; i++) {
+    rowMap[i] = flipVertical
+      ? (NUM_MIRRORS - 1 - i)
+      : i;
+  }
+  // Fill bitMap: si flipHorizontal invierte los bits de cada carácter
+  for (u8 k = 0; k < NUM_BITS; k++) {
+    bitMap[k] = flipHorizontal
+      ? k                // LSB primero
+      : (NUM_BITS - 1 - k);  // MSB primero
+  }
+  setMessage("HOLA MUNDO");
+  attachInterrupt(digitalPinToInterrupt(sensorPin), sensorISR, FALLING);
+  revolutionStart = micros();
+}
+
+void loop() {
+  unsigned long t = micros() - revolutionStart;
+  if (newRevolution) {
+    newRevolution = false;
+    // === COMPUTE NEW TIMINGS FOR THE REVOLUTION ===
+      events[0].timeUs = 0;
+      events[0].on = false;
+      currentEvent = 1;
+      float step = (float)revolutionPeriod / ( 3600.0 * 3 );
+        for (u8 i = 0; i < NUM_MIRRORS; i++) {
+          u8 row = rowMap[i];  // ya mapea flipVertical
+          for (u8 j = 0; j < NUM_CHARS; j++){
+            for (u8 k = 0; k < NUM_BITS; k++){
+              u8 bitIdx = bitMap[k];            // ya mapea flipHorizontal
+              rowmask_t mask = 1 << bitIdx;
+              u8 j_inv = (NUM_CHARS - 1) - j;
+              bool bitIsOne = (pgm_read_byte(&messageBitmap[j_inv][row]) & mask) != 0;
+              if (bitIsOne) {
+                startBit[k][j][i] = (u32)((pgm_read_word(&startAngleTenths[i]) + j * (widthCharTenths + widthSpaceTenths) + k * widthBitTenths) * step);
+                endBit[k][j][i] = (u32)((pgm_read_word(&startAngleTenths[i]) + j * (widthCharTenths + widthSpaceTenths) + widthBitTenths * (k + 1)) * step);
+                events[currentEvent].timeUs = startBit[k][j][i];
+                events[currentEvent].on = true;
+                currentEvent++;
+                events[currentEvent].timeUs = endBit[k][j][i];
+                events[currentEvent].on = false;
+                currentEvent++;
+              }
+            }
+          }
+        }
+      qsort(events, currentEvent, sizeof(events[0]), compareEvents);    
+      // Filtrar: para cada grupo de eventos con el mismo timeUs,
+      // si hay al menos un ON, se descartan todos los OFF de ese tiempo.
+      u16 writeIdx = 0;
+      u16 readIdx  = 0;
+      while (readIdx < currentEvent) {
+        u32 t = events[readIdx].timeUs;
+        // 1) Averiguar si hay algún ON en este grupo
+        bool hasOn = false;
+        u32 endIdx = readIdx;
+        while (endIdx < currentEvent && events[endIdx].timeUs == t) {
+          if (events[endIdx].on) hasOn = true;
+          endIdx++;
+        }
+        // 2) Copiar sólo lo que corresponda
+        if (hasOn) {
+          // copiar únicamente los ON
+          for (u32 k = readIdx; k < endIdx; k++) {
+            if (events[k].on) {
+              events[writeIdx++] = events[k];
+            }
+          }
+        } else {
+          // no había ON, copiar todos (OFF)
+          for (u32 k = readIdx; k < endIdx; k++) {
+            events[writeIdx++] = events[k];
+          }
+        }
+        // avanza al siguiente grupo de timeUs
+        readIdx = endIdx;
+      }
+      currentEvent = writeIdx;
+      currentEvent = 0;
+
+  }
+  //unsigned long t = micros() - revolutionStart;
+  //bool laserOn = false;
+  if (t >= events[currentEvent].timeUs) {
+    if (events[currentEvent].on) {
+      LASER_ON();
+    } else {
+      LASER_OFF();
+    }
+    currentEvent++;
+  }
+  // Lectura del serial
+  static uint32_t lastSerialPoll = 0;
+  uint32_t nowMs = millis();
+  // 1) Sólo pollear el Serial cada 100 ms
+  if (nowMs - lastSerialPoll >= SERIAL_POLL_INTERVAL_MS) {
+    lastSerialPoll = nowMs;
+    pollSerial();
+  }
+  // 2) Si llegó un mensaje completo, setéalo
+  if (msgPending) {
+    setMessage(serialBuf);
+    msgPending = false;
+  }
+}
