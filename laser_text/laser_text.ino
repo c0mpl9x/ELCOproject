@@ -1,4 +1,4 @@
-// Laser Control for ESP32
+// Laser Control for ESP32 xd
 #include "config.h"
 
 volatile unsigned long revolutionStart  = 0;
