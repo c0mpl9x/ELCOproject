@@ -5,10 +5,18 @@
 #include <pgmspace.h>
 #include "soc/gpio_struct.h"
 #include <stdlib.h>
+#include <PinButton.h>
 
+// Intervalo de Serial polling en milisegundos
+const uint32_t SERIAL_POLL_INTERVAL_MS = 60;
 // Pin definitions
 static const int laserPin  = 25;
 static const int sensorPin = 14;
+static const int buttonBlackPin = 27;
+static const int buttonYellowPin = 13;
+static const int ledPin = 33;
+
+
 #define LASER_ON()  (GPIO.out_w1ts = (1u << laserPin))
 #define LASER_OFF() (GPIO.out_w1tc = (1u << laserPin))
 
@@ -20,7 +28,8 @@ typedef uint16_t rowmask_t;
 
 // Display parameters
 static constexpr u8 NUM_MIRRORS    = 11;
-static constexpr u8 NUM_CHARS      = 14;
+static constexpr u8 MAX_NUM_CHARS  = 30;
+static u16 num_chars               = 10;
 static constexpr u8 NUM_BITS       = 6;
 static constexpr u8 NUM_REPS       = 1;
 
@@ -28,7 +37,7 @@ const uint8_t SCROLL_INTERVAL_REVS = 15;  // scroll cada 3 revs
 // Timing geometry (in tenths of a degree)
 static const u16 startAngleTenths[NUM_MIRRORS] PROGMEM = {
     9089,  7280, 5525, 3705, 1853,
-    8265, 10024, 6359, 4550, 2807, 1001
+    8265, 10022, 6357, 4550, 2807, 997
 };
 static const u16 endAngleTenths[NUM_MIRRORS] PROGMEM = {
     9609,  7800, 6042, 4221, 2373,
@@ -37,9 +46,9 @@ static const u16 endAngleTenths[NUM_MIRRORS] PROGMEM = {
 
 // Line and character widths
 static const u16 widthLineTenths  = 500;
-static const u16 widthCharTenths  = widthLineTenths / (NUM_CHARS + 1);
-static const u16 widthBitTenths   = round(widthCharTenths / NUM_BITS);
-static const u16 widthSpaceTenths = widthCharTenths / (NUM_CHARS - 1);
+static u16 widthCharTenths  = widthLineTenths / (num_chars + 1);
+static u16 widthBitTenths   = round(widthCharTenths / NUM_BITS);
+static u16 widthSpaceTenths = widthCharTenths / (num_chars - 1);
 
 // Alphabet bitmap 6×11 (A–Z)
 static const rowmask_t alphabet[28][NUM_MIRRORS] PROGMEM = {

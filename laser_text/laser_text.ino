@@ -11,14 +11,17 @@ volatile unsigned long sum = 0;
 volatile bool newRevolution = false;
 u32 startMicro[NUM_MIRRORS];
 u32 endMicro[NUM_MIRRORS];
-u32 startChar[NUM_CHARS][NUM_MIRRORS];
-u32 endChar[NUM_CHARS][NUM_MIRRORS];
-u32 startBit[NUM_BITS][NUM_CHARS][NUM_MIRRORS];
-u32 endBit[NUM_BITS][NUM_CHARS][NUM_MIRRORS];
+u32 startChar[MAX_NUM_CHARS][NUM_MIRRORS];
+u32 endChar[MAX_NUM_CHARS][NUM_MIRRORS];
+u32 startBit[NUM_BITS][MAX_NUM_CHARS][NUM_MIRRORS];
+u32 endBit[NUM_BITS][MAX_NUM_CHARS][NUM_MIRRORS];
+
+
 
 // habilitadores de flip
 bool flipHorizontal = false;
 bool flipVertical   = false;
+bool scroll         = false;
 
 uint8_t       scrollCounter        = 0;
 
@@ -28,7 +31,7 @@ u8  bitMap[NUM_BITS];  // usamos u8 porque NUM_BITS ≤ 8
 
 // Evento
 struct Event { u32 timeUs; bool on; };
-static Event events[2 * NUM_MIRRORS * NUM_CHARS * NUM_BITS * NUM_REPS];  // ajustar tamaño: planCycles*NUM_MIRRORS*NUM_CHARS*NUM_BITS*2
+static Event events[2 * NUM_MIRRORS * MAX_NUM_CHARS * NUM_BITS * NUM_REPS];  // ajustar tamaño: planCycles*NUM_MIRRORS*MAX_NUM_CHARS*NUM_BITS*2
 static u16   currentEvent = 0;
 
 void IRAM_ATTR sensorISR() {
@@ -50,11 +53,11 @@ int compareEvents(const void* pa, const void* pb) {
 
 // Variables globales
 #define MAX_MESSAGE_LEN 100
-uint8_t  messageLen = 0;  
+int  messageLen = 0;  
 rowmask_t messageBitmap[MAX_MESSAGE_LEN][NUM_MIRRORS];
 char     fullMessage[MAX_MESSAGE_LEN+1];
 uint8_t  windowStart = 0;
-rowmask_t windowBitmap[NUM_CHARS][NUM_MIRRORS];
+rowmask_t windowBitmap[MAX_NUM_CHARS][NUM_MIRRORS];
 // Convierte 'A'–'Z' o 'a'–'z' a índice 0–25, y cualquier otro a índice 26 (espacio)
 uint8_t charToIndex(char c) {
   if (c >= 'A' && c <= 'Z') return c - 'A';
@@ -66,23 +69,29 @@ uint8_t charToIndex(char c) {
 
 // Llama a esta función para fijar el mensaje que se va a mostrar.
 // msg: puntero a cadena C-terminada
-// Devuelve messageLen y rellena messageBitmap[j][i].
-void setMessage(const char* msg) {
+// Devuelve messageLen y rellena fullMessage.
+void setMessage(char* msg) {
   // 1) Guarda el texto crudo en fullMessage y su longitud
   strncpy(fullMessage, msg, MAX_MESSAGE_LEN);
   fullMessage[MAX_MESSAGE_LEN] = '\0';
   messageLen = strlen(fullMessage);
-
+  scroll = (messageLen > num_chars);
+  if (!scroll){
+    for (messageLen; messageLen < num_chars; messageLen++){
+      fullMessage[messageLen] = ' ';
+    }
+  }
+  fullMessage[min(messageLen++, MAX_MESSAGE_LEN)] = '\0';
   // 2) Reinicia la ventana para que empiece desde el principio
   windowStart = 0;
+  // 3) Si el mensaje no cabe, activar scroll. Desactivarlo si sí cabe
 }
 // Buffer y estado
 static char serialBuf[MAX_MESSAGE_LEN+1];
 static uint8_t serialPos = 0;
 static bool    msgPending = false;
 
-// Intervalo de polling en milisegundos
-const uint32_t SERIAL_POLL_INTERVAL_MS = 200;
+
 
 // Llamar **una sola** vez por iteración de loop():
 void pollSerial() {
@@ -105,7 +114,7 @@ void pollSerial() {
 }
 
 void updateWindowScroll() {
-  for (uint8_t j = 0; j < NUM_CHARS; j++) {
+  for (uint8_t j = 0; j < num_chars; j++) {
     uint8_t idx = (windowStart + j) % messageLen;
     uint8_t alpha = charToIndex(fullMessage[idx]);
     for (uint8_t i = 0; i < NUM_MIRRORS; i++) {
@@ -114,24 +123,51 @@ void updateWindowScroll() {
         : 0;
     }
   }
-  windowStart = (windowStart + 1) % messageLen;
+  if (scroll) windowStart = (windowStart + 1) % messageLen;
 }
 
-// En tu ISR o en loop(), cuando veas newRevolution:
-//   updateWindowScroll();
-//   luego planificas eventos usando windowBitmap en lugar de messageBitmap.
 
+
+
+// Create debounce instance (default constructor uses active HIGH)
+PinButton  blackButton(buttonBlackPin);
+// Create debounce instance (default constructor uses active HIGH)
+PinButton  yellowButton(buttonYellowPin);
+void blackPressHandle(){
+  num_chars = (num_chars + 1) % MAX_NUM_CHARS;
+  widthCharTenths  = widthLineTenths / (num_chars + 1);
+  widthBitTenths   = round(widthCharTenths / NUM_BITS);
+  widthSpaceTenths = widthCharTenths / (num_chars - 1);
+  Serial.print("Button pressed! num_chars = ");
+  Serial.println(num_chars);
+}
+void blackDoublePressHandle(){
+  Serial.println("Button long pressed!");
+  scroll = !scroll;
+  digitalWrite(ledPin, scroll);
+}
+void yellowPressHandle(){
+  num_chars = (num_chars - 1 + MAX_NUM_CHARS) % MAX_NUM_CHARS;
+  widthCharTenths  = widthLineTenths / (num_chars + 1);
+  widthBitTenths   = round(widthCharTenths / NUM_BITS);
+  widthSpaceTenths = widthCharTenths / (num_chars - 1);
+  
+
+  Serial.print("Button pressed! num_chars = ");
+  Serial.println(num_chars);
+}
 
 void setup() {
   Serial.begin(115200);
   pinMode(laserPin, OUTPUT);
   digitalWrite(laserPin, LOW);
   pinMode(sensorPin, INPUT_PULLUP);
-  pinMode(13, INPUT_PULLDOWN);
-  pinMode(27, INPUT_PULLDOWN);
+  pinMode(buttonYellowPin, INPUT_PULLDOWN);
+  pinMode(buttonBlackPin, INPUT_PULLDOWN);
+  pinMode(ledPin, OUTPUT);
   // → Inicializa flip según algún pin o valor fijo
-  flipHorizontal = !digitalRead(13);
-  flipVertical   = !digitalRead(27);
+  flipHorizontal = !digitalRead(buttonYellowPin);
+  flipVertical   = !digitalRead(buttonBlackPin);
   // Fill rowMap: si flipVertical invierte el orden de los espejos
   for (u8 i = 0; i < NUM_MIRRORS; i++) {
     rowMap[i] = flipVertical
@@ -142,7 +178,8 @@ void setup() {
   for (u8 k = 0; k < NUM_BITS; k++) {
     bitMap[k] = flipHorizontal ? k : (NUM_BITS - 1 - k);  // MSB primero
   }
-  setMessage("HOLA MUNDO ");
+  setMessage("HOLA MUNDO");
+
   attachInterrupt(digitalPinToInterrupt(sensorPin), sensorISR, FALLING);
   revolutionStart = micros();
 }
@@ -151,6 +188,7 @@ void loop() {
   unsigned long t = micros() - revolutionStart;
   if (newRevolution) {
     newRevolution = false;
+    LASER_OFF();
     // 1) Solo actualizamos la ventana cuando lleguen a 0
     if (++scrollCounter >= SCROLL_INTERVAL_REVS) {
      scrollCounter = 0;
@@ -163,11 +201,11 @@ void loop() {
       float step = (float)revolutionPeriod / ( 3600.0 * 3 );
         for (u8 i = 0; i < NUM_MIRRORS; i++) {
           u8 row = rowMap[i];  // ya mapea flipVertical
-          for (u8 j = 0; j < NUM_CHARS; j++){
+          for (u8 j = 0; j < num_chars; j++){
             for (u8 k = 0; k < NUM_BITS; k++){
               u8 bitIdx = bitMap[k];            // ya mapea flipHorizontal
               rowmask_t mask = 1 << bitIdx;
-              u8 j_inv = (NUM_CHARS - 1) - j;
+              u8 j_inv = (num_chars - 1) - j;
               bool bitIsOne = (pgm_read_byte(&windowBitmap[j_inv][row]) & mask) != 0;
               if (bitIsOne) {
                 startBit[k][j][i] = (u32)((pgm_read_word(&startAngleTenths[i]) + j * (widthCharTenths + widthSpaceTenths) + k * widthBitTenths) * step);
@@ -240,4 +278,9 @@ void loop() {
     setMessage(serialBuf);
     msgPending = false;
   }
+  blackButton.update();
+  if (blackButton.isLongClick()) blackPressHandle();
+  if (blackButton.isDoubleClick()) blackDoublePressHandle();
+  yellowButton.update();
+  if (yellowButton.isLongClick()) yellowPressHandle();
 }
