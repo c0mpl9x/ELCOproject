@@ -3,7 +3,6 @@
 
 volatile unsigned long revolutionStart  = 0;
 volatile unsigned long revolutionPeriod = 0;
-volatile u8 revCount = 0;
 volatile unsigned long period = 0;
 volatile unsigned long sum = 0;
 
