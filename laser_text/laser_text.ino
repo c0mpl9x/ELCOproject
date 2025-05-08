@@ -36,7 +36,7 @@ u8  bitMap[NUM_BITS];  // usamos u8 porque NUM_BITS ≤ 8
 struct Event { u32 timeUs; bool on; };
 static Event events[2 * NUM_MIRRORS * MAX_NUM_CHARS * NUM_BITS * NUM_REPS];  // ajustar tamaño: planCycles*NUM_MIRRORS*MAX_NUM_CHARS*NUM_BITS*2
 static u16   currentEvent = 0;
-
+static u16 eventCount    = 0;   // cuántos eventos hay
 void IRAM_ATTR sensorISR() {
   unsigned long now = micros();
   revolutionPeriod = now - revolutionStart;
@@ -277,12 +277,13 @@ void loop() {
         // avanza al siguiente grupo de timeUs
         readIdx = endIdx;
       }
-      currentEvent = writeIdx;
+    eventCount = writeIdx;   // <- ¡guárdalo!
+      //currentEvent = writeIdx;
       currentEvent = 0;
     }
   //unsigned long t = micros() - revolutionStart;
   //bool laserOn = false;
-  if (t >= events[currentEvent].timeUs) {
+  if (currentEvent < eventCount && t >= events[currentEvent].timeUs) {
     if (events[currentEvent].on) {
       LASER_ON();
     } else {
