@@ -7,17 +7,27 @@
 #include <stdlib.h>
 #include <PinButton.h>
 
+#define FLIP_HORIZONTAL true
+#define FLIP_VERTICAL true
+
 // Intervalo de Serial polling en milisegundos
 const uint32_t SERIAL_POLL_INTERVAL_MS = 60;
 // Pin definitions
 static const int laserPin  = 25;
-static const int sensorPin = 14;
-static const int buttonBlackPin = 27;
-static const int buttonYellowPin = 13;
-static const int ledPin = 33;
+
+static const int encoderPin = 13;
+static const int encoderVCC = 12;
+static const int encoderGND = 15;
+
+// static const int buttonBlackPin = 27;
+// static const int buttonYellowPin = 13;
+// static const int ledPin = 33;
+static const int motorPin = 32;
+static const int buttonRSTPin = 0;
 
 
-#define LASER_ON()  (GPIO.out_w1ts = (1u << laserPin))
+
+#define LASER_ON()  do { if (laser_user_on && laser_speed_on) GPIO.out_w1ts = (1u << laserPin); } while(0)
 #define LASER_OFF() (GPIO.out_w1tc = (1u << laserPin))
 
 // Type aliases
@@ -29,9 +39,12 @@ typedef uint16_t rowmask_t;
 // Display parameters
 static constexpr u8 NUM_MIRRORS    = 11;
 static constexpr u8 MAX_NUM_CHARS  = 30;
-static u16 num_chars               = 10;
+static u16 num_chars               = 7;
 static constexpr u8 NUM_BITS       = 6;
 static constexpr u8 NUM_REPS       = 1;
+
+
+static u16 offset = 40;
 
 const uint8_t SCROLL_INTERVAL_REVS = 15;  // scroll cada 3 revs
 // Timing geometry (in tenths of a degree)
@@ -82,4 +95,4 @@ static const rowmask_t alphabet[28][NUM_MIRRORS] PROGMEM = {
   {0b000000,0b001100,0b011110,0b111111,0b111110,0b111100,0b111000,0b110000,0b100000,0b000000,0b000000}  // HEART RIGHT
 };
 
-#endif // CONFIG_H
+#endif // CONFIG_H
