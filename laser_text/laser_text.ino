@@ -9,13 +9,16 @@ volatile unsigned long sum = 0;
 
 
 volatile bool newRevolution = false;
+volatile bool laser_user_on = false;
+volatile bool laser_speed_on = false;
+volatile bool motor_user_on = false;
+
 u32 startMicro[NUM_MIRRORS];
 u32 endMicro[NUM_MIRRORS];
 u32 startChar[MAX_NUM_CHARS][NUM_MIRRORS];
 u32 endChar[MAX_NUM_CHARS][NUM_MIRRORS];
 u32 startBit[NUM_BITS][MAX_NUM_CHARS][NUM_MIRRORS];
 u32 endBit[NUM_BITS][MAX_NUM_CHARS][NUM_MIRRORS];
-
 
 
 // habilitadores de flip
@@ -93,7 +96,7 @@ static bool    msgPending = false;
 
 
 
-// Llamar **una sola** vez por iteración de loop():
+// Llamar *una sola* vez por iteración de loop():
 void pollSerial() {
   if (Serial.available() > 0) {
     char c = Serial.read();
@@ -127,12 +130,12 @@ void updateWindowScroll() {
 }
 
 
+// // Create debounce instance (default constructor uses active HIGH)
+// PinButton  blackButton(buttonBlackPin);
+// // Create debounce instance (default constructor uses active HIGH)
+// PinButton  yellowButton(buttonYellowPin);
+PinButton buttonRST(buttonRSTPin, INPUT_PULLUP);
 
-
-// Create debounce instance (default constructor uses active HIGH)
-PinButton  blackButton(buttonBlackPin);
-// Create debounce instance (default constructor uses active HIGH)
-PinButton  yellowButton(buttonYellowPin);
 void blackPressHandle(){
   num_chars = (num_chars + 1) % MAX_NUM_CHARS;
   widthCharTenths  = widthLineTenths / (num_chars + 1);
@@ -141,33 +144,54 @@ void blackPressHandle(){
   Serial.print("Button pressed! num_chars = ");
   Serial.println(num_chars);
 }
-void blackDoublePressHandle(){
-  Serial.println("Button long pressed!");
-  scroll = !scroll;
-  digitalWrite(ledPin, scroll);
-}
+// void blackDoublePressHandle(){
+//   Serial.println("Button long pressed!");
+//   scroll = !scroll;
+//   digitalWrite(ledPin, scroll);
+// }
 void yellowPressHandle(){
   num_chars = (num_chars - 1 + MAX_NUM_CHARS) % MAX_NUM_CHARS;
   widthCharTenths  = widthLineTenths / (num_chars + 1);
   widthBitTenths   = round(widthCharTenths / NUM_BITS);
   widthSpaceTenths = widthCharTenths / (num_chars - 1);
   
-
   Serial.print("Button pressed! num_chars = ");
   Serial.println(num_chars);
+}
+void rstSingleClickHandle(){
+  scroll = !scroll;
+  Serial.println("boton rst presionado");
+}
+void rstPressHandle(){
+  motor_user_on = !motor_user_on;
+  digitalWrite(motorPin, motor_user_on ? HIGH : LOW);
+  Serial.println("boton rst long presionado");
+}
+void rstDoublePressHandle(){
+  laser_user_on = !laser_user_on;
+  if (laser_user_on) LASER_ON(); else LASER_OFF();
+  Serial.println("boton rst doble presionado");
 }
 
 void setup() {
   Serial.begin(115200);
   pinMode(laserPin, OUTPUT);
   digitalWrite(laserPin, LOW);
-  pinMode(sensorPin, INPUT_PULLUP);
-  pinMode(buttonYellowPin, INPUT_PULLDOWN);
-  pinMode(buttonBlackPin, INPUT_PULLDOWN);
-  pinMode(ledPin, OUTPUT);
+
+  pinMode(encoderPin, INPUT_PULLUP);
+  pinMode(encoderVCC, OUTPUT);
+  digitalWrite(encoderVCC, HIGH);
+  pinMode(encoderGND, OUTPUT);
+  digitalWrite(encoderGND, LOW);
+
+  pinMode(buttonRSTPin, INPUT_PULLUP);
+  pinMode(motorPin, OUTPUT);
+  // pinMode(buttonYellowPin, INPUT_PULLDOWN);
+  // pinMode(buttonBlackPin, INPUT_PULLDOWN);
+  // pinMode(ledPin, OUTPUT);
   // → Inicializa flip según algún pin o valor fijo
-  flipHorizontal = !digitalRead(buttonYellowPin);
-  flipVertical   = !digitalRead(buttonBlackPin);
+  flipHorizontal = FLIP_HORIZONTAL;
+  flipVertical   = FLIP_VERTICAL;
   // Fill rowMap: si flipVertical invierte el orden de los espejos
   for (u8 i = 0; i < NUM_MIRRORS; i++) {
     rowMap[i] = flipVertical
@@ -180,13 +204,15 @@ void setup() {
   }
   setMessage("HOLA MUNDO");
 
-  attachInterrupt(digitalPinToInterrupt(sensorPin), sensorISR, FALLING);
+  attachInterrupt(digitalPinToInterrupt(encoderPin), sensorISR, FALLING);
   revolutionStart = micros();
 }
 
 void loop() {
   unsigned long t = micros() - revolutionStart;
-  if (newRevolution) {
+  if (newRevolution){
+    laser_speed_on = revolutionPeriod < 30000;
+    //Serial.println(revolutionPeriod);
     newRevolution = false;
     LASER_OFF();
     // 1) Solo actualizamos la ventana cuando lleguen a 0
@@ -208,8 +234,8 @@ void loop() {
               u8 j_inv = (num_chars - 1) - j;
               bool bitIsOne = (pgm_read_byte(&windowBitmap[j_inv][row]) & mask) != 0;
               if (bitIsOne) {
-                startBit[k][j][i] = (u32)((pgm_read_word(&startAngleTenths[i]) + j * (widthCharTenths + widthSpaceTenths) + k * widthBitTenths) * step);
-                endBit[k][j][i] = (u32)((pgm_read_word(&startAngleTenths[i]) + j * (widthCharTenths + widthSpaceTenths) + widthBitTenths * (k + 1)) * step);
+                startBit[k][j][i] = (u32)((pgm_read_word(&startAngleTenths[i]) + j * (widthCharTenths + widthSpaceTenths) + k * widthBitTenths + offset) * step);
+                endBit[k][j][i] = (u32)((pgm_read_word(&startAngleTenths[i]) + j * (widthCharTenths + widthSpaceTenths) + widthBitTenths * (k + 1) + offset) * step);
                 events[currentEvent].timeUs = startBit[k][j][i];
                 events[currentEvent].on = true;
                 currentEvent++;
@@ -253,8 +279,7 @@ void loop() {
       }
       currentEvent = writeIdx;
       currentEvent = 0;
-
-  }
+    }
   //unsigned long t = micros() - revolutionStart;
   //bool laserOn = false;
   if (t >= events[currentEvent].timeUs) {
@@ -278,9 +303,13 @@ void loop() {
     setMessage(serialBuf);
     msgPending = false;
   }
-  blackButton.update();
-  if (blackButton.isLongClick()) blackPressHandle();
-  if (blackButton.isDoubleClick()) blackDoublePressHandle();
-  yellowButton.update();
-  if (yellowButton.isLongClick()) yellowPressHandle();
+  // blackButton.update();
+  // if (blackButton.isLongClick()) blackPressHandle();
+  // if (blackButton.isDoubleClick()) blackDoublePressHandle();
+  // yellowButton.update();
+  // if (yellowButton.isLongClick()) yellowPressHandle();
+  buttonRST.update();
+  if (buttonRST.isSingleClick()) rstSingleClickHandle();
+  if (buttonRST.isLongClick()) rstPressHandle();
+  if (buttonRST.isDoubleClick()) rstDoublePressHandle();
 }
