@@ -1,0 +1,4897 @@
+{
+  "71-CRCW0805-270-E3": {
+    "Availability": "34604 En existencias",
+    "DataSheetUrl": "",
+    "Description": "Resistores de pel&iacute;cula gruesa - SMD 1/8watt 270ohms 1% 100ppm",
+    "FactoryStock": "0",
+    "ImagePath": "https://www.mouser.com/images/vishay/images/CRCW_SPL.jpg",
+    "Category": "Resistores de pel&iacute;cula gruesa - SMD",
+    "LeadTime": "84 Días",
+    "LifecycleStatus": null,
+    "Manufacturer": "Vishay / Dale",
+    "ManufacturerPartNumber": "CRCW0805270RFKEA",
+    "Min": "1",
+    "Mult": "1",
+    "MouserPartNumber": "71-CRCW0805-270-E3",
+    "ProductAttributes": [
+      {
+        "AttributeName": "Empaquetado",
+        "AttributeValue": "Reel"
+      },
+      {
+        "AttributeName": "Empaquetado",
+        "AttributeValue": "Cut Tape"
+      },
+      {
+        "AttributeName": "Empaquetado",
+        "AttributeValue": "MouseReel",
+        "AttributeCost": "La tarifa de 5,00 € de MouseReel™ se añadirá y calculará en el carro de compra. Los pedidos de MouseReel™ no se pueden cancelar ni devolver."
+      },
+      {
+        "AttributeName": "Cantidad estándar de paquetes",
+        "AttributeValue": "5000"
+      }
+    ],
+    "PriceBreaks": [
+      {
+        "Quantity": 1,
+        "Price": "0,133 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 10,
+        "Price": "0,041 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 100,
+        "Price": "0,022 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 500,
+        "Price": "0,013 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 1000,
+        "Price": "0,011 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 5000,
+        "Price": "0,009 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 10000,
+        "Price": "0,008 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 25000,
+        "Price": "0,007 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 50000,
+        "Price": "0,006 €",
+        "Currency": "EUR"
+      }
+    ],
+    "AlternatePackagings": [
+      {
+        "APMfrPN": "CRCW0805270RFKEB"
+      }
+    ],
+    "ProductDetailUrl": "https://www.mouser.es/ProductDetail/Vishay-Dale/CRCW0805270RFKEA?qs=hdPY9BlFm%252BcA8dacDMY%2Ffg%3D%3D",
+    "Reeling": true,
+    "ROHSStatus": "RoHS Compliant By Exemption",
+    "SuggestedReplacement": "",
+    "MultiSimBlue": 0,
+    "UnitWeightKg": {
+      "UnitWeight": 5.5e-06
+    },
+    "AvailabilityInStock": "34604",
+    "AvailabilityOnOrder": [],
+    "InfoMessages": [],
+    "SurchargeMessages": null,
+    "ProductCompliance": [
+      {
+        "ComplianceName": "TARIC",
+        "ComplianceValue": "8533210000"
+      },
+      {
+        "ComplianceName": "CNHTS",
+        "ComplianceValue": "8533211000"
+      },
+      {
+        "ComplianceName": "CAHTS",
+        "ComplianceValue": "8533210000"
+      },
+      {
+        "ComplianceName": "USHTS",
+        "ComplianceValue": "8533210030"
+      },
+      {
+        "ComplianceName": "JPHTS",
+        "ComplianceValue": "853321000"
+      },
+      {
+        "ComplianceName": "KRHTS",
+        "ComplianceValue": "8533219000"
+      },
+      {
+        "ComplianceName": "MXHTS",
+        "ComplianceValue": "8533210100"
+      },
+      {
+        "ComplianceName": "BRHTS",
+        "ComplianceValue": "85332120"
+      },
+      {
+        "ComplianceName": "ECCN",
+        "ComplianceValue": "EAR99"
+      }
+    ]
+  },
+  "71-RCS08051M00JNEA": {
+    "Availability": "13174 En existencias",
+    "DataSheetUrl": "",
+    "Description": "Resistores de pel&iacute;cula gruesa - SMD 500mW 1Mohms 5% 200ppm AEC-Q200",
+    "FactoryStock": "0",
+    "ImagePath": "https://www.mouser.com/images/vishay/images/RCS_series_t.jpg",
+    "Category": "Resistores de pel&iacute;cula gruesa - SMD",
+    "LeadTime": "84 Días",
+    "LifecycleStatus": null,
+    "Manufacturer": "Vishay / Dale",
+    "ManufacturerPartNumber": "RCS08051M00JNEA",
+    "Min": "1",
+    "Mult": "1",
+    "MouserPartNumber": "71-RCS08051M00JNEA",
+    "ProductAttributes": [
+      {
+        "AttributeName": "Empaquetado",
+        "AttributeValue": "Reel"
+      },
+      {
+        "AttributeName": "Empaquetado",
+        "AttributeValue": "Cut Tape"
+      },
+      {
+        "AttributeName": "Empaquetado",
+        "AttributeValue": "MouseReel",
+        "AttributeCost": "La tarifa de 5,00 € de MouseReel™ se añadirá y calculará en el carro de compra. Los pedidos de MouseReel™ no se pueden cancelar ni devolver."
+      },
+      {
+        "AttributeName": "Cantidad estándar de paquetes",
+        "AttributeValue": "5000"
+      }
+    ],
+    "PriceBreaks": [
+      {
+        "Quantity": 1,
+        "Price": "0,19 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 10,
+        "Price": "0,135 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 100,
+        "Price": "0,077 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 500,
+        "Price": "0,054 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 1000,
+        "Price": "0,031 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 5000,
+        "Price": "0,024 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 10000,
+        "Price": "0,022 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 25000,
+        "Price": "0,019 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 50000,
+        "Price": "0,018 €",
+        "Currency": "EUR"
+      }
+    ],
+    "AlternatePackagings": null,
+    "ProductDetailUrl": "https://www.mouser.es/ProductDetail/Vishay-Dale/RCS08051M00JNEA?qs=NKmfXavxMayae888jWb8iw%3D%3D",
+    "Reeling": true,
+    "ROHSStatus": "RoHS Compliant By Exemption",
+    "SuggestedReplacement": "",
+    "MultiSimBlue": 0,
+    "UnitWeightKg": {
+      "UnitWeight": 5.5e-06
+    },
+    "AvailabilityInStock": "13174",
+    "AvailabilityOnOrder": [],
+    "InfoMessages": [],
+    "SurchargeMessages": null,
+    "ProductCompliance": [
+      {
+        "ComplianceName": "TARIC",
+        "ComplianceValue": "8533210000"
+      },
+      {
+        "ComplianceName": "CNHTS",
+        "ComplianceValue": "8533211000"
+      },
+      {
+        "ComplianceName": "CAHTS",
+        "ComplianceValue": "8533210000"
+      },
+      {
+        "ComplianceName": "USHTS",
+        "ComplianceValue": "8533210030"
+      },
+      {
+        "ComplianceName": "JPHTS",
+        "ComplianceValue": "853321000"
+      },
+      {
+        "ComplianceName": "KRHTS",
+        "ComplianceValue": "8533219000"
+      },
+      {
+        "ComplianceName": "MXHTS",
+        "ComplianceValue": "8533210100"
+      },
+      {
+        "ComplianceName": "BRHTS",
+        "ComplianceValue": "85332120"
+      },
+      {
+        "ComplianceName": "ECCN",
+        "ComplianceValue": "EAR99"
+      }
+    ]
+  },
+  "71-CRCW0805100KJNECC": {
+    "Availability": "62365 En existencias",
+    "DataSheetUrl": "",
+    "Description": "Resistores de pel&iacute;cula gruesa - SMD 1/8Watt 100Kohms 5% Commercial Use",
+    "FactoryStock": "0",
+    "ImagePath": "https://www.mouser.com/images/vishay/images/CRCW_SPL.jpg",
+    "Category": "Resistores de pel&iacute;cula gruesa - SMD",
+    "LeadTime": "112 Días",
+    "LifecycleStatus": null,
+    "Manufacturer": "Vishay / Dale",
+    "ManufacturerPartNumber": "CRCW0805100KJNECC",
+    "Min": "1",
+    "Mult": "1",
+    "MouserPartNumber": "71-CRCW0805100KJNECC",
+    "ProductAttributes": [
+      {
+        "AttributeName": "Empaquetado",
+        "AttributeValue": "Reel"
+      },
+      {
+        "AttributeName": "Empaquetado",
+        "AttributeValue": "Cut Tape"
+      },
+      {
+        "AttributeName": "Empaquetado",
+        "AttributeValue": "MouseReel",
+        "AttributeCost": "La tarifa de 5,00 € de MouseReel™ se añadirá y calculará en el carro de compra. Los pedidos de MouseReel™ no se pueden cancelar ni devolver."
+      },
+      {
+        "AttributeName": "Cantidad estándar de paquetes",
+        "AttributeValue": "20000"
+      }
+    ],
+    "PriceBreaks": [
+      {
+        "Quantity": 1,
+        "Price": "0,114 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 10,
+        "Price": "0,028 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 100,
+        "Price": "0,015 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 500,
+        "Price": "0,01 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 1000,
+        "Price": "0,009 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 2500,
+        "Price": "0,007 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 10000,
+        "Price": "0,006 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 20000,
+        "Price": "0,006 €",
+        "Currency": "EUR"
+      }
+    ],
+    "AlternatePackagings": null,
+    "ProductDetailUrl": "https://www.mouser.es/ProductDetail/Vishay-Dale/CRCW0805100KJNECC?qs=wd5RIQLrsJj4eBrPbx2Sww%3D%3D",
+    "Reeling": true,
+    "ROHSStatus": "RoHS Compliant By Exemption",
+    "SuggestedReplacement": "",
+    "MultiSimBlue": 0,
+    "UnitWeightKg": {
+      "UnitWeight": 5.5e-06
+    },
+    "AvailabilityInStock": "62365",
+    "AvailabilityOnOrder": [],
+    "InfoMessages": [],
+    "SurchargeMessages": null,
+    "ProductCompliance": [
+      {
+        "ComplianceName": "TARIC",
+        "ComplianceValue": "8533210000"
+      },
+      {
+        "ComplianceName": "CNHTS",
+        "ComplianceValue": "8533211000"
+      },
+      {
+        "ComplianceName": "CAHTS",
+        "ComplianceValue": "8533210000"
+      },
+      {
+        "ComplianceName": "USHTS",
+        "ComplianceValue": "8533210030"
+      },
+      {
+        "ComplianceName": "JPHTS",
+        "ComplianceValue": "853321000"
+      },
+      {
+        "ComplianceName": "KRHTS",
+        "ComplianceValue": "8533219000"
+      },
+      {
+        "ComplianceName": "MXHTS",
+        "ComplianceValue": "8533210100"
+      },
+      {
+        "ComplianceName": "BRHTS",
+        "ComplianceValue": "85332120"
+      },
+      {
+        "ComplianceName": "ECCN",
+        "ComplianceValue": "EAR99"
+      }
+    ]
+  },
+  "71-CRCW0805-330-E3": {
+    "Availability": "167715 En existencias",
+    "DataSheetUrl": "",
+    "Description": "Resistores de pel&iacute;cula gruesa - SMD 1/8watt 330ohms 1% 100ppm",
+    "FactoryStock": "0",
+    "ImagePath": "https://www.mouser.com/images/vishay/images/CRCW_SPL.jpg",
+    "Category": "Resistores de pel&iacute;cula gruesa - SMD",
+    "LeadTime": "84 Días",
+    "LifecycleStatus": null,
+    "Manufacturer": "Vishay / Dale",
+    "ManufacturerPartNumber": "CRCW0805330RFKEA",
+    "Min": "1",
+    "Mult": "1",
+    "MouserPartNumber": "71-CRCW0805-330-E3",
+    "ProductAttributes": [
+      {
+        "AttributeName": "Empaquetado",
+        "AttributeValue": "Reel"
+      },
+      {
+        "AttributeName": "Empaquetado",
+        "AttributeValue": "Cut Tape"
+      },
+      {
+        "AttributeName": "Empaquetado",
+        "AttributeValue": "MouseReel",
+        "AttributeCost": "La tarifa de 5,00 € de MouseReel™ se añadirá y calculará en el carro de compra. Los pedidos de MouseReel™ no se pueden cancelar ni devolver."
+      },
+      {
+        "AttributeName": "Cantidad estándar de paquetes",
+        "AttributeValue": "5000"
+      }
+    ],
+    "PriceBreaks": [
+      {
+        "Quantity": 1,
+        "Price": "0,095 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 10,
+        "Price": "0,028 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 100,
+        "Price": "0,02 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 500,
+        "Price": "0,018 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 1000,
+        "Price": "0,016 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 5000,
+        "Price": "0,016 €",
+        "Currency": "EUR"
+      }
+    ],
+    "AlternatePackagings": [
+      {
+        "APMfrPN": "CRCW0805330RFKEC"
+      },
+      {
+        "APMfrPN": " CRCW0805330RFKEB"
+      }
+    ],
+    "ProductDetailUrl": "https://www.mouser.es/ProductDetail/Vishay-Dale/CRCW0805330RFKEA?qs=TrAHXYCGmqx6h6MysZWe0Q%3D%3D",
+    "Reeling": true,
+    "ROHSStatus": "RoHS Compliant By Exemption",
+    "SuggestedReplacement": "71-CRCW0805-330",
+    "MultiSimBlue": 0,
+    "UnitWeightKg": {
+      "UnitWeight": 5.5e-06
+    },
+    "AvailabilityInStock": "167715",
+    "AvailabilityOnOrder": [],
+    "InfoMessages": [],
+    "SurchargeMessages": null,
+    "ProductCompliance": [
+      {
+        "ComplianceName": "TARIC",
+        "ComplianceValue": "8533210000"
+      },
+      {
+        "ComplianceName": "CNHTS",
+        "ComplianceValue": "8533211000"
+      },
+      {
+        "ComplianceName": "CAHTS",
+        "ComplianceValue": "8533210000"
+      },
+      {
+        "ComplianceName": "USHTS",
+        "ComplianceValue": "8533210030"
+      },
+      {
+        "ComplianceName": "JPHTS",
+        "ComplianceValue": "853321000"
+      },
+      {
+        "ComplianceName": "KRHTS",
+        "ComplianceValue": "8533219000"
+      },
+      {
+        "ComplianceName": "MXHTS",
+        "ComplianceValue": "8533210100"
+      },
+      {
+        "ComplianceName": "BRHTS",
+        "ComplianceValue": "85332120"
+      },
+      {
+        "ComplianceName": "ECCN",
+        "ComplianceValue": "EAR99"
+      }
+    ]
+  },
+  "71-CRCW080510R0FKEC": {
+    "Availability": "50577 En existencias",
+    "DataSheetUrl": "",
+    "Description": "Resistores de pel&iacute;cula gruesa - SMD D12/CRCW0805 100 10R 1% ET6 e3",
+    "FactoryStock": "0",
+    "ImagePath": "https://www.mouser.com/images/vishay/images/CRCW_SPL.jpg",
+    "Category": "Resistores de pel&iacute;cula gruesa - SMD",
+    "LeadTime": "84 Días",
+    "LifecycleStatus": null,
+    "Manufacturer": "Vishay / Dale",
+    "ManufacturerPartNumber": "CRCW080510R0FKEC",
+    "Min": "1",
+    "Mult": "1",
+    "MouserPartNumber": "71-CRCW080510R0FKEC",
+    "ProductAttributes": [
+      {
+        "AttributeName": "Empaquetado",
+        "AttributeValue": "Reel"
+      },
+      {
+        "AttributeName": "Empaquetado",
+        "AttributeValue": "Cut Tape"
+      },
+      {
+        "AttributeName": "Empaquetado",
+        "AttributeValue": "MouseReel",
+        "AttributeCost": "La tarifa de 5,00 € de MouseReel™ se añadirá y calculará en el carro de compra. Los pedidos de MouseReel™ no se pueden cancelar ni devolver."
+      },
+      {
+        "AttributeName": "Cantidad estándar de paquetes",
+        "AttributeValue": "20000"
+      }
+    ],
+    "PriceBreaks": [
+      {
+        "Quantity": 1,
+        "Price": "0,095 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 10,
+        "Price": "0,024 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 100,
+        "Price": "0,02 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 20000,
+        "Price": "0,017 €",
+        "Currency": "EUR"
+      }
+    ],
+    "AlternatePackagings": [
+      {
+        "APMfrPN": "CRCW080510R0FKEA"
+      },
+      {
+        "APMfrPN": " CRCW080510R0FKEB"
+      }
+    ],
+    "ProductDetailUrl": "https://www.mouser.es/ProductDetail/Vishay-Dale/CRCW080510R0FKEC?qs=Uz%2FpZV6aOq0cXi7i%2Fr7wdQ%3D%3D",
+    "Reeling": true,
+    "ROHSStatus": "RoHS Compliant By Exemption",
+    "SuggestedReplacement": "",
+    "MultiSimBlue": 0,
+    "UnitWeightKg": {
+      "UnitWeight": 5.5e-06
+    },
+    "AvailabilityInStock": "50577",
+    "AvailabilityOnOrder": [],
+    "InfoMessages": [],
+    "SurchargeMessages": null,
+    "ProductCompliance": [
+      {
+        "ComplianceName": "TARIC",
+        "ComplianceValue": "8533210000"
+      },
+      {
+        "ComplianceName": "CNHTS",
+        "ComplianceValue": "8533211000"
+      },
+      {
+        "ComplianceName": "CAHTS",
+        "ComplianceValue": "8533210000"
+      },
+      {
+        "ComplianceName": "USHTS",
+        "ComplianceValue": "8533210030"
+      },
+      {
+        "ComplianceName": "JPHTS",
+        "ComplianceValue": "853321000"
+      },
+      {
+        "ComplianceName": "KRHTS",
+        "ComplianceValue": "8533219000"
+      },
+      {
+        "ComplianceName": "MXHTS",
+        "ComplianceValue": "8533210100"
+      },
+      {
+        "ComplianceName": "BRHTS",
+        "ComplianceValue": "85332120"
+      },
+      {
+        "ComplianceName": "ECCN",
+        "ComplianceValue": "EAR99"
+      }
+    ]
+  },
+  "71-CRCW0805103JT-RT6": {
+    "Availability": "29324 En existencias",
+    "DataSheetUrl": "",
+    "Description": "Resistores de pel&iacute;cula gruesa - SMD 1/8watt 10Kohms 5%",
+    "FactoryStock": "0",
+    "ImagePath": "https://www.mouser.com/images/vishay/images/CRCW_SPL.jpg",
+    "Category": "Resistores de pel&iacute;cula gruesa - SMD",
+    "LeadTime": "98 Días",
+    "LifecycleStatus": null,
+    "Manufacturer": "Vishay / Dale",
+    "ManufacturerPartNumber": "CRCW080510K0JNTC",
+    "Min": "1",
+    "Mult": "1",
+    "MouserPartNumber": "71-CRCW0805103JT-RT6",
+    "ProductAttributes": [
+      {
+        "AttributeName": "Empaquetado",
+        "AttributeValue": "Reel"
+      },
+      {
+        "AttributeName": "Empaquetado",
+        "AttributeValue": "Cut Tape"
+      },
+      {
+        "AttributeName": "Empaquetado",
+        "AttributeValue": "MouseReel",
+        "AttributeCost": "La tarifa de 5,00 € de MouseReel™ se añadirá y calculará en el carro de compra. Los pedidos de MouseReel™ no se pueden cancelar ni devolver."
+      },
+      {
+        "AttributeName": "Cantidad estándar de paquetes",
+        "AttributeValue": "20000"
+      }
+    ],
+    "PriceBreaks": [
+      {
+        "Quantity": 1,
+        "Price": "0,143 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 10,
+        "Price": "0,044 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 100,
+        "Price": "0,038 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 500,
+        "Price": "0,028 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 1000,
+        "Price": "0,023 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 2500,
+        "Price": "0,021 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 20000,
+        "Price": "0,021 €",
+        "Currency": "EUR"
+      }
+    ],
+    "AlternatePackagings": [
+      {
+        "APMfrPN": "CRCW080510K0JNTA"
+      }
+    ],
+    "ProductDetailUrl": "https://www.mouser.es/ProductDetail/Vishay-Dale/CRCW080510K0JNTC?qs=9VKGO3ahKMmQL8tCOKEbRA%3D%3D",
+    "Reeling": true,
+    "ROHSStatus": "No",
+    "SuggestedReplacement": "",
+    "MultiSimBlue": 0,
+    "UnitWeightKg": {
+      "UnitWeight": 5.5e-06
+    },
+    "AvailabilityInStock": "29324",
+    "AvailabilityOnOrder": [],
+    "InfoMessages": [],
+    "SurchargeMessages": null,
+    "ProductCompliance": [
+      {
+        "ComplianceName": "TARIC",
+        "ComplianceValue": "8533210000"
+      },
+      {
+        "ComplianceName": "CNHTS",
+        "ComplianceValue": "8533211000"
+      },
+      {
+        "ComplianceName": "CAHTS",
+        "ComplianceValue": "8533210000"
+      },
+      {
+        "ComplianceName": "USHTS",
+        "ComplianceValue": "8533210030"
+      },
+      {
+        "ComplianceName": "JPHTS",
+        "ComplianceValue": "853321000"
+      },
+      {
+        "ComplianceName": "KRHTS",
+        "ComplianceValue": "8533219000"
+      },
+      {
+        "ComplianceName": "MXHTS",
+        "ComplianceValue": "8533210100"
+      },
+      {
+        "ComplianceName": "BRHTS",
+        "ComplianceValue": "85332120"
+      },
+      {
+        "ComplianceName": "ECCN",
+        "ComplianceValue": "EAR99"
+      }
+    ]
+  },
+  "652-CRT0805BY1002EAS": {
+    "Availability": "13884 En existencias",
+    "DataSheetUrl": "https://www.mouser.com/datasheet/2/54/crt_as-1649073.pdf",
+    "Description": "Resistores de pel&iacute;cula fina - SMD 10K OHMS 0.1% 0805 Anti-Sulfur",
+    "FactoryStock": "0",
+    "ImagePath": "https://www.mouser.com/images/bourns/images/CRT_series_SPL.jpg",
+    "Category": "Resistores de pel&iacute;cula fina - SMD",
+    "LeadTime": "84 Días",
+    "LifecycleStatus": null,
+    "Manufacturer": "Bourns",
+    "ManufacturerPartNumber": "CRT0805-BY-1002EAS",
+    "Min": "1",
+    "Mult": "1",
+    "MouserPartNumber": "652-CRT0805BY1002EAS",
+    "ProductAttributes": [
+      {
+        "AttributeName": "Empaquetado",
+        "AttributeValue": "Reel"
+      },
+      {
+        "AttributeName": "Empaquetado",
+        "AttributeValue": "Cut Tape"
+      },
+      {
+        "AttributeName": "Empaquetado",
+        "AttributeValue": "MouseReel",
+        "AttributeCost": "La tarifa de 5,00 € de MouseReel™ se añadirá y calculará en el carro de compra. Los pedidos de MouseReel™ no se pueden cancelar ni devolver."
+      },
+      {
+        "AttributeName": "Cantidad estándar de paquetes",
+        "AttributeValue": "5000"
+      }
+    ],
+    "PriceBreaks": [
+      {
+        "Quantity": 1,
+        "Price": "0,181 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 10,
+        "Price": "0,147 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 50,
+        "Price": "0,105 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 100,
+        "Price": "0,093 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 500,
+        "Price": "0,078 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 1000,
+        "Price": "0,069 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 5000,
+        "Price": "0,06 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 10000,
+        "Price": "0,055 €",
+        "Currency": "EUR"
+      }
+    ],
+    "AlternatePackagings": null,
+    "ProductDetailUrl": "https://www.mouser.es/ProductDetail/Bourns/CRT0805-BY-1002EAS?qs=EvbCu83THBBscKXBOD11HA%3D%3D",
+    "Reeling": true,
+    "ROHSStatus": "RoHS Compliant",
+    "SuggestedReplacement": "",
+    "MultiSimBlue": 0,
+    "UnitWeightKg": {
+      "UnitWeight": 4.7e-06
+    },
+    "AvailabilityInStock": "13884",
+    "AvailabilityOnOrder": [],
+    "InfoMessages": [],
+    "SurchargeMessages": null,
+    "ProductCompliance": [
+      {
+        "ComplianceName": "TARIC",
+        "ComplianceValue": "8533210000"
+      },
+      {
+        "ComplianceName": "CNHTS",
+        "ComplianceValue": "8533211000"
+      },
+      {
+        "ComplianceName": "CAHTS",
+        "ComplianceValue": "8533210000"
+      },
+      {
+        "ComplianceName": "USHTS",
+        "ComplianceValue": "8533210030"
+      },
+      {
+        "ComplianceName": "JPHTS",
+        "ComplianceValue": "853321000"
+      },
+      {
+        "ComplianceName": "KRHTS",
+        "ComplianceValue": "8533219000"
+      },
+      {
+        "ComplianceName": "MXHTS",
+        "ComplianceValue": "8533210100"
+      },
+      {
+        "ComplianceName": "BRHTS",
+        "ComplianceValue": "85332120"
+      },
+      {
+        "ComplianceName": "ECCN",
+        "ComplianceValue": "EAR99"
+      }
+    ]
+  },
+  "523-GSB4D313302Y1HR": {
+    "Availability": "5556 En existencias",
+    "DataSheetUrl": "",
+    "Description": "Conectores USB USB4 GEN3 TYPEC CENT HEIGHT 1.58MM",
+    "FactoryStock": "0",
+    "ImagePath": "https://www.mouser.com/images/amphenol/images/ITP_523-GSB4D313302Y1HR_t.jpg",
+    "Category": "Conectores USB",
+    "LeadTime": "98 Días",
+    "LifecycleStatus": null,
+    "Manufacturer": "Amphenol Commercial Products",
+    "ManufacturerPartNumber": "GSB4D313302Y1HR",
+    "Min": "1",
+    "Mult": "1",
+    "MouserPartNumber": "523-GSB4D313302Y1HR",
+    "ProductAttributes": [
+      {
+        "AttributeName": "Empaquetado",
+        "AttributeValue": "Reel"
+      },
+      {
+        "AttributeName": "Empaquetado",
+        "AttributeValue": "Cut Tape"
+      },
+      {
+        "AttributeName": "Cantidad estándar de paquetes",
+        "AttributeValue": "3500"
+      }
+    ],
+    "PriceBreaks": [
+      {
+        "Quantity": 1,
+        "Price": "1,56 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 10,
+        "Price": "1,47 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 25,
+        "Price": "1,37 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 50,
+        "Price": "1,12 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 100,
+        "Price": "0,912 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 250,
+        "Price": "0,856 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 500,
+        "Price": "0,743 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 1000,
+        "Price": "0,711 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 3500,
+        "Price": "0,711 €",
+        "Currency": "EUR"
+      }
+    ],
+    "AlternatePackagings": null,
+    "ProductDetailUrl": "https://www.mouser.es/ProductDetail/Amphenol-Commercial-Products/GSB4D313302Y1HR?qs=hd1VzrDQEGgxGsAMWaQqaQ%3D%3D",
+    "Reeling": true,
+    "ROHSStatus": "RoHS Compliant",
+    "SuggestedReplacement": "",
+    "MultiSimBlue": 0,
+    "UnitWeightKg": {
+      "UnitWeight": 0.000772
+    },
+    "AvailabilityInStock": "5556",
+    "AvailabilityOnOrder": [],
+    "InfoMessages": [],
+    "SurchargeMessages": null,
+    "ProductCompliance": [
+      {
+        "ComplianceName": "TARIC",
+        "ComplianceValue": "8536693000"
+      },
+      {
+        "ComplianceName": "CNHTS",
+        "ComplianceValue": "8536901100"
+      },
+      {
+        "ComplianceName": "CAHTS",
+        "ComplianceValue": "8536690020"
+      },
+      {
+        "ComplianceName": "USHTS",
+        "ComplianceValue": "8536694040"
+      },
+      {
+        "ComplianceName": "JPHTS",
+        "ComplianceValue": "853669000"
+      },
+      {
+        "ComplianceName": "KRHTS",
+        "ComplianceValue": "8536691000"
+      },
+      {
+        "ComplianceName": "MXHTS",
+        "ComplianceValue": "8536699999"
+      },
+      {
+        "ComplianceName": "BRHTS",
+        "ComplianceValue": "85366990"
+      },
+      {
+        "ComplianceName": "ECCN",
+        "ComplianceValue": "EAR99"
+      }
+    ]
+  },
+  "926-LM1117IMPX33NOPB": {
+    "Availability": "42468 En existencias",
+    "DataSheetUrl": "",
+    "Description": "Reguladores de voltaje LDO 800MA LDO LINEAR REG A 926-LM1117IMP3.3NOPB",
+    "FactoryStock": "0",
+    "ImagePath": "https://www.mouser.com/images/texasinstruments/images/ITP_TI_SOT-223-4_DCY_t.jpg",
+    "Category": "Reguladores de voltaje LDO",
+    "LeadTime": "42 Días",
+    "LifecycleStatus": null,
+    "Manufacturer": "Texas Instruments",
+    "ManufacturerPartNumber": "LM1117IMPX-3.3/NOPB",
+    "Min": "1",
+    "Mult": "1",
+    "MouserPartNumber": "926-LM1117IMPX33NOPB",
+    "ProductAttributes": [
+      {
+        "AttributeName": "Empaquetado",
+        "AttributeValue": "Reel"
+      },
+      {
+        "AttributeName": "Empaquetado",
+        "AttributeValue": "Cut Tape"
+      },
+      {
+        "AttributeName": "Empaquetado",
+        "AttributeValue": "MouseReel",
+        "AttributeCost": "La tarifa de 5,00 € de MouseReel™ se añadirá y calculará en el carro de compra. Los pedidos de MouseReel™ no se pueden cancelar ni devolver."
+      },
+      {
+        "AttributeName": "Cantidad estándar de paquetes",
+        "AttributeValue": "2000"
+      }
+    ],
+    "PriceBreaks": [
+      {
+        "Quantity": 1,
+        "Price": "0,96 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 10,
+        "Price": "0,694 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 25,
+        "Price": "0,626 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 100,
+        "Price": "0,552 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 250,
+        "Price": "0,516 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 500,
+        "Price": "0,495 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 1000,
+        "Price": "0,463 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 2000,
+        "Price": "0,463 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 4000,
+        "Price": "0,462 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 8000,
+        "Price": "0,447 €",
+        "Currency": "EUR"
+      }
+    ],
+    "AlternatePackagings": [
+      {
+        "APMfrPN": "LM1117IMP-3.3/NOPB"
+      }
+    ],
+    "ProductDetailUrl": "https://www.mouser.es/ProductDetail/Texas-Instruments/LM1117IMPX-3.3-NOPB?qs=X1J7HmVL2ZG7K12CpArCeA%3D%3D",
+    "Reeling": true,
+    "ROHSStatus": "RoHS Compliant",
+    "SuggestedReplacement": "926-LM1117IMP3.3NOPB",
+    "MultiSimBlue": 0,
+    "UnitWeightKg": {
+      "UnitWeight": 0.000112
+    },
+    "AvailabilityInStock": "42468",
+    "AvailabilityOnOrder": [],
+    "InfoMessages": [],
+    "SurchargeMessages": null,
+    "ProductCompliance": [
+      {
+        "ComplianceName": "TARIC",
+        "ComplianceValue": "8542399000"
+      },
+      {
+        "ComplianceName": "CNHTS",
+        "ComplianceValue": "8542399000"
+      },
+      {
+        "ComplianceName": "CAHTS",
+        "ComplianceValue": "8542390000"
+      },
+      {
+        "ComplianceName": "USHTS",
+        "ComplianceValue": "8542390060"
+      },
+      {
+        "ComplianceName": "JPHTS",
+        "ComplianceValue": "854239099"
+      },
+      {
+        "ComplianceName": "MXHTS",
+        "ComplianceValue": "8542399999"
+      },
+      {
+        "ComplianceName": "ECCN",
+        "ComplianceValue": "EAR99"
+      }
+    ]
+  },
+  "595-TPS63060DSCT": {
+    "Availability": "2378 En existencias",
+    "DataSheetUrl": "",
+    "Description": "Reguladores de tensión de conmutación 2.5-12Vin 2.25A Sw C rnt Limit A 595-TPS63060DSCR",
+    "FactoryStock": "0",
+    "ImagePath": "https://www.mouser.com/images/texasinstruments/images/ITP_TI_WSON-10_DSC_t.jpg",
+    "Category": "Reguladores de tensión de conmutación",
+    "LeadTime": "42 Días",
+    "LifecycleStatus": null,
+    "Manufacturer": "Texas Instruments",
+    "ManufacturerPartNumber": "TPS63060DSCT",
+    "Min": "1",
+    "Mult": "1",
+    "MouserPartNumber": "595-TPS63060DSCT",
+    "ProductAttributes": [
+      {
+        "AttributeName": "Empaquetado",
+        "AttributeValue": "Reel"
+      },
+      {
+        "AttributeName": "Empaquetado",
+        "AttributeValue": "Cut Tape"
+      },
+      {
+        "AttributeName": "Empaquetado",
+        "AttributeValue": "MouseReel",
+        "AttributeCost": "La tarifa de 5,00 € de MouseReel™ se añadirá y calculará en el carro de compra. Los pedidos de MouseReel™ no se pueden cancelar ni devolver."
+      },
+      {
+        "AttributeName": "Cantidad estándar de paquetes",
+        "AttributeValue": "250"
+      }
+    ],
+    "PriceBreaks": [
+      {
+        "Quantity": 1,
+        "Price": "2,70 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 10,
+        "Price": "2,01 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 25,
+        "Price": "1,84 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 100,
+        "Price": "1,66 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 250,
+        "Price": "1,56 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 500,
+        "Price": "1,48 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 1000,
+        "Price": "1,43 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 2500,
+        "Price": "1,39 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 5000,
+        "Price": "1,35 €",
+        "Currency": "EUR"
+      }
+    ],
+    "AlternatePackagings": [
+      {
+        "APMfrPN": "TPS63060DSCR"
+      }
+    ],
+    "ProductDetailUrl": "https://www.mouser.es/ProductDetail/Texas-Instruments/TPS63060DSCT?qs=3jfYfyvUSwDkzbf98IOP5g%3D%3D",
+    "Reeling": true,
+    "ROHSStatus": "RoHS Compliant",
+    "SuggestedReplacement": "595-TPS63060DSCR",
+    "MultiSimBlue": 0,
+    "UnitWeightKg": {
+      "UnitWeight": 1.79e-05
+    },
+    "AvailabilityInStock": "2378",
+    "AvailabilityOnOrder": [],
+    "InfoMessages": [],
+    "SurchargeMessages": null,
+    "ProductCompliance": [
+      {
+        "ComplianceName": "TARIC",
+        "ComplianceValue": "8542399000"
+      },
+      {
+        "ComplianceName": "CNHTS",
+        "ComplianceValue": "8542399000"
+      },
+      {
+        "ComplianceName": "CAHTS",
+        "ComplianceValue": "8542390000"
+      },
+      {
+        "ComplianceName": "USHTS",
+        "ComplianceValue": "8542390060"
+      },
+      {
+        "ComplianceName": "JPHTS",
+        "ComplianceValue": "854239099"
+      },
+      {
+        "ComplianceName": "MXHTS",
+        "ComplianceValue": "8542399999"
+      },
+      {
+        "ComplianceName": "ECCN",
+        "ComplianceValue": "EAR99"
+      }
+    ]
+  },
+  "755-RB058L-30DDTE25": {
+    "Availability": "2989 En existencias",
+    "DataSheetUrl": "",
+    "Description": "Diodos y rectificadores Schottky  SOT89  30V  3A  AUTO SCHOTTKY",
+    "FactoryStock": "0",
+    "ImagePath": "https://www.mouser.com/images/rohmsemiconductor/images/RF071L4S_SPL.jpg",
+    "Category": "Diodos y rectificadores Schottky ",
+    "LeadTime": "84 Días",
+    "LifecycleStatus": "New Product",
+    "Manufacturer": "ROHM Semiconductor",
+    "ManufacturerPartNumber": "RB058L-30DDTE25",
+    "Min": "1",
+    "Mult": "1",
+    "MouserPartNumber": "755-RB058L-30DDTE25",
+    "ProductAttributes": [
+      {
+        "AttributeName": "Empaquetado",
+        "AttributeValue": "Reel"
+      },
+      {
+        "AttributeName": "Empaquetado",
+        "AttributeValue": "Cut Tape"
+      },
+      {
+        "AttributeName": "Cantidad estándar de paquetes",
+        "AttributeValue": "1500"
+      }
+    ],
+    "PriceBreaks": [
+      {
+        "Quantity": 1,
+        "Price": "0,751 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 10,
+        "Price": "0,529 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 100,
+        "Price": "0,361 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 500,
+        "Price": "0,302 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 1000,
+        "Price": "0,257 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 1500,
+        "Price": "0,232 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 3000,
+        "Price": "0,216 €",
+        "Currency": "EUR"
+      }
+    ],
+    "AlternatePackagings": null,
+    "ProductDetailUrl": "https://www.mouser.es/ProductDetail/ROHM-Semiconductor/RB058L-30DDTE25?qs=4v%252BiZTmLVHH4qQzteWzq7g%3D%3D",
+    "Reeling": true,
+    "ROHSStatus": "RoHS Compliant",
+    "SuggestedReplacement": "",
+    "MultiSimBlue": 0,
+    "AvailabilityInStock": "2989",
+    "AvailabilityOnOrder": [],
+    "InfoMessages": [],
+    "SurchargeMessages": null,
+    "ProductCompliance": [
+      {
+        "ComplianceName": "TARIC",
+        "ComplianceValue": "8541100000"
+      },
+      {
+        "ComplianceName": "CAHTS",
+        "ComplianceValue": "8541100090"
+      },
+      {
+        "ComplianceName": "USHTS",
+        "ComplianceValue": "8541100080"
+      },
+      {
+        "ComplianceName": "ECCN",
+        "ComplianceValue": "EAR99"
+      }
+    ]
+  },
+  "652-SRP6530A-1R0M": {
+    "Availability": "1617 En existencias",
+    "DataSheetUrl": "https://www.mouser.com/datasheet/2/54/BOURNS_SRP6530A_datasheet-2498265.pdf",
+    "Description": "Inductores de potencia (SMD) Ind,7.1x6.6x3mm,1uH+/-20%,12A,shd",
+    "FactoryStock": "0",
+    "ImagePath": "https://www.mouser.com/images/bourns/images/SRP6530A_SPL.jpg",
+    "Category": "Inductores de potencia (SMD)",
+    "LeadTime": "66 Días",
+    "LifecycleStatus": null,
+    "Manufacturer": "Bourns",
+    "ManufacturerPartNumber": "SRP6530A-1R0M",
+    "Min": "1",
+    "Mult": "1",
+    "MouserPartNumber": "652-SRP6530A-1R0M",
+    "ProductAttributes": [
+      {
+        "AttributeName": "Empaquetado",
+        "AttributeValue": "Reel"
+      },
+      {
+        "AttributeName": "Empaquetado",
+        "AttributeValue": "Cut Tape"
+      },
+      {
+        "AttributeName": "Empaquetado",
+        "AttributeValue": "MouseReel",
+        "AttributeCost": "La tarifa de 5,00 € de MouseReel™ se añadirá y calculará en el carro de compra. Los pedidos de MouseReel™ no se pueden cancelar ni devolver."
+      },
+      {
+        "AttributeName": "Cantidad estándar de paquetes",
+        "AttributeValue": "1000"
+      }
+    ],
+    "PriceBreaks": [
+      {
+        "Quantity": 1,
+        "Price": "0,57 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 10,
+        "Price": "0,517 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 100,
+        "Price": "0,481 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 500,
+        "Price": "0,456 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 1000,
+        "Price": "0,456 €",
+        "Currency": "EUR"
+      }
+    ],
+    "AlternatePackagings": null,
+    "ProductDetailUrl": "https://www.mouser.es/ProductDetail/Bourns/SRP6530A-1R0M?qs=e8oIoAS2J1SIKH6SxuTtfw%3D%3D",
+    "Reeling": true,
+    "ROHSStatus": "RoHS Compliant",
+    "SuggestedReplacement": "",
+    "MultiSimBlue": 0,
+    "UnitWeightKg": {
+      "UnitWeight": 0.00075
+    },
+    "AvailabilityInStock": "1617",
+    "AvailabilityOnOrder": [],
+    "InfoMessages": [],
+    "SurchargeMessages": null,
+    "ProductCompliance": [
+      {
+        "ComplianceName": "TARIC",
+        "ComplianceValue": "8504500090"
+      },
+      {
+        "ComplianceName": "CNHTS",
+        "ComplianceValue": "8504500000"
+      },
+      {
+        "ComplianceName": "CAHTS",
+        "ComplianceValue": "8504500000"
+      },
+      {
+        "ComplianceName": "USHTS",
+        "ComplianceValue": "8504508000"
+      },
+      {
+        "ComplianceName": "JPHTS",
+        "ComplianceValue": "850450000"
+      },
+      {
+        "ComplianceName": "KRHTS",
+        "ComplianceValue": "8504502090"
+      },
+      {
+        "ComplianceName": "MXHTS",
+        "ComplianceValue": "8504509199"
+      },
+      {
+        "ComplianceName": "BRHTS",
+        "ComplianceValue": "85045000"
+      },
+      {
+        "ComplianceName": "ECCN",
+        "ComplianceValue": "EAR99"
+      }
+    ]
+  },
+  "852-PC817X4NSZ1B": {
+    "Availability": "7269 En existencias",
+    "DataSheetUrl": "https://www.mouser.com/datasheet/2/365/PC817XxNSZ1B_07Oct16_Spec_ED-16P010-1360269.pdf",
+    "Description": "Optoacopladores para salidas de transistores",
+    "FactoryStock": "0",
+    "ImagePath": "https://www.mouser.com/images/sharpmicroelectronics/images/pc123.jpg",
+    "Category": "Optoacopladores para salidas de transistores",
+    "LeadTime": "115 Días",
+    "LifecycleStatus": null,
+    "Manufacturer": "Sharp Microelectronics",
+    "ManufacturerPartNumber": "PC817X4NSZ1B",
+    "Min": "1",
+    "Mult": "1",
+    "MouserPartNumber": "852-PC817X4NSZ1B",
+    "ProductAttributes": [
+      {
+        "AttributeName": "Empaquetado",
+        "AttributeValue": "Tube"
+      },
+      {
+        "AttributeName": "Cantidad estándar de paquetes",
+        "AttributeValue": "100"
+      }
+    ],
+    "PriceBreaks": [
+      {
+        "Quantity": 1,
+        "Price": "0,665 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 10,
+        "Price": "0,439 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 100,
+        "Price": "0,29 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 1000,
+        "Price": "0,223 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 2500,
+        "Price": "0,202 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 10000,
+        "Price": "0,185 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 25000,
+        "Price": "0,183 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 50000,
+        "Price": "0,18 €",
+        "Currency": "EUR"
+      }
+    ],
+    "AlternatePackagings": null,
+    "ProductDetailUrl": "https://www.mouser.es/ProductDetail/Sharp-Microelectronics/PC817X4NSZ1B?qs=rrS6PyfT74dXG7qDYHTXow%3D%3D",
+    "Reeling": false,
+    "ROHSStatus": "RoHS Compliant",
+    "SuggestedReplacement": "",
+    "MultiSimBlue": 0,
+    "UnitWeightKg": {
+      "UnitWeight": 0.00023
+    },
+    "AvailabilityInStock": "7269",
+    "AvailabilityOnOrder": [],
+    "InfoMessages": [],
+    "SurchargeMessages": null,
+    "ProductCompliance": [
+      {
+        "ComplianceName": "TARIC",
+        "ComplianceValue": "8541409090"
+      },
+      {
+        "ComplianceName": "CNHTS",
+        "ComplianceValue": "8541490000"
+      },
+      {
+        "ComplianceName": "CAHTS",
+        "ComplianceValue": "8541490020"
+      },
+      {
+        "ComplianceName": "USHTS",
+        "ComplianceValue": "8541498000"
+      },
+      {
+        "ComplianceName": "ECCN",
+        "ComplianceValue": "EAR99"
+      }
+    ]
+  },
+  "895-FT234XD-R": {
+    "Availability": "19980 En existencias",
+    "DataSheetUrl": "https://www.mouser.com/datasheet/2/163/DS_FT234XD-220088.pdf",
+    "Description": "CI de interfaz USB USB to Serial UART Interface",
+    "FactoryStock": "0",
+    "ImagePath": "https://www.mouser.com/images/ftdi/images/FT234XD_SPL.jpg",
+    "Category": "CI de interfaz USB",
+    "LeadTime": "84 Días",
+    "LifecycleStatus": null,
+    "Manufacturer": "FTDI",
+    "ManufacturerPartNumber": "FT234XD-R",
+    "Min": "1",
+    "Mult": "1",
+    "MouserPartNumber": "895-FT234XD-R",
+    "ProductAttributes": [
+      {
+        "AttributeName": "Empaquetado",
+        "AttributeValue": "Reel"
+      },
+      {
+        "AttributeName": "Empaquetado",
+        "AttributeValue": "Cut Tape"
+      },
+      {
+        "AttributeName": "Empaquetado",
+        "AttributeValue": "MouseReel",
+        "AttributeCost": "La tarifa de 5,00 € de MouseReel™ se añadirá y calculará en el carro de compra. Los pedidos de MouseReel™ no se pueden cancelar ni devolver."
+      },
+      {
+        "AttributeName": "Cantidad estándar de paquetes",
+        "AttributeValue": "5000"
+      }
+    ],
+    "PriceBreaks": [
+      {
+        "Quantity": 1,
+        "Price": "2,15 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 25,
+        "Price": "2,08 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 100,
+        "Price": "2,01 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 250,
+        "Price": "1,83 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 500,
+        "Price": "1,69 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 5000,
+        "Price": "1,69 €",
+        "Currency": "EUR"
+      }
+    ],
+    "AlternatePackagings": [
+      {
+        "APMfrPN": "FT234XD-T"
+      }
+    ],
+    "ProductDetailUrl": "https://www.mouser.es/ProductDetail/FTDI/FT234XD-R?qs=NVftvxkm2tjipk322Ah1HQ%3D%3D",
+    "Reeling": true,
+    "ROHSStatus": "RoHS Compliant",
+    "SuggestedReplacement": "",
+    "MultiSimBlue": 0,
+    "UnitWeightKg": {
+      "UnitWeight": 0.00011
+    },
+    "AvailabilityInStock": "19980",
+    "AvailabilityOnOrder": [],
+    "InfoMessages": [],
+    "SurchargeMessages": null,
+    "ProductCompliance": [
+      {
+        "ComplianceName": "TARIC",
+        "ComplianceValue": "8542399000"
+      },
+      {
+        "ComplianceName": "CNHTS",
+        "ComplianceValue": "8542399000"
+      },
+      {
+        "ComplianceName": "CAHTS",
+        "ComplianceValue": "8542390000"
+      },
+      {
+        "ComplianceName": "USHTS",
+        "ComplianceValue": "8542390060"
+      },
+      {
+        "ComplianceName": "JPHTS",
+        "ComplianceValue": "854239099"
+      },
+      {
+        "ComplianceName": "MXHTS",
+        "ComplianceValue": "8542399999"
+      },
+      {
+        "ComplianceName": "ECCN",
+        "ComplianceValue": "EAR99"
+      }
+    ]
+  },
+  "70-ILSB0805ER1R0K": {
+    "Availability": "4187 En existencias",
+    "DataSheetUrl": "",
+    "Description": "Inductores de RF (SMD) 1uH 10%",
+    "FactoryStock": "0",
+    "ImagePath": "https://www.mouser.com/images/vishay/images/ILSB_0805_series_SPL.jpg",
+    "Category": "Inductores de RF (SMD)",
+    "LeadTime": "84 Días",
+    "LifecycleStatus": null,
+    "Manufacturer": "Vishay / Dale",
+    "ManufacturerPartNumber": "ILSB0805ER1R0K",
+    "Min": "1",
+    "Mult": "1",
+    "MouserPartNumber": "70-ILSB0805ER1R0K",
+    "ProductAttributes": [
+      {
+        "AttributeName": "Empaquetado",
+        "AttributeValue": "Reel"
+      },
+      {
+        "AttributeName": "Empaquetado",
+        "AttributeValue": "Cut Tape"
+      },
+      {
+        "AttributeName": "Empaquetado",
+        "AttributeValue": "MouseReel",
+        "AttributeCost": "La tarifa de 5,00 € de MouseReel™ se añadirá y calculará en el carro de compra. Los pedidos de MouseReel™ no se pueden cancelar ni devolver."
+      },
+      {
+        "AttributeName": "Cantidad estándar de paquetes",
+        "AttributeValue": "4000"
+      }
+    ],
+    "PriceBreaks": [
+      {
+        "Quantity": 1,
+        "Price": "0,133 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 10,
+        "Price": "0,108 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 100,
+        "Price": "0,09 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 1000,
+        "Price": "0,074 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 2500,
+        "Price": "0,066 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 4000,
+        "Price": "0,061 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 8000,
+        "Price": "0,059 €",
+        "Currency": "EUR"
+      }
+    ],
+    "AlternatePackagings": null,
+    "ProductDetailUrl": "https://www.mouser.es/ProductDetail/Vishay-Dale/ILSB0805ER1R0K?qs=XQ00FSfuEDAq3HLgpUMQLQ%3D%3D",
+    "Reeling": true,
+    "ROHSStatus": "RoHS Compliant",
+    "SuggestedReplacement": "",
+    "MultiSimBlue": 0,
+    "UnitWeightKg": {
+      "UnitWeight": 1e-05
+    },
+    "AvailabilityInStock": "4187",
+    "AvailabilityOnOrder": [],
+    "InfoMessages": [],
+    "SurchargeMessages": null,
+    "ProductCompliance": [
+      {
+        "ComplianceName": "TARIC",
+        "ComplianceValue": "8504500090"
+      },
+      {
+        "ComplianceName": "CNHTS",
+        "ComplianceValue": "8504500000"
+      },
+      {
+        "ComplianceName": "CAHTS",
+        "ComplianceValue": "8504500000"
+      },
+      {
+        "ComplianceName": "USHTS",
+        "ComplianceValue": "8504508000"
+      },
+      {
+        "ComplianceName": "JPHTS",
+        "ComplianceValue": "850450000"
+      },
+      {
+        "ComplianceName": "KRHTS",
+        "ComplianceValue": "8504502090"
+      },
+      {
+        "ComplianceName": "MXHTS",
+        "ComplianceValue": "8504509199"
+      },
+      {
+        "ComplianceName": "BRHTS",
+        "ComplianceValue": "85045000"
+      },
+      {
+        "ComplianceName": "ECCN",
+        "ComplianceValue": "EAR99"
+      }
+    ]
+  },
+  "595-OPA2340UA": {
+    "Availability": "1755 En existencias",
+    "DataSheetUrl": "",
+    "Description": "Amplificadores operacionales - Op Amps Single-Supply Rail-t o-Rail A 595-OPA2340UA/2K5",
+    "FactoryStock": "0",
+    "ImagePath": "https://www.mouser.com/images/texasinstruments/images/ITP_TI_SOIC-8_D_t.jpg",
+    "Category": "Amplificadores operacionales - Op Amps",
+    "LeadTime": "42 Días",
+    "LifecycleStatus": null,
+    "Manufacturer": "Texas Instruments",
+    "ManufacturerPartNumber": "OPA2340UA",
+    "Min": "1",
+    "Mult": "1",
+    "MouserPartNumber": "595-OPA2340UA",
+    "ProductAttributes": [
+      {
+        "AttributeName": "Empaquetado",
+        "AttributeValue": "Tube"
+      },
+      {
+        "AttributeName": "Cantidad estándar de paquetes",
+        "AttributeValue": "75"
+      }
+    ],
+    "PriceBreaks": [
+      {
+        "Quantity": 1,
+        "Price": "4,11 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 10,
+        "Price": "3,14 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 25,
+        "Price": "2,84 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 75,
+        "Price": "2,63 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 300,
+        "Price": "2,54 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 525,
+        "Price": "2,48 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 1050,
+        "Price": "2,41 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 3000,
+        "Price": "2,35 €",
+        "Currency": "EUR"
+      }
+    ],
+    "AlternatePackagings": [
+      {
+        "APMfrPN": "OPA2340UA/2K5"
+      },
+      {
+        "APMfrPN": " OPA2340UA/2K5G4"
+      }
+    ],
+    "ProductDetailUrl": "https://www.mouser.es/ProductDetail/Texas-Instruments/OPA2340UA?qs=7nS3%252BbEUL6tB3mwfB81YpA%3D%3D",
+    "Reeling": false,
+    "ROHSStatus": "RoHS Compliant",
+    "SuggestedReplacement": "595-OPA2340UA/2K5",
+    "MultiSimBlue": 0,
+    "UnitWeightKg": {
+      "UnitWeight": 7.59e-05
+    },
+    "AvailabilityInStock": "1755",
+    "AvailabilityOnOrder": [],
+    "InfoMessages": [],
+    "SurchargeMessages": null,
+    "ProductCompliance": [
+      {
+        "ComplianceName": "CNHTS",
+        "ComplianceValue": "8542339000"
+      },
+      {
+        "ComplianceName": "CAHTS",
+        "ComplianceValue": "8542330000"
+      },
+      {
+        "ComplianceName": "USHTS",
+        "ComplianceValue": "8542330001"
+      },
+      {
+        "ComplianceName": "JPHTS",
+        "ComplianceValue": "8542330996"
+      },
+      {
+        "ComplianceName": "KRHTS",
+        "ComplianceValue": "8532331000"
+      },
+      {
+        "ComplianceName": "MXHTS",
+        "ComplianceValue": "8542330299"
+      },
+      {
+        "ComplianceName": "ECCN",
+        "ComplianceValue": "EAR99"
+      }
+    ]
+  },
+  "179-SJ3-35094BG": {
+    "Availability": "1429 En existencias",
+    "DataSheetUrl": "https://www.mouser.com/datasheet/2/1628/sj3_3509x-3510888.pdf",
+    "Description": "Conectores de tel&eacute;fono Audio Jack, 3.5mm, Through Hole, 4 Conductors, 2 Switches",
+    "FactoryStock": "0",
+    "ImagePath": "https://www.mouser.com/images/cuiinc/images/SJ3-35094BG_SPL.JPG",
+    "Category": "Conectores de tel&eacute;fono",
+    "LeadTime": "105 Días",
+    "LifecycleStatus": "New Product",
+    "Manufacturer": "Same Sky",
+    "ManufacturerPartNumber": "SJ3-35094BG",
+    "Min": "1",
+    "Mult": "1",
+    "MouserPartNumber": "179-SJ3-35094BG",
+    "ProductAttributes": [
+      {
+        "AttributeName": "Empaquetado",
+        "AttributeValue": "Tray"
+      },
+      {
+        "AttributeName": "Cantidad estándar de paquetes",
+        "AttributeValue": "100"
+      }
+    ],
+    "PriceBreaks": [
+      {
+        "Quantity": 1,
+        "Price": "1,07 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 10,
+        "Price": "0,907 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 20,
+        "Price": "0,887 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 100,
+        "Price": "0,753 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 200,
+        "Price": "0,74 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 500,
+        "Price": "0,666 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 1000,
+        "Price": "0,607 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 2000,
+        "Price": "0,569 €",
+        "Currency": "EUR"
+      }
+    ],
+    "AlternatePackagings": null,
+    "ProductDetailUrl": "https://www.mouser.es/ProductDetail/Same-Sky/SJ3-35094BG?qs=IKkN%2F947nfAzTtgmlDBWYQ%3D%3D",
+    "Reeling": false,
+    "ROHSStatus": "RoHS Compliant",
+    "SuggestedReplacement": "",
+    "MultiSimBlue": 0,
+    "AvailabilityInStock": "1429",
+    "AvailabilityOnOrder": [],
+    "InfoMessages": [],
+    "SurchargeMessages": null,
+    "ProductCompliance": [
+      {
+        "ComplianceName": "TARIC",
+        "ComplianceValue": "8536693000"
+      },
+      {
+        "ComplianceName": "CAHTS",
+        "ComplianceValue": "8536690020"
+      },
+      {
+        "ComplianceName": "USHTS",
+        "ComplianceValue": "8536694040"
+      },
+      {
+        "ComplianceName": "JPHTS",
+        "ComplianceValue": "853669000"
+      },
+      {
+        "ComplianceName": "KRHTS",
+        "ComplianceValue": "8536691000"
+      },
+      {
+        "ComplianceName": "BRHTS",
+        "ComplianceValue": "85366990"
+      },
+      {
+        "ComplianceName": "ECCN",
+        "ComplianceValue": "EAR99"
+      }
+    ]
+  },
+  "356-ESP32WRVREN16R2": {
+    "Availability": "427 En existencias",
+    "DataSheetUrl": "https://www.mouser.com/datasheet/2/891/Espressif_Systems_ESP32_WROVER_E_L_0-3049094.pdf",
+    "Description": "Módulos multiprotocolo ESP32-WROVER-E integrates ESP32-D0WD-V3, with higher stability and safety performance.",
+    "FactoryStock": "0",
+    "ImagePath": "https://www.mouser.com/images/espressifsystems/images/ESP32-WROVER-E_SPL.jpg",
+    "Category": "Módulos multiprotocolo",
+    "LeadTime": "502 Días",
+    "LifecycleStatus": null,
+    "Manufacturer": "Espressif Systems",
+    "ManufacturerPartNumber": "ESP32-WROVER-E-N16R2",
+    "Min": "1",
+    "Mult": "1",
+    "MouserPartNumber": "356-ESP32WRVREN16R2",
+    "ProductAttributes": [
+      {
+        "AttributeName": "Cantidad estándar de paquetes",
+        "AttributeValue": "650"
+      }
+    ],
+    "PriceBreaks": [
+      {
+        "Quantity": 1,
+        "Price": "3,52 €",
+        "Currency": "EUR"
+      }
+    ],
+    "AlternatePackagings": null,
+    "ProductDetailUrl": "https://www.mouser.es/ProductDetail/Espressif-Systems/ESP32-WROVER-E-N16R2?qs=By6Nw2ByBD11r9Sr1e%2FHmQ%3D%3D",
+    "Reeling": false,
+    "ROHSStatus": "RoHS Compliant",
+    "SuggestedReplacement": "",
+    "MultiSimBlue": 0,
+    "AvailabilityInStock": "427",
+    "AvailabilityOnOrder": [],
+    "InfoMessages": [],
+    "SurchargeMessages": null,
+    "ProductCompliance": [
+      {
+        "ComplianceName": "TARIC",
+        "ComplianceValue": "8517620000"
+      },
+      {
+        "ComplianceName": "USHTS",
+        "ComplianceValue": "8517620090"
+      },
+      {
+        "ComplianceName": "JPHTS",
+        "ComplianceValue": "851762090"
+      },
+      {
+        "ComplianceName": "ECCN",
+        "ComplianceValue": "5A992.C"
+      }
+    ]
+  },
+  "583-BC817": {
+    "Availability": "6564 En existencias",
+    "DataSheetUrl": "https://www.mouser.com/datasheet/2/345/bc817-2449263.pdf",
+    "Description": "Transistores bipolares - BJT SOT23,NPN,0.8A,45V,G enPur",
+    "FactoryStock": "0",
+    "ImagePath": "https://www.mouser.com/images/mouserelectronics/images/SOT_23_3_t.jpg",
+    "Category": "Transistores bipolares - BJT",
+    "LeadTime": "24 Días",
+    "LifecycleStatus": null,
+    "Manufacturer": "Rectron",
+    "ManufacturerPartNumber": "BC817",
+    "Min": "1",
+    "Mult": "1",
+    "MouserPartNumber": "583-BC817",
+    "ProductAttributes": [
+      {
+        "AttributeName": "Empaquetado",
+        "AttributeValue": "Reel"
+      },
+      {
+        "AttributeName": "Empaquetado",
+        "AttributeValue": "Cut Tape"
+      },
+      {
+        "AttributeName": "Cantidad estándar de paquetes",
+        "AttributeValue": "3000"
+      }
+    ],
+    "PriceBreaks": [
+      {
+        "Quantity": 1,
+        "Price": "0,421 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 10,
+        "Price": "0,285 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 100,
+        "Price": "0,18 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 500,
+        "Price": "0,112 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 1000,
+        "Price": "0,081 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 3000,
+        "Price": "0,069 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 6000,
+        "Price": "0,06 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 9000,
+        "Price": "0,053 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 24000,
+        "Price": "0,043 €",
+        "Currency": "EUR"
+      }
+    ],
+    "AlternatePackagings": null,
+    "ProductDetailUrl": "https://www.mouser.es/ProductDetail/Rectron/BC817?qs=7pEAo90IqNG%2FF7QnbDH5iA%3D%3D",
+    "Reeling": true,
+    "ROHSStatus": "RoHS Compliant",
+    "REACH-SVHC": [
+      "Lead (7439-92-1)"
+    ],
+    "SuggestedReplacement": "",
+    "MultiSimBlue": 0,
+    "UnitWeightKg": {
+      "UnitWeight": 0.000201
+    },
+    "AvailabilityInStock": "6564",
+    "AvailabilityOnOrder": [
+      {
+        "Quantity": 18000,
+        "Date": "2025-04-24T00:00:00"
+      }
+    ],
+    "InfoMessages": [],
+    "SurchargeMessages": null,
+    "ProductCompliance": [
+      {
+        "ComplianceName": "TARIC",
+        "ComplianceValue": "8541210000"
+      },
+      {
+        "ComplianceName": "CNHTS",
+        "ComplianceValue": "8541210000"
+      },
+      {
+        "ComplianceName": "CAHTS",
+        "ComplianceValue": "8541210000"
+      },
+      {
+        "ComplianceName": "USHTS",
+        "ComplianceValue": "8541210095"
+      },
+      {
+        "ComplianceName": "JPHTS",
+        "ComplianceValue": "854121000"
+      },
+      {
+        "ComplianceName": "MXHTS",
+        "ComplianceValue": "8541210100"
+      },
+      {
+        "ComplianceName": "ECCN",
+        "ComplianceValue": "EAR99"
+      }
+    ]
+  },
+  "583-BC807": {
+    "Availability": "15712 En existencias",
+    "DataSheetUrl": "https://www.mouser.com/datasheet/2/345/bc807_bc808-3224681.pdf",
+    "Description": "Transistores bipolares - BJT Gen Pur Trans PNP,0.8A,45V",
+    "FactoryStock": "0",
+    "ImagePath": "https://www.mouser.com/images/mouserelectronics/images/SOT_23_3_t.jpg",
+    "Category": "Transistores bipolares - BJT",
+    "LeadTime": "201 Días",
+    "LifecycleStatus": null,
+    "Manufacturer": "Rectron",
+    "ManufacturerPartNumber": "BC807",
+    "Min": "1",
+    "Mult": "1",
+    "MouserPartNumber": "583-BC807",
+    "ProductAttributes": [
+      {
+        "AttributeName": "Empaquetado",
+        "AttributeValue": "Reel"
+      },
+      {
+        "AttributeName": "Empaquetado",
+        "AttributeValue": "Cut Tape"
+      },
+      {
+        "AttributeName": "Empaquetado",
+        "AttributeValue": "MouseReel",
+        "AttributeCost": "La tarifa de 5,00 € de MouseReel™ se añadirá y calculará en el carro de compra. Los pedidos de MouseReel™ no se pueden cancelar ni devolver."
+      },
+      {
+        "AttributeName": "Cantidad estándar de paquetes",
+        "AttributeValue": "3000"
+      }
+    ],
+    "PriceBreaks": [
+      {
+        "Quantity": 1,
+        "Price": "0,389 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 10,
+        "Price": "0,266 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 100,
+        "Price": "0,168 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 500,
+        "Price": "0,105 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 1000,
+        "Price": "0,076 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 3000,
+        "Price": "0,065 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 6000,
+        "Price": "0,056 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 9000,
+        "Price": "0,05 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 24000,
+        "Price": "0,04 €",
+        "Currency": "EUR"
+      }
+    ],
+    "AlternatePackagings": null,
+    "ProductDetailUrl": "https://www.mouser.es/ProductDetail/Rectron/BC807?qs=7pEAo90IqNGz%252BRZEzhTrXg%3D%3D",
+    "Reeling": true,
+    "ROHSStatus": "RoHS Compliant",
+    "REACH-SVHC": [
+      "Lead (7439-92-1)"
+    ],
+    "SuggestedReplacement": "",
+    "MultiSimBlue": 0,
+    "UnitWeightKg": {
+      "UnitWeight": 8e-06
+    },
+    "AvailabilityInStock": "15712",
+    "AvailabilityOnOrder": [],
+    "InfoMessages": [],
+    "SurchargeMessages": null,
+    "ProductCompliance": [
+      {
+        "ComplianceName": "TARIC",
+        "ComplianceValue": "8541210000"
+      },
+      {
+        "ComplianceName": "CNHTS",
+        "ComplianceValue": "8541210000"
+      },
+      {
+        "ComplianceName": "CAHTS",
+        "ComplianceValue": "8541210000"
+      },
+      {
+        "ComplianceName": "USHTS",
+        "ComplianceValue": "8541210075"
+      },
+      {
+        "ComplianceName": "JPHTS",
+        "ComplianceValue": "854121000"
+      },
+      {
+        "ComplianceName": "KRHTS",
+        "ComplianceValue": "8541219000"
+      },
+      {
+        "ComplianceName": "MXHTS",
+        "ComplianceValue": "8541210100"
+      },
+      {
+        "ComplianceName": "ECCN",
+        "ComplianceValue": "EAR99"
+      }
+    ]
+  },
+  "942-IRF3205ZPBF": {
+    "Availability": "305 En existencias",
+    "DataSheetUrl": "https://www.mouser.com/datasheet/2/196/Infineon_IRF3205Z_DataSheet_v01_01_EN-3362914.pdf",
+    "Description": "MOSFET MOSFT 55V 110A 6.5mOhm 76nC Qg",
+    "FactoryStock": "0",
+    "ImagePath": "https://www.mouser.com/images/mouserelectronics/images/TO_220_AB_3_SPL.jpg",
+    "Category": "MOSFET",
+    "LeadTime": "84 Días",
+    "LifecycleStatus": null,
+    "Manufacturer": "Infineon Technologies",
+    "ManufacturerPartNumber": "IRF3205ZPBF",
+    "Min": "1",
+    "Mult": "1",
+    "MouserPartNumber": "942-IRF3205ZPBF",
+    "ProductAttributes": [
+      {
+        "AttributeName": "Empaquetado",
+        "AttributeValue": "Tube"
+      },
+      {
+        "AttributeName": "Cantidad estándar de paquetes",
+        "AttributeValue": "1000"
+      }
+    ],
+    "PriceBreaks": [
+      {
+        "Quantity": 1,
+        "Price": "1,32 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 10,
+        "Price": "0,859 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 100,
+        "Price": "0,815 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 250,
+        "Price": "0,804 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 500,
+        "Price": "0,711 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 1000,
+        "Price": "0,659 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 2000,
+        "Price": "0,61 €",
+        "Currency": "EUR"
+      }
+    ],
+    "AlternatePackagings": null,
+    "ProductDetailUrl": "https://www.mouser.es/ProductDetail/Infineon-Technologies/IRF3205ZPBF?qs=2r01AXMCG3ONs%2F8RgU3KsA%3D%3D",
+    "Reeling": false,
+    "ROHSStatus": "RoHS Compliant",
+    "SuggestedReplacement": "",
+    "MultiSimBlue": 0,
+    "UnitWeightKg": {
+      "UnitWeight": 0.00195
+    },
+    "AvailabilityInStock": "305",
+    "AvailabilityOnOrder": [],
+    "InfoMessages": [],
+    "SurchargeMessages": null,
+    "ProductCompliance": [
+      {
+        "ComplianceName": "TARIC",
+        "ComplianceValue": "8541290000"
+      },
+      {
+        "ComplianceName": "CNHTS",
+        "ComplianceValue": "8541290000"
+      },
+      {
+        "ComplianceName": "CAHTS",
+        "ComplianceValue": "8541290000"
+      },
+      {
+        "ComplianceName": "USHTS",
+        "ComplianceValue": "8541290095"
+      },
+      {
+        "ComplianceName": "JPHTS",
+        "ComplianceValue": "8541290100"
+      },
+      {
+        "ComplianceName": "KRHTS",
+        "ComplianceValue": "8541299000"
+      },
+      {
+        "ComplianceName": "MXHTS",
+        "ComplianceValue": "85412999"
+      },
+      {
+        "ComplianceName": "ECCN",
+        "ComplianceValue": "EAR99"
+      }
+    ]
+  },
+  "757-TTA006BQ": {
+    "Availability": "2533 En existencias",
+    "DataSheetUrl": "https://www.mouser.com/datasheet/2/408/TTA006B_datasheet_en_20230606-1649915.pdf",
+    "Description": "Transistores bipolares - BJT Pb-F POWER TRANSISTOR TO-126N PC=10W F=1MHZ",
+    "FactoryStock": "0",
+    "ImagePath": "https://www.mouser.com/images/toshibaamericaelectroniccomponentsinc/images/TO-126N-3_SPL.jpg",
+    "Category": "Transistores bipolares - BJT",
+    "LeadTime": "112 Días",
+    "LifecycleStatus": null,
+    "Manufacturer": "Toshiba",
+    "ManufacturerPartNumber": "TTA006B,Q",
+    "Min": "1",
+    "Mult": "1",
+    "MouserPartNumber": "757-TTA006BQ",
+    "ProductAttributes": [
+      {
+        "AttributeName": "Empaquetado",
+        "AttributeValue": "Tray"
+      },
+      {
+        "AttributeName": "Cantidad estándar de paquetes",
+        "AttributeValue": "250"
+      }
+    ],
+    "PriceBreaks": [
+      {
+        "Quantity": 1,
+        "Price": "0,846 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 10,
+        "Price": "0,619 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 100,
+        "Price": "0,399 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 500,
+        "Price": "0,362 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 1000,
+        "Price": "0,337 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 2500,
+        "Price": "0,336 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 5000,
+        "Price": "0,248 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 10000,
+        "Price": "0,242 €",
+        "Currency": "EUR"
+      }
+    ],
+    "AlternatePackagings": null,
+    "ProductDetailUrl": "https://www.mouser.es/ProductDetail/Toshiba/TTA006BQ?qs=B6kkDfuK7%2FBafvTE%2Fb3gJA%3D%3D",
+    "Reeling": false,
+    "ROHSStatus": "RoHS Compliant",
+    "SuggestedReplacement": "",
+    "MultiSimBlue": 0,
+    "UnitWeightKg": {
+      "UnitWeight": 0.00084
+    },
+    "AvailabilityInStock": "2533",
+    "AvailabilityOnOrder": [],
+    "InfoMessages": [],
+    "SurchargeMessages": null,
+    "ProductCompliance": [
+      {
+        "ComplianceName": "TARIC",
+        "ComplianceValue": "8541210000"
+      },
+      {
+        "ComplianceName": "CNHTS",
+        "ComplianceValue": "8541290000"
+      },
+      {
+        "ComplianceName": "USHTS",
+        "ComplianceValue": "8541290075"
+      },
+      {
+        "ComplianceName": "ECCN",
+        "ComplianceValue": "EAR99"
+      }
+    ]
+  },
+  "757-TTC011BQ": {
+    "Availability": "3304 En existencias",
+    "DataSheetUrl": "https://www.mouser.com/datasheet/2/408/TTC011B_datasheet_en_20160209-1649840.pdf",
+    "Description": "Transistores bipolares - BJT Pb-FPOWERTRANSISTORTO-126NPC=10WF=1MHZ",
+    "FactoryStock": "0",
+    "ImagePath": "https://www.mouser.com/images/toshibaamericaelectroniccomponentsinc/images/TO-126N-3_SPL.jpg",
+    "Category": "Transistores bipolares - BJT",
+    "LeadTime": "112 Días",
+    "LifecycleStatus": null,
+    "Manufacturer": "Toshiba",
+    "ManufacturerPartNumber": "TTC011B,Q",
+    "Min": "1",
+    "Mult": "1",
+    "MouserPartNumber": "757-TTC011BQ",
+    "ProductAttributes": [
+      {
+        "AttributeName": "Empaquetado",
+        "AttributeValue": "Tray"
+      },
+      {
+        "AttributeName": "Cantidad estándar de paquetes",
+        "AttributeValue": "250"
+      }
+    ],
+    "PriceBreaks": [
+      {
+        "Quantity": 1,
+        "Price": "0,969 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 10,
+        "Price": "0,655 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 25,
+        "Price": "0,568 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 250,
+        "Price": "0,421 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 500,
+        "Price": "0,351 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 1000,
+        "Price": "0,318 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 2500,
+        "Price": "0,291 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 5000,
+        "Price": "0,246 €",
+        "Currency": "EUR"
+      }
+    ],
+    "AlternatePackagings": null,
+    "ProductDetailUrl": "https://www.mouser.es/ProductDetail/Toshiba/TTC011BQ?qs=B6kkDfuK7%2FBS3pgTiu2hEg%3D%3D",
+    "Reeling": false,
+    "ROHSStatus": "RoHS Compliant",
+    "SuggestedReplacement": "",
+    "MultiSimBlue": 0,
+    "UnitWeightKg": {
+      "UnitWeight": 0.00084
+    },
+    "AvailabilityInStock": "3304",
+    "AvailabilityOnOrder": [],
+    "InfoMessages": [],
+    "SurchargeMessages": null,
+    "ProductCompliance": [
+      {
+        "ComplianceName": "TARIC",
+        "ComplianceValue": "8541210000"
+      },
+      {
+        "ComplianceName": "CNHTS",
+        "ComplianceValue": "8541290000"
+      },
+      {
+        "ComplianceName": "USHTS",
+        "ComplianceValue": "8541290075"
+      },
+      {
+        "ComplianceName": "ECCN",
+        "ComplianceValue": "EAR99"
+      }
+    ]
+  },
+  "710-885342207014": {
+    "Availability": "45785 En existencias",
+    "DataSheetUrl": "",
+    "Description": "Condensadores de cerámica multicapa (MLCC- SMD/SMT) WCAP-CSMH 500V 0.01uF 0805 10%",
+    "FactoryStock": "0",
+    "ImagePath": "https://www.mouser.com/images/wurthelectronics/images/885342006001_SPL.jpg",
+    "Category": "Condensadores de cerámica multicapa (MLCC- SMD/SMT)",
+    "LeadTime": "267 Días",
+    "LifecycleStatus": null,
+    "Manufacturer": "Wurth Elektronik",
+    "ManufacturerPartNumber": "885342207014",
+    "Min": "1",
+    "Mult": "1",
+    "MouserPartNumber": "710-885342207014",
+    "ProductAttributes": [
+      {
+        "AttributeName": "Empaquetado",
+        "AttributeValue": "Reel"
+      },
+      {
+        "AttributeName": "Empaquetado",
+        "AttributeValue": "Cut Tape"
+      },
+      {
+        "AttributeName": "Empaquetado",
+        "AttributeValue": "MouseReel",
+        "AttributeCost": "La tarifa de 5,00 € de MouseReel™ se añadirá y calculará en el carro de compra. Los pedidos de MouseReel™ no se pueden cancelar ni devolver."
+      },
+      {
+        "AttributeName": "Cantidad estándar de paquetes",
+        "AttributeValue": "3000"
+      }
+    ],
+    "PriceBreaks": [
+      {
+        "Quantity": 1,
+        "Price": "0,095 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 10,
+        "Price": "0,067 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 100,
+        "Price": "0,061 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 500,
+        "Price": "0,054 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 3000,
+        "Price": "0,046 €",
+        "Currency": "EUR"
+      }
+    ],
+    "AlternatePackagings": null,
+    "ProductDetailUrl": "https://www.mouser.es/ProductDetail/Wurth-Elektronik/885342207014?qs=MLItCLRbWswSIDqVO%252BClhg%3D%3D",
+    "Reeling": true,
+    "ROHSStatus": "RoHS Compliant",
+    "SuggestedReplacement": "",
+    "MultiSimBlue": 0,
+    "UnitWeightKg": {
+      "UnitWeight": 6.168762004e-06
+    },
+    "AvailabilityInStock": "45785",
+    "AvailabilityOnOrder": [],
+    "InfoMessages": [],
+    "SurchargeMessages": null,
+    "ProductCompliance": [
+      {
+        "ComplianceName": "TARIC",
+        "ComplianceValue": "8532240000"
+      },
+      {
+        "ComplianceName": "CNHTS",
+        "ComplianceValue": "8532241000"
+      },
+      {
+        "ComplianceName": "CAHTS",
+        "ComplianceValue": "8532240010"
+      },
+      {
+        "ComplianceName": "USHTS",
+        "ComplianceValue": "8532240020"
+      },
+      {
+        "ComplianceName": "JPHTS",
+        "ComplianceValue": "853224000"
+      },
+      {
+        "ComplianceName": "KRHTS",
+        "ComplianceValue": "8532240000"
+      },
+      {
+        "ComplianceName": "MXHTS",
+        "ComplianceValue": "8532240400"
+      },
+      {
+        "ComplianceName": "BRHTS",
+        "ComplianceValue": "85322410"
+      },
+      {
+        "ComplianceName": "ECCN",
+        "ComplianceValue": "EAR99"
+      }
+    ]
+  },
+  "581-KAM21BR71H104JT": {
+    "Availability": "85835 En existencias",
+    "DataSheetUrl": "https://www.mouser.com/datasheet/2/40/AutoMLCCKAM-3216307.pdf",
+    "Description": "Condensadores de cerámica multicapa (MLCC- SMD/SMT) 50V .1uF X7R 0805 5% AEC-Q200",
+    "FactoryStock": "0",
+    "ImagePath": "https://www.mouser.com/images/kyoceraelectronicdevices/images/MLCC_SPL.jpg",
+    "Category": "Condensadores de cerámica multicapa (MLCC- SMD/SMT)",
+    "LeadTime": "84 Días",
+    "LifecycleStatus": "New at Mouser",
+    "Manufacturer": "KYOCERA AVX",
+    "ManufacturerPartNumber": "KAM21BR71H104JT",
+    "Min": "1",
+    "Mult": "1",
+    "MouserPartNumber": "581-KAM21BR71H104JT",
+    "ProductAttributes": [
+      {
+        "AttributeName": "Empaquetado",
+        "AttributeValue": "Reel"
+      },
+      {
+        "AttributeName": "Empaquetado",
+        "AttributeValue": "Cut Tape"
+      },
+      {
+        "AttributeName": "Empaquetado",
+        "AttributeValue": "MouseReel",
+        "AttributeCost": "La tarifa de 5,00 € de MouseReel™ se añadirá y calculará en el carro de compra. Los pedidos de MouseReel™ no se pueden cancelar ni devolver."
+      },
+      {
+        "AttributeName": "Cantidad estándar de paquetes",
+        "AttributeValue": "4000"
+      }
+    ],
+    "PriceBreaks": [
+      {
+        "Quantity": 1,
+        "Price": "0,19 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 10,
+        "Price": "0,121 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 100,
+        "Price": "0,063 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 500,
+        "Price": "0,049 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 1000,
+        "Price": "0,045 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 4000,
+        "Price": "0,04 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 8000,
+        "Price": "0,033 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 24000,
+        "Price": "0,031 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 48000,
+        "Price": "0,029 €",
+        "Currency": "EUR"
+      }
+    ],
+    "AlternatePackagings": null,
+    "ProductDetailUrl": "https://www.mouser.es/ProductDetail/KYOCERA-AVX/KAM21BR71H104JT?qs=Jm2GQyTW%2Fbic6Zk4McEt6w%3D%3D",
+    "Reeling": true,
+    "ROHSStatus": "RoHS Compliant",
+    "SuggestedReplacement": "",
+    "MultiSimBlue": 0,
+    "AvailabilityInStock": "85835",
+    "AvailabilityOnOrder": [],
+    "InfoMessages": [],
+    "SurchargeMessages": null,
+    "ProductCompliance": [
+      {
+        "ComplianceName": "TARIC",
+        "ComplianceValue": "8532240000"
+      },
+      {
+        "ComplianceName": "CNHTS",
+        "ComplianceValue": "8532241000"
+      },
+      {
+        "ComplianceName": "CAHTS",
+        "ComplianceValue": "8532240010"
+      },
+      {
+        "ComplianceName": "USHTS",
+        "ComplianceValue": "8532240020"
+      },
+      {
+        "ComplianceName": "JPHTS",
+        "ComplianceValue": "853224000"
+      },
+      {
+        "ComplianceName": "KRHTS",
+        "ComplianceValue": "8532240000"
+      },
+      {
+        "ComplianceName": "MXHTS",
+        "ComplianceValue": "8532240400"
+      },
+      {
+        "ComplianceName": "BRHTS",
+        "ComplianceValue": "85322410"
+      },
+      {
+        "ComplianceName": "ECCN",
+        "ComplianceValue": "EAR99"
+      }
+    ]
+  },
+  "581-KAF21BR72D102MT": {
+    "Availability": "10687 En existencias",
+    "DataSheetUrl": "https://www.mouser.com/datasheet/2/40/AutoMLCCKAF-3218225.pdf",
+    "Description": "Condensadores de cerámica multicapa (MLCC- SMD/SMT) 200V 1000pF X7R 0805 20% AEC-Q200 FLEXIT",
+    "FactoryStock": "0",
+    "ImagePath": "https://www.mouser.com/images/kyoceraelectronicdevices/images/920C153MT300T_SPL.JPG",
+    "Category": "Condensadores de cerámica multicapa (MLCC- SMD/SMT)",
+    "LeadTime": "84 Días",
+    "LifecycleStatus": "New at Mouser",
+    "Manufacturer": "KYOCERA AVX",
+    "ManufacturerPartNumber": "KAF21BR72D102MT",
+    "Min": "1",
+    "Mult": "1",
+    "MouserPartNumber": "581-KAF21BR72D102MT",
+    "ProductAttributes": [
+      {
+        "AttributeName": "Empaquetado",
+        "AttributeValue": "Reel"
+      },
+      {
+        "AttributeName": "Empaquetado",
+        "AttributeValue": "Cut Tape"
+      },
+      {
+        "AttributeName": "Empaquetado",
+        "AttributeValue": "MouseReel",
+        "AttributeCost": "La tarifa de 5,00 € de MouseReel™ se añadirá y calculará en el carro de compra. Los pedidos de MouseReel™ no se pueden cancelar ni devolver."
+      },
+      {
+        "AttributeName": "Cantidad estándar de paquetes",
+        "AttributeValue": "4000"
+      }
+    ],
+    "PriceBreaks": [
+      {
+        "Quantity": 1,
+        "Price": "0,114 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 10,
+        "Price": "0,068 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 100,
+        "Price": "0,042 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 500,
+        "Price": "0,032 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 1000,
+        "Price": "0,029 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 4000,
+        "Price": "0,026 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 8000,
+        "Price": "0,021 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 24000,
+        "Price": "0,02 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 48000,
+        "Price": "0,017 €",
+        "Currency": "EUR"
+      }
+    ],
+    "AlternatePackagings": null,
+    "ProductDetailUrl": "https://www.mouser.es/ProductDetail/KYOCERA-AVX/KAF21BR72D102MT?qs=Jm2GQyTW%2FbgFCZtmUA44EQ%3D%3D",
+    "Reeling": true,
+    "ROHSStatus": "RoHS Compliant",
+    "SuggestedReplacement": "",
+    "MultiSimBlue": 0,
+    "AvailabilityInStock": "10687",
+    "AvailabilityOnOrder": [],
+    "InfoMessages": [],
+    "SurchargeMessages": null,
+    "ProductCompliance": [
+      {
+        "ComplianceName": "TARIC",
+        "ComplianceValue": "8532240000"
+      },
+      {
+        "ComplianceName": "CNHTS",
+        "ComplianceValue": "8532241000"
+      },
+      {
+        "ComplianceName": "CAHTS",
+        "ComplianceValue": "8532240010"
+      },
+      {
+        "ComplianceName": "USHTS",
+        "ComplianceValue": "8532240020"
+      },
+      {
+        "ComplianceName": "JPHTS",
+        "ComplianceValue": "853224000"
+      },
+      {
+        "ComplianceName": "KRHTS",
+        "ComplianceValue": "8532240000"
+      },
+      {
+        "ComplianceName": "MXHTS",
+        "ComplianceValue": "8532240400"
+      },
+      {
+        "ComplianceName": "BRHTS",
+        "ComplianceValue": "85322410"
+      },
+      {
+        "ComplianceName": "ECCN",
+        "ComplianceValue": "EAR99"
+      }
+    ]
+  },
+  "791-0805N100J160CT": {
+    "Availability": "15170 En existencias",
+    "DataSheetUrl": "https://www.mouser.com/datasheet/2/210/WTC_MLCC_General_Purpose-1534899.pdf",
+    "Description": "Condensadores de cerámica multicapa (MLCC- SMD/SMT) 10pF, +-5%, 16V",
+    "FactoryStock": "0",
+    "ImagePath": "https://www.mouser.com/images/kamaya/images/MLCC.jpg",
+    "Category": "Condensadores de cerámica multicapa (MLCC- SMD/SMT)",
+    "LeadTime": "140 Días",
+    "LifecycleStatus": null,
+    "Manufacturer": "Walsin",
+    "ManufacturerPartNumber": "0805N100J160CT",
+    "Min": "1",
+    "Mult": "1",
+    "MouserPartNumber": "791-0805N100J160CT",
+    "ProductAttributes": [
+      {
+        "AttributeName": "Empaquetado",
+        "AttributeValue": "Reel"
+      },
+      {
+        "AttributeName": "Empaquetado",
+        "AttributeValue": "Cut Tape"
+      },
+      {
+        "AttributeName": "Empaquetado",
+        "AttributeValue": "MouseReel",
+        "AttributeCost": "La tarifa de 5,00 € de MouseReel™ se añadirá y calculará en el carro de compra. Los pedidos de MouseReel™ no se pueden cancelar ni devolver."
+      },
+      {
+        "AttributeName": "Cantidad estándar de paquetes",
+        "AttributeValue": "4000"
+      }
+    ],
+    "PriceBreaks": [
+      {
+        "Quantity": 1,
+        "Price": "0,108 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 10,
+        "Price": "0,028 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 100,
+        "Price": "0,017 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 500,
+        "Price": "0,013 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 1000,
+        "Price": "0,012 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 4000,
+        "Price": "0,011 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 24000,
+        "Price": "0,008 €",
+        "Currency": "EUR"
+      }
+    ],
+    "AlternatePackagings": null,
+    "ProductDetailUrl": "https://www.mouser.es/ProductDetail/Walsin/0805N100J160CT?qs=ZrPdAQfJ6DOsmqlvOF0iWg%3D%3D",
+    "Reeling": true,
+    "ROHSStatus": "RoHS Compliant",
+    "SuggestedReplacement": "",
+    "MultiSimBlue": 0,
+    "UnitWeightKg": {
+      "UnitWeight": 6.168762004e-06
+    },
+    "AvailabilityInStock": "15170",
+    "AvailabilityOnOrder": [],
+    "InfoMessages": [],
+    "SurchargeMessages": null,
+    "ProductCompliance": [
+      {
+        "ComplianceName": "TARIC",
+        "ComplianceValue": "8532240000"
+      },
+      {
+        "ComplianceName": "CNHTS",
+        "ComplianceValue": "8532241000"
+      },
+      {
+        "ComplianceName": "USHTS",
+        "ComplianceValue": "8532240020"
+      },
+      {
+        "ComplianceName": "JPHTS",
+        "ComplianceValue": "853224000"
+      },
+      {
+        "ComplianceName": "BRHTS",
+        "ComplianceValue": "85322410"
+      },
+      {
+        "ComplianceName": "ECCN",
+        "ComplianceValue": "EAR99"
+      }
+    ]
+  },
+  "581-REF0511101M016K": {
+    "Availability": "5482 En existencias",
+    "DataSheetUrl": "https://www.mouser.com/datasheet/2/40/ref_series-3196366.pdf",
+    "Description": "Condensadores electrolíticos de aluminio (con terminales radiales) ALUMINUM RADIAL",
+    "FactoryStock": "0",
+    "ImagePath": "https://www.mouser.com/images/kyoceraelectronicdevices/images/REF-series_SPL.jpg",
+    "Category": "Condensadores electrolíticos de aluminio (con terminales radiales)",
+    "LeadTime": "168 Días",
+    "LifecycleStatus": "New Product",
+    "Manufacturer": "KYOCERA AVX",
+    "ManufacturerPartNumber": "REF0511101M016K",
+    "Min": "1",
+    "Mult": "1",
+    "MouserPartNumber": "581-REF0511101M016K",
+    "ProductAttributes": [
+      {
+        "AttributeName": "Empaquetado",
+        "AttributeValue": "Ammo Pack"
+      },
+      {
+        "AttributeName": "Cantidad estándar de paquetes",
+        "AttributeValue": "2000"
+      }
+    ],
+    "PriceBreaks": [
+      {
+        "Quantity": 1,
+        "Price": "0,171 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 10,
+        "Price": "0,071 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 100,
+        "Price": "0,064 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 500,
+        "Price": "0,049 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 1000,
+        "Price": "0,046 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 2000,
+        "Price": "0,045 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 10000,
+        "Price": "0,04 €",
+        "Currency": "EUR"
+      }
+    ],
+    "AlternatePackagings": null,
+    "ProductDetailUrl": "https://www.mouser.es/ProductDetail/KYOCERA-AVX/REF0511101M016K?qs=Y0Uzf4wQF3mg3ZZ4K5SIrA%3D%3D",
+    "Reeling": false,
+    "ROHSStatus": "RoHS Compliant",
+    "SuggestedReplacement": "",
+    "MultiSimBlue": 0,
+    "AvailabilityInStock": "5482",
+    "AvailabilityOnOrder": [],
+    "InfoMessages": [],
+    "SurchargeMessages": null,
+    "ProductCompliance": [
+      {
+        "ComplianceName": "TARIC",
+        "ComplianceValue": "8532220000"
+      },
+      {
+        "ComplianceName": "CNHTS",
+        "ComplianceValue": "8532229000"
+      },
+      {
+        "ComplianceName": "CAHTS",
+        "ComplianceValue": "8532220000"
+      },
+      {
+        "ComplianceName": "USHTS",
+        "ComplianceValue": "8532220020"
+      },
+      {
+        "ComplianceName": "JPHTS",
+        "ComplianceValue": "853222000"
+      },
+      {
+        "ComplianceName": "KRHTS",
+        "ComplianceValue": "8532220000"
+      },
+      {
+        "ComplianceName": "BRHTS",
+        "ComplianceValue": "85322200"
+      },
+      {
+        "ComplianceName": "ECCN",
+        "ComplianceValue": "EAR99"
+      }
+    ]
+  },
+  "80-ESK106M016AC3AA": {
+    "Availability": "24718 En existencias",
+    "DataSheetUrl": "https://www.mouser.com/datasheet/2/447/KEM_A4004_ESK-3316395.pdf",
+    "Description": "Condensadores electrolíticos de aluminio (con terminales radiales) 16V 10uF 85C 2k Hour Radial",
+    "FactoryStock": "0",
+    "ImagePath": "https://www.mouser.com/images/kemet/images/ESK_series_SPL.jpg",
+    "Category": "Condensadores electrolíticos de aluminio (con terminales radiales)",
+    "LeadTime": "182 Días",
+    "LifecycleStatus": null,
+    "Manufacturer": "KEMET",
+    "ManufacturerPartNumber": "ESK106M016AC3AA",
+    "Min": "1",
+    "Mult": "1",
+    "MouserPartNumber": "80-ESK106M016AC3AA",
+    "ProductAttributes": [
+      {
+        "AttributeName": "Empaquetado",
+        "AttributeValue": "Bulk"
+      },
+      {
+        "AttributeName": "Cantidad estándar de paquetes",
+        "AttributeValue": "500"
+      }
+    ],
+    "PriceBreaks": [
+      {
+        "Quantity": 1,
+        "Price": "0,152 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 10,
+        "Price": "0,071 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 100,
+        "Price": "0,064 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 500,
+        "Price": "0,048 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 1000,
+        "Price": "0,045 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 2500,
+        "Price": "0,036 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 10000,
+        "Price": "0,034 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 25000,
+        "Price": "0,033 €",
+        "Currency": "EUR"
+      }
+    ],
+    "AlternatePackagings": null,
+    "ProductDetailUrl": "https://www.mouser.es/ProductDetail/KEMET/ESK106M016AC3AA?qs=9RUIYXQlAdC29LQ7bMETVg%3D%3D",
+    "Reeling": false,
+    "ROHSStatus": "RoHS Compliant",
+    "SuggestedReplacement": "",
+    "MultiSimBlue": 0,
+    "UnitWeightKg": {
+      "UnitWeight": 0.00042
+    },
+    "AvailabilityInStock": "24718",
+    "AvailabilityOnOrder": [],
+    "InfoMessages": [],
+    "SurchargeMessages": null,
+    "ProductCompliance": [
+      {
+        "ComplianceName": "TARIC",
+        "ComplianceValue": "8532220000"
+      },
+      {
+        "ComplianceName": "CNHTS",
+        "ComplianceValue": "8532229000"
+      },
+      {
+        "ComplianceName": "CAHTS",
+        "ComplianceValue": "8532220000"
+      },
+      {
+        "ComplianceName": "USHTS",
+        "ComplianceValue": "8532220020"
+      },
+      {
+        "ComplianceName": "JPHTS",
+        "ComplianceValue": "853222000"
+      },
+      {
+        "ComplianceName": "KRHTS",
+        "ComplianceValue": "8532220000"
+      },
+      {
+        "ComplianceName": "BRHTS",
+        "ComplianceValue": "85322200"
+      },
+      {
+        "ComplianceName": "ECCN",
+        "ComplianceValue": "EAR99"
+      }
+    ]
+  },
+  "80-ESK226M016AC3AA": {
+    "Availability": "3724 En existencias",
+    "DataSheetUrl": "https://www.mouser.com/datasheet/2/447/KEM_A4004_ESK-3316395.pdf",
+    "Description": "Condensadores electrolíticos de aluminio (con terminales radiales) 16V 22uF 85C 2k Hour Radial",
+    "FactoryStock": "0",
+    "ImagePath": "https://www.mouser.com/images/kemet/images/ESK_series_SPL.jpg",
+    "Category": "Condensadores electrolíticos de aluminio (con terminales radiales)",
+    "LeadTime": "182 Días",
+    "LifecycleStatus": null,
+    "Manufacturer": "KEMET",
+    "ManufacturerPartNumber": "ESK226M016AC3AA",
+    "Min": "1",
+    "Mult": "1",
+    "MouserPartNumber": "80-ESK226M016AC3AA",
+    "ProductAttributes": [
+      {
+        "AttributeName": "Empaquetado",
+        "AttributeValue": "Bulk"
+      },
+      {
+        "AttributeName": "Cantidad estándar de paquetes",
+        "AttributeValue": "20000"
+      }
+    ],
+    "PriceBreaks": [
+      {
+        "Quantity": 1,
+        "Price": "0,143 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 10,
+        "Price": "0,066 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 100,
+        "Price": "0,051 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 500,
+        "Price": "0,041 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 1000,
+        "Price": "0,037 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 2500,
+        "Price": "0,032 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 10000,
+        "Price": "0,031 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 20000,
+        "Price": "0,029 €",
+        "Currency": "EUR"
+      }
+    ],
+    "AlternatePackagings": null,
+    "ProductDetailUrl": "https://www.mouser.es/ProductDetail/KEMET/ESK226M016AC3AA?qs=9RUIYXQlAdDZoD1yRG9SaQ%3D%3D",
+    "Reeling": false,
+    "ROHSStatus": "RoHS Compliant",
+    "SuggestedReplacement": "",
+    "MultiSimBlue": 0,
+    "AvailabilityInStock": "3724",
+    "AvailabilityOnOrder": [],
+    "InfoMessages": [],
+    "SurchargeMessages": null,
+    "ProductCompliance": [
+      {
+        "ComplianceName": "TARIC",
+        "ComplianceValue": "8532220000"
+      },
+      {
+        "ComplianceName": "CNHTS",
+        "ComplianceValue": "8532229000"
+      },
+      {
+        "ComplianceName": "CAHTS",
+        "ComplianceValue": "8532220000"
+      },
+      {
+        "ComplianceName": "USHTS",
+        "ComplianceValue": "8532220020"
+      },
+      {
+        "ComplianceName": "JPHTS",
+        "ComplianceValue": "853222000"
+      },
+      {
+        "ComplianceName": "KRHTS",
+        "ComplianceValue": "8532220000"
+      },
+      {
+        "ComplianceName": "BRHTS",
+        "ComplianceValue": "85322200"
+      },
+      {
+        "ComplianceName": "ECCN",
+        "ComplianceValue": "EAR99"
+      }
+    ]
+  },
+  "696-SML-LXT0805GW": {
+    "Availability": "68315 En existencias",
+    "DataSheetUrl": "https://www.mouser.com/datasheet/2/244/LUMX_S_A0011391738_1-2551992.pdf",
+    "Description": "LED de un solo color 0805 Thin PCB Green",
+    "FactoryStock": "0",
+    "ImagePath": "https://www.mouser.com/images/lumex/images/143.jpg",
+    "Category": "LED de un solo color",
+    "LeadTime": "16 Días",
+    "LifecycleStatus": null,
+    "Manufacturer": "Lumex",
+    "ManufacturerPartNumber": "SML-LXT0805GW-TR",
+    "Min": "1",
+    "Mult": "1",
+    "MouserPartNumber": "696-SML-LXT0805GW",
+    "ProductAttributes": [
+      {
+        "AttributeName": "Empaquetado",
+        "AttributeValue": "Reel"
+      },
+      {
+        "AttributeName": "Empaquetado",
+        "AttributeValue": "Cut Tape"
+      },
+      {
+        "AttributeName": "Empaquetado",
+        "AttributeValue": "MouseReel",
+        "AttributeCost": "La tarifa de 5,00 € de MouseReel™ se añadirá y calculará en el carro de compra. Los pedidos de MouseReel™ no se pueden cancelar ni devolver."
+      },
+      {
+        "AttributeName": "Cantidad estándar de paquetes",
+        "AttributeValue": "4000"
+      }
+    ],
+    "PriceBreaks": [
+      {
+        "Quantity": 1,
+        "Price": "0,219 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 10,
+        "Price": "0,132 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 100,
+        "Price": "0,084 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 1000,
+        "Price": "0,07 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 4000,
+        "Price": "0,064 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 8000,
+        "Price": "0,061 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 24000,
+        "Price": "0,055 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 100000,
+        "Price": "0,054 €",
+        "Currency": "EUR"
+      }
+    ],
+    "AlternatePackagings": null,
+    "ProductDetailUrl": "https://www.mouser.es/ProductDetail/Lumex/SML-LXT0805GW-TR?qs=9HInCHf8eFiVOx4SP694cA%3D%3D",
+    "Reeling": true,
+    "ROHSStatus": "RoHS Compliant",
+    "SuggestedReplacement": "",
+    "MultiSimBlue": 0,
+    "UnitWeightKg": {
+      "UnitWeight": 4.000000001e-05
+    },
+    "AvailabilityInStock": "68315",
+    "AvailabilityOnOrder": [],
+    "InfoMessages": [],
+    "SurchargeMessages": null,
+    "ProductCompliance": [
+      {
+        "ComplianceName": "TARIC",
+        "ComplianceValue": "8541401000"
+      },
+      {
+        "ComplianceName": "CNHTS",
+        "ComplianceValue": "8541410090"
+      },
+      {
+        "ComplianceName": "CAHTS",
+        "ComplianceValue": "8541410000"
+      },
+      {
+        "ComplianceName": "USHTS",
+        "ComplianceValue": "8541410000"
+      },
+      {
+        "ComplianceName": "JPHTS",
+        "ComplianceValue": "8541400103"
+      },
+      {
+        "ComplianceName": "MXHTS",
+        "ComplianceValue": "8541410100"
+      },
+      {
+        "ComplianceName": "BRHTS",
+        "ComplianceValue": "85414011"
+      },
+      {
+        "ComplianceName": "ECCN",
+        "ComplianceValue": "EAR99"
+      }
+    ]
+  },
+  "696-SML-F0805SICTR": {
+    "Availability": "14268 En existencias",
+    "DataSheetUrl": "https://www.mouser.com/datasheet/2/244/LUMX_S_A0001355818_1-2551705.pdf",
+    "Description": "LED de un solo color Surface Mount LEDs",
+    "FactoryStock": "0",
+    "ImagePath": "https://www.mouser.com/images/lumex/images/142.jpg",
+    "Category": "LED de un solo color",
+    "LeadTime": "36 Días",
+    "LifecycleStatus": null,
+    "Manufacturer": "Lumex",
+    "ManufacturerPartNumber": "SML-LXF0805SIC-TR",
+    "Min": "1",
+    "Mult": "1",
+    "MouserPartNumber": "696-SML-F0805SICTR",
+    "ProductAttributes": [
+      {
+        "AttributeName": "Empaquetado",
+        "AttributeValue": "Reel"
+      },
+      {
+        "AttributeName": "Empaquetado",
+        "AttributeValue": "Cut Tape"
+      },
+      {
+        "AttributeName": "Empaquetado",
+        "AttributeValue": "MouseReel",
+        "AttributeCost": "La tarifa de 5,00 € de MouseReel™ se añadirá y calculará en el carro de compra. Los pedidos de MouseReel™ no se pueden cancelar ni devolver."
+      },
+      {
+        "AttributeName": "Cantidad estándar de paquetes",
+        "AttributeValue": "2000"
+      }
+    ],
+    "PriceBreaks": [
+      {
+        "Quantity": 1,
+        "Price": "0,19 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 10,
+        "Price": "0,185 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 1000,
+        "Price": "0,177 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 2000,
+        "Price": "0,15 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 10000,
+        "Price": "0,137 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 24000,
+        "Price": "0,136 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 50000,
+        "Price": "0,135 €",
+        "Currency": "EUR"
+      }
+    ],
+    "AlternatePackagings": null,
+    "ProductDetailUrl": "https://www.mouser.es/ProductDetail/Lumex/SML-LXF0805SIC-TR?qs=vDh0yrr14SCrNJL1F64pbA%3D%3D",
+    "Reeling": true,
+    "ROHSStatus": "RoHS Compliant",
+    "SuggestedReplacement": "",
+    "MultiSimBlue": 0,
+    "UnitWeightKg": {
+      "UnitWeight": 0.003719308
+    },
+    "AvailabilityInStock": "14268",
+    "AvailabilityOnOrder": [],
+    "InfoMessages": [],
+    "SurchargeMessages": null,
+    "ProductCompliance": [
+      {
+        "ComplianceName": "TARIC",
+        "ComplianceValue": "8541401000"
+      },
+      {
+        "ComplianceName": "CNHTS",
+        "ComplianceValue": "8541410090"
+      },
+      {
+        "ComplianceName": "CAHTS",
+        "ComplianceValue": "8541410000"
+      },
+      {
+        "ComplianceName": "USHTS",
+        "ComplianceValue": "8541410000"
+      },
+      {
+        "ComplianceName": "JPHTS",
+        "ComplianceValue": "8541400103"
+      },
+      {
+        "ComplianceName": "MXHTS",
+        "ComplianceValue": "8541410100"
+      },
+      {
+        "ComplianceName": "BRHTS",
+        "ComplianceValue": "85414011"
+      },
+      {
+        "ComplianceName": "ECCN",
+        "ComplianceValue": "EAR99"
+      }
+    ]
+  },
+  "594-RCA08050000ZSEC": {
+    "Availability": "14527 En existencias",
+    "DataSheetUrl": "",
+    "Description": "Resistores de pel&iacute;cula gruesa - SMD RCA0805 0R0 ET6 E3",
+    "FactoryStock": "0",
+    "ImagePath": "https://www.mouser.com/images/vishay/images/RCA_SPL.JPG",
+    "Category": "Resistores de pel&iacute;cula gruesa - SMD",
+    "LeadTime": "84 Días",
+    "LifecycleStatus": "New at Mouser",
+    "Manufacturer": "Vishay / Draloric",
+    "ManufacturerPartNumber": "RCA08050000ZSEC",
+    "Min": "1",
+    "Mult": "1",
+    "MouserPartNumber": "594-RCA08050000ZSEC",
+    "ProductAttributes": [
+      {
+        "AttributeName": "Cantidad estándar de paquetes",
+        "AttributeValue": "20000"
+      }
+    ],
+    "PriceBreaks": [
+      {
+        "Quantity": 1,
+        "Price": "0,105 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 10,
+        "Price": "0,039 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 100,
+        "Price": "0,024 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 500,
+        "Price": "0,017 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 2500,
+        "Price": "0,012 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 10000,
+        "Price": "0,011 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 20000,
+        "Price": "0,01 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 60000,
+        "Price": "0,009 €",
+        "Currency": "EUR"
+      }
+    ],
+    "AlternatePackagings": null,
+    "ProductDetailUrl": "https://www.mouser.es/ProductDetail/Vishay-Draloric/RCA08050000ZSEC?qs=u16ybLDytRYYGnHWcGT4XQ%3D%3D",
+    "Reeling": false,
+    "ROHSStatus": "",
+    "SuggestedReplacement": "",
+    "MultiSimBlue": 0,
+    "UnitWeightKg": {
+      "UnitWeight": 2.7e-05
+    },
+    "AvailabilityInStock": "14527",
+    "AvailabilityOnOrder": [],
+    "InfoMessages": [],
+    "SurchargeMessages": null,
+    "ProductCompliance": [
+      {
+        "ComplianceName": "TARIC",
+        "ComplianceValue": "8533210000"
+      },
+      {
+        "ComplianceName": "CAHTS",
+        "ComplianceValue": "8533210000"
+      },
+      {
+        "ComplianceName": "USHTS",
+        "ComplianceValue": "8533210030"
+      },
+      {
+        "ComplianceName": "JPHTS",
+        "ComplianceValue": "853321000"
+      },
+      {
+        "ComplianceName": "KRHTS",
+        "ComplianceValue": "8533219000"
+      },
+      {
+        "ComplianceName": "MXHTS",
+        "ComplianceValue": "8533210100"
+      },
+      {
+        "ComplianceName": "BRHTS",
+        "ComplianceValue": "85332120"
+      },
+      {
+        "ComplianceName": "ECCN",
+        "ComplianceValue": "EAR99"
+      }
+    ]
+  },
+  "579-MCP6022T-I/SN": {
+    "Availability": "4959 En existencias",
+    "DataSheetUrl": "https://www.mouser.com/datasheet/2/268/MCP6021_Data_Sheet_DS20001685-3443102.pdf",
+    "Description": "Amplificadores operacionales - Op Amps Dual 2.5V 10MHz",
+    "FactoryStock": "0",
+    "ImagePath": "https://www.mouser.com/images/mouserelectronics/images/ITP_SOIC_8_new_t.jpg",
+    "Category": "Amplificadores operacionales - Op Amps",
+    "LeadTime": "28 Días",
+    "LifecycleStatus": null,
+    "Manufacturer": "Microchip Technology",
+    "ManufacturerPartNumber": "MCP6022T-I/SN",
+    "Min": "1",
+    "Mult": "1",
+    "MouserPartNumber": "579-MCP6022T-I/SN",
+    "ProductAttributes": [
+      {
+        "AttributeName": "Empaquetado",
+        "AttributeValue": "Reel"
+      },
+      {
+        "AttributeName": "Empaquetado",
+        "AttributeValue": "Cut Tape"
+      },
+      {
+        "AttributeName": "Empaquetado",
+        "AttributeValue": "MouseReel",
+        "AttributeCost": "La tarifa de 5,00 € de MouseReel™ se añadirá y calculará en el carro de compra. Los pedidos de MouseReel™ no se pueden cancelar ni devolver."
+      },
+      {
+        "AttributeName": "Cantidad estándar de paquetes",
+        "AttributeValue": "3300"
+      }
+    ],
+    "PriceBreaks": [
+      {
+        "Quantity": 1,
+        "Price": "1,71 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 25,
+        "Price": "1,41 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 100,
+        "Price": "1,28 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 3300,
+        "Price": "1,28 €",
+        "Currency": "EUR"
+      }
+    ],
+    "AlternatePackagings": [
+      {
+        "APMfrPN": "MCP6022-I/SN"
+      }
+    ],
+    "ProductDetailUrl": "https://www.mouser.es/ProductDetail/Microchip-Technology/MCP6022T-I-SN?qs=Q%2Fw7XRh99imGIo%252Be2SFlQQ%3D%3D",
+    "Reeling": true,
+    "ROHSStatus": "RoHS Compliant",
+    "SuggestedReplacement": "579-MCP6022-I/SN",
+    "MultiSimBlue": 0,
+    "UnitWeightKg": {
+      "UnitWeight": 0.00054
+    },
+    "AvailabilityInStock": "4959",
+    "AvailabilityOnOrder": [],
+    "InfoMessages": [],
+    "SurchargeMessages": null,
+    "ProductCompliance": [
+      {
+        "ComplianceName": "CNHTS",
+        "ComplianceValue": "8542339000"
+      },
+      {
+        "ComplianceName": "CAHTS",
+        "ComplianceValue": "8542330000"
+      },
+      {
+        "ComplianceName": "USHTS",
+        "ComplianceValue": "8542330001"
+      },
+      {
+        "ComplianceName": "JPHTS",
+        "ComplianceValue": "8542330996"
+      },
+      {
+        "ComplianceName": "KRHTS",
+        "ComplianceValue": "8532331000"
+      },
+      {
+        "ComplianceName": "ECCN",
+        "ComplianceValue": "EAR99"
+      }
+    ]
+  },
+  "71-CRCW08053K90FHTAP": {
+    "Availability": "Ninguno",
+    "DataSheetUrl": "",
+    "Description": "Resistores de pel&iacute;cula gruesa - SMD CRCW0805-P 3.9K 1% 50 RT1",
+    "FactoryStock": "0",
+    "ImagePath": "https://www.mouser.com/images/vishay/images/CRCW0402100KFHTDP_SPL.jpg",
+    "Category": "Resistores de pel&iacute;cula gruesa - SMD",
+    "LeadTime": "84 Días",
+    "LifecycleStatus": "New at Mouser",
+    "Manufacturer": "Vishay / Dale",
+    "ManufacturerPartNumber": "CRCW08053K90FHTAP",
+    "Min": "1",
+    "Mult": "1",
+    "MouserPartNumber": "71-CRCW08053K90FHTAP",
+    "ProductAttributes": [
+      {
+        "AttributeName": "Cantidad estándar de paquetes",
+        "AttributeValue": "5000"
+      }
+    ],
+    "PriceBreaks": [
+      {
+        "Quantity": 1,
+        "Price": "0,276 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 10,
+        "Price": "0,139 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 100,
+        "Price": "0,081 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 500,
+        "Price": "0,059 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 1000,
+        "Price": "0,052 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 5000,
+        "Price": "0,045 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 10000,
+        "Price": "0,044 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 25000,
+        "Price": "0,041 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 50000,
+        "Price": "0,04 €",
+        "Currency": "EUR"
+      }
+    ],
+    "AlternatePackagings": null,
+    "ProductDetailUrl": "https://www.mouser.es/ProductDetail/Vishay-Dale/CRCW08053K90FHTAP?qs=Zz7%252BYVVL6bH%252BbAN5zIsieQ%3D%3D",
+    "Reeling": false,
+    "ROHSStatus": "",
+    "SuggestedReplacement": "",
+    "MultiSimBlue": 0,
+    "AvailabilityInStock": "0",
+    "AvailabilityOnOrder": [],
+    "InfoMessages": [],
+    "SurchargeMessages": null,
+    "ProductCompliance": [
+      {
+        "ComplianceName": "TARIC",
+        "ComplianceValue": "8533210000"
+      },
+      {
+        "ComplianceName": "CAHTS",
+        "ComplianceValue": "8533210000"
+      },
+      {
+        "ComplianceName": "USHTS",
+        "ComplianceValue": "8533210030"
+      },
+      {
+        "ComplianceName": "JPHTS",
+        "ComplianceValue": "853321000"
+      },
+      {
+        "ComplianceName": "KRHTS",
+        "ComplianceValue": "8533219000"
+      },
+      {
+        "ComplianceName": "MXHTS",
+        "ComplianceValue": "8533210100"
+      },
+      {
+        "ComplianceName": "BRHTS",
+        "ComplianceValue": "85332120"
+      }
+    ]
+  },
+  "594-MCU0805MD2709DP5": {
+    "Availability": "Ninguno",
+    "DataSheetUrl": "",
+    "Description": "Resistores de pel&iacute;cula fina - SMD MCU 0805-25 0.5% AT P5 27R",
+    "FactoryStock": "0",
+    "ImagePath": "https://www.mouser.com/images/vishay/images/MCU-series_SPL.JPG",
+    "Category": "Resistores de pel&iacute;cula fina - SMD",
+    "LeadTime": "0 Días",
+    "LifecycleStatus": "New at Mouser",
+    "Manufacturer": "Vishay / Beyschlag",
+    "ManufacturerPartNumber": "MCU0805MD2709DP500",
+    "Min": "1",
+    "Mult": "1",
+    "MouserPartNumber": "594-MCU0805MD2709DP5",
+    "ProductAttributes": [
+      {
+        "AttributeName": "Cantidad estándar de paquetes",
+        "AttributeValue": "5000"
+      }
+    ],
+    "PriceBreaks": [
+      {
+        "Quantity": 1,
+        "Price": "0,285 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 10,
+        "Price": "0,208 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 50,
+        "Price": "0,156 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 100,
+        "Price": "0,145 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 500,
+        "Price": "0,11 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 1000,
+        "Price": "0,094 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 5000,
+        "Price": "0,085 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 10000,
+        "Price": "0,077 €",
+        "Currency": "EUR"
+      }
+    ],
+    "AlternatePackagings": null,
+    "ProductDetailUrl": "https://www.mouser.es/ProductDetail/Vishay-Beyschlag/MCU0805MD2709DP500?qs=Imq1NPwxi74UPS2ZzHFdYg%3D%3D",
+    "Reeling": false,
+    "ROHSStatus": "",
+    "SuggestedReplacement": "",
+    "MultiSimBlue": 0,
+    "AvailabilityInStock": "0",
+    "AvailabilityOnOrder": [],
+    "InfoMessages": [],
+    "SurchargeMessages": null,
+    "ProductCompliance": [
+      {
+        "ComplianceName": "TARIC",
+        "ComplianceValue": "8533210000"
+      },
+      {
+        "ComplianceName": "CAHTS",
+        "ComplianceValue": "8533210000"
+      },
+      {
+        "ComplianceName": "USHTS",
+        "ComplianceValue": "8533210030"
+      },
+      {
+        "ComplianceName": "JPHTS",
+        "ComplianceValue": "853321000"
+      },
+      {
+        "ComplianceName": "KRHTS",
+        "ComplianceValue": "8533219000"
+      },
+      {
+        "ComplianceName": "MXHTS",
+        "ComplianceValue": "8533210100"
+      },
+      {
+        "ComplianceName": "BRHTS",
+        "ComplianceValue": "85332120"
+      },
+      {
+        "ComplianceName": "ECCN",
+        "ComplianceValue": "EAR99"
+      }
+    ]
+  },
+  "78-1N4148WS-HE3-18": {
+    "Availability": "679592 En existencias",
+    "DataSheetUrl": "",
+    "Description": "Diodos de conmutación de señal pequeña 100 Volt 350mA 4ns",
+    "FactoryStock": "0",
+    "ImagePath": "https://www.mouser.com/images/vishay/images/sod323.jpg",
+    "Category": "Diodos de conmutación de señal pequeña",
+    "LeadTime": "77 Días",
+    "LifecycleStatus": null,
+    "Manufacturer": "Vishay Semiconductors",
+    "ManufacturerPartNumber": "1N4148WS-HE3-18",
+    "Min": "1",
+    "Mult": "1",
+    "MouserPartNumber": "78-1N4148WS-HE3-18",
+    "ProductAttributes": [
+      {
+        "AttributeName": "Empaquetado",
+        "AttributeValue": "Reel"
+      },
+      {
+        "AttributeName": "Empaquetado",
+        "AttributeValue": "Cut Tape"
+      },
+      {
+        "AttributeName": "Empaquetado",
+        "AttributeValue": "MouseReel",
+        "AttributeCost": "La tarifa de 5,00 € de MouseReel™ se añadirá y calculará en el carro de compra. Los pedidos de MouseReel™ no se pueden cancelar ni devolver."
+      },
+      {
+        "AttributeName": "Cantidad estándar de paquetes",
+        "AttributeValue": "10000"
+      }
+    ],
+    "PriceBreaks": [
+      {
+        "Quantity": 1,
+        "Price": "0,133 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 10,
+        "Price": "0,09 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 100,
+        "Price": "0,067 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 500,
+        "Price": "0,045 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 1000,
+        "Price": "0,034 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 2500,
+        "Price": "0,032 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 5000,
+        "Price": "0,029 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 10000,
+        "Price": "0,022 €",
+        "Currency": "EUR"
+      }
+    ],
+    "AlternatePackagings": [
+      {
+        "APMfrPN": "1N4148WS-HE3-08"
+      }
+    ],
+    "ProductDetailUrl": "https://www.mouser.es/ProductDetail/Vishay-Semiconductors/1N4148WS-HE3-18?qs=uS%252BVSIFnvp7OP3eoZuRJLQ%3D%3D",
+    "Reeling": true,
+    "ROHSStatus": "RoHS Compliant",
+    "SuggestedReplacement": "",
+    "MultiSimBlue": 0,
+    "UnitWeightKg": {
+      "UnitWeight": 4.30000001e-06
+    },
+    "AvailabilityInStock": "679592",
+    "AvailabilityOnOrder": [],
+    "InfoMessages": [],
+    "SurchargeMessages": null,
+    "ProductCompliance": [
+      {
+        "ComplianceName": "TARIC",
+        "ComplianceValue": "8541100000"
+      },
+      {
+        "ComplianceName": "CNHTS",
+        "ComplianceValue": "8541100000"
+      },
+      {
+        "ComplianceName": "CAHTS",
+        "ComplianceValue": "8541100090"
+      },
+      {
+        "ComplianceName": "USHTS",
+        "ComplianceValue": "8541100070"
+      },
+      {
+        "ComplianceName": "JPHTS",
+        "ComplianceValue": "854110090"
+      },
+      {
+        "ComplianceName": "KRHTS",
+        "ComplianceValue": "8541109000"
+      },
+      {
+        "ComplianceName": "MXHTS",
+        "ComplianceValue": "8541100101"
+      },
+      {
+        "ComplianceName": "ECCN",
+        "ComplianceValue": "EAR99"
+      }
+    ]
+  },
+  "581-08056D475M": {
+    "Availability": "24012 En existencias",
+    "DataSheetUrl": "https://www.mouser.com/datasheet/2/40/cx5r_KGM-3223198.pdf",
+    "Description": "Condensadores de cerámica multicapa (MLCC- SMD/SMT) KGM21AR50J475MU NEW GLOBAL PN 6.3V 4.7uF A 581-KGM21AR50J475MU",
+    "FactoryStock": "0",
+    "ImagePath": "https://www.mouser.com/images/avx/images/MLCC_SPL.jpg",
+    "Category": "Condensadores de cerámica multicapa (MLCC- SMD/SMT)",
+    "LeadTime": "84 Días",
+    "LifecycleStatus": null,
+    "Manufacturer": "KYOCERA AVX",
+    "ManufacturerPartNumber": "08056D475MAT2A",
+    "Min": "1",
+    "Mult": "1",
+    "MouserPartNumber": "581-08056D475M",
+    "ProductAttributes": [
+      {
+        "AttributeName": "Empaquetado",
+        "AttributeValue": "Reel"
+      },
+      {
+        "AttributeName": "Empaquetado",
+        "AttributeValue": "Cut Tape"
+      },
+      {
+        "AttributeName": "Empaquetado",
+        "AttributeValue": "MouseReel",
+        "AttributeCost": "La tarifa de 5,00 € de MouseReel™ se añadirá y calculará en el carro de compra. Los pedidos de MouseReel™ no se pueden cancelar ni devolver."
+      },
+      {
+        "AttributeName": "Cantidad estándar de paquetes",
+        "AttributeValue": "3000"
+      }
+    ],
+    "PriceBreaks": [
+      {
+        "Quantity": 1,
+        "Price": "0,456 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 10,
+        "Price": "0,278 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 100,
+        "Price": "0,186 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 500,
+        "Price": "0,164 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 1000,
+        "Price": "0,139 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 3000,
+        "Price": "0,109 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 9000,
+        "Price": "0,101 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 45000,
+        "Price": "0,094 €",
+        "Currency": "EUR"
+      }
+    ],
+    "AlternatePackagings": [
+      {
+        "APMfrPN": "08056D475MAT4A"
+      }
+    ],
+    "ProductDetailUrl": "https://www.mouser.es/ProductDetail/KYOCERA-AVX/08056D475MAT2A?qs=8gCCvWsAIP16fDHGJX3Haw%3D%3D",
+    "Reeling": true,
+    "ROHSStatus": "RoHS Compliant By Exemption",
+    "SuggestedReplacement": "581-KGM21AR50J475MU",
+    "MultiSimBlue": 0,
+    "UnitWeightKg": {
+      "UnitWeight": 5.5e-06
+    },
+    "AvailabilityInStock": "24012",
+    "AvailabilityOnOrder": [],
+    "InfoMessages": [],
+    "SurchargeMessages": null,
+    "ProductCompliance": [
+      {
+        "ComplianceName": "TARIC",
+        "ComplianceValue": "8532240000"
+      },
+      {
+        "ComplianceName": "CNHTS",
+        "ComplianceValue": "8532241000"
+      },
+      {
+        "ComplianceName": "CAHTS",
+        "ComplianceValue": "8532240010"
+      },
+      {
+        "ComplianceName": "USHTS",
+        "ComplianceValue": "8532240020"
+      },
+      {
+        "ComplianceName": "JPHTS",
+        "ComplianceValue": "853224000"
+      },
+      {
+        "ComplianceName": "KRHTS",
+        "ComplianceValue": "8532240000"
+      },
+      {
+        "ComplianceName": "MXHTS",
+        "ComplianceValue": "8532240400"
+      },
+      {
+        "ComplianceName": "BRHTS",
+        "ComplianceValue": "85322410"
+      },
+      {
+        "ComplianceName": "ECCN",
+        "ComplianceValue": "EAR99"
+      }
+    ]
+  },
+  "581-08053A4R7CAT2A": {
+    "Availability": "14573 En existencias",
+    "DataSheetUrl": "https://www.mouser.com/datasheet/2/40/C0GNP0_KGM-3216332.pdf",
+    "Description": "Condensadores de cerámica multicapa (MLCC- SMD/SMT) KGM21BCG1E4R7CT NEW GLOBAL PN 25V 4.7pF A 581-KGM21BCG1E4R7CT",
+    "FactoryStock": "0",
+    "ImagePath": "https://www.mouser.com/images/avx/images/MLCC_SPL.jpg",
+    "Category": "Condensadores de cerámica multicapa (MLCC- SMD/SMT)",
+    "LeadTime": "84 Días",
+    "LifecycleStatus": null,
+    "Manufacturer": "KYOCERA AVX",
+    "ManufacturerPartNumber": "08053A4R7CAT2A",
+    "Min": "1",
+    "Mult": "1",
+    "MouserPartNumber": "581-08053A4R7CAT2A",
+    "ProductAttributes": [
+      {
+        "AttributeName": "Empaquetado",
+        "AttributeValue": "Reel"
+      },
+      {
+        "AttributeName": "Empaquetado",
+        "AttributeValue": "Cut Tape"
+      },
+      {
+        "AttributeName": "Empaquetado",
+        "AttributeValue": "MouseReel",
+        "AttributeCost": "La tarifa de 5,00 € de MouseReel™ se añadirá y calculará en el carro de compra. Los pedidos de MouseReel™ no se pueden cancelar ni devolver."
+      },
+      {
+        "AttributeName": "Cantidad estándar de paquetes",
+        "AttributeValue": "4000"
+      }
+    ],
+    "PriceBreaks": [
+      {
+        "Quantity": 1,
+        "Price": "0,209 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 10,
+        "Price": "0,121 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 100,
+        "Price": "0,073 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 500,
+        "Price": "0,055 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 1000,
+        "Price": "0,049 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 4000,
+        "Price": "0,048 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 8000,
+        "Price": "0,04 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 24000,
+        "Price": "0,034 €",
+        "Currency": "EUR"
+      }
+    ],
+    "AlternatePackagings": null,
+    "ProductDetailUrl": "https://www.mouser.es/ProductDetail/KYOCERA-AVX/08053A4R7CAT2A?qs=CvM%2Fvwg3ux94S5MbjiK3tQ%3D%3D",
+    "Reeling": true,
+    "ROHSStatus": "RoHS Compliant",
+    "SuggestedReplacement": "581-KGM21BCG1E4R7CT",
+    "MultiSimBlue": 0,
+    "UnitWeightKg": {
+      "UnitWeight": 5.5e-06
+    },
+    "AvailabilityInStock": "14573",
+    "AvailabilityOnOrder": [],
+    "InfoMessages": [],
+    "SurchargeMessages": null,
+    "ProductCompliance": [
+      {
+        "ComplianceName": "TARIC",
+        "ComplianceValue": "8532240000"
+      },
+      {
+        "ComplianceName": "CNHTS",
+        "ComplianceValue": "8532241000"
+      },
+      {
+        "ComplianceName": "CAHTS",
+        "ComplianceValue": "8532240010"
+      },
+      {
+        "ComplianceName": "USHTS",
+        "ComplianceValue": "8532240020"
+      },
+      {
+        "ComplianceName": "JPHTS",
+        "ComplianceValue": "853224000"
+      },
+      {
+        "ComplianceName": "KRHTS",
+        "ComplianceValue": "8532240000"
+      },
+      {
+        "ComplianceName": "MXHTS",
+        "ComplianceValue": "8532240400"
+      },
+      {
+        "ComplianceName": "BRHTS",
+        "ComplianceValue": "85322410"
+      },
+      {
+        "ComplianceName": "ECCN",
+        "ComplianceValue": "EAR99"
+      }
+    ]
+  },
+  "653-EE-SX1070": {
+    "Availability": "6866 En existencias",
+    "DataSheetUrl": "https://www.mouser.com/datasheet/2/307/sx1025-1190149.pdf",
+    "Description": "Interruptores ópticos, transmisivos, con salida de fototransistor TRANS PHTOTRANSISTOR",
+    "FactoryStock": "0",
+    "ImagePath": "https://www.mouser.com/images/omron/images/EE-SX1070_SPL.jpg",
+    "Category": "Interruptores ópticos, transmisivos, con salida de fototransistor",
+    "LeadTime": "28 Días",
+    "LifecycleStatus": null,
+    "Manufacturer": "Omron Electronics",
+    "ManufacturerPartNumber": "EE-SX1070",
+    "Min": "1",
+    "Mult": "1",
+    "MouserPartNumber": "653-EE-SX1070",
+    "ProductAttributes": [
+      {
+        "AttributeName": "Cantidad estándar de paquetes",
+        "AttributeValue": "200"
+      }
+    ],
+    "PriceBreaks": [
+      {
+        "Quantity": 1,
+        "Price": "1,41 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 10,
+        "Price": "1,39 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 25,
+        "Price": "1,38 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 200,
+        "Price": "1,31 €",
+        "Currency": "EUR"
+      }
+    ],
+    "AlternatePackagings": null,
+    "ProductDetailUrl": "https://www.mouser.es/ProductDetail/Omron-Electronics/EE-SX1070?qs=B3tblJ0Nlt%252B56vJ3as8muw%3D%3D",
+    "Reeling": false,
+    "ROHSStatus": "RoHS Compliant",
+    "REACH-SVHC": [
+      "Dodecamethylcyclohexasiloxane [D6] (540-97-6)"
+    ],
+    "SuggestedReplacement": "",
+    "MultiSimBlue": 0,
+    "UnitWeightKg": {
+      "UnitWeight": 0.002041045
+    },
+    "AvailabilityInStock": "6866",
+    "AvailabilityOnOrder": [],
+    "InfoMessages": [],
+    "SurchargeMessages": null,
+    "ProductCompliance": [
+      {
+        "ComplianceName": "TARIC",
+        "ComplianceValue": "8541409090"
+      },
+      {
+        "ComplianceName": "CNHTS",
+        "ComplianceValue": "8541490000"
+      },
+      {
+        "ComplianceName": "CAHTS",
+        "ComplianceValue": "8541490020"
+      },
+      {
+        "ComplianceName": "USHTS",
+        "ComplianceValue": "8541498000"
+      },
+      {
+        "ComplianceName": "KRHTS",
+        "ComplianceValue": "8541409029"
+      },
+      {
+        "ComplianceName": "ECCN",
+        "ComplianceValue": "EAR99"
+      }
+    ]
+  },
+  "852-GP1S094HCZ0F": {
+    "Availability": "9977 En existencias",
+    "DataSheetUrl": "https://www.mouser.com/datasheet/2/365/SHRP_S_A0000192650_1-2514380.pdf",
+    "Description": "Interruptores ópticos, transmisivos, con salida de fototransistor Photointerrupter 3.0mm gap",
+    "FactoryStock": "0",
+    "ImagePath": "https://www.mouser.com/images/sharpmicroelectronics/images/gp1s8.jpg",
+    "Category": "Interruptores ópticos, transmisivos, con salida de fototransistor",
+    "LeadTime": "142 Días",
+    "LifecycleStatus": null,
+    "Manufacturer": "Sharp Microelectronics",
+    "ManufacturerPartNumber": "GP1S094HCZ0F",
+    "Min": "1",
+    "Mult": "1",
+    "MouserPartNumber": "852-GP1S094HCZ0F",
+    "ProductAttributes": [
+      {
+        "AttributeName": "Empaquetado",
+        "AttributeValue": "Tube"
+      },
+      {
+        "AttributeName": "Cantidad estándar de paquetes",
+        "AttributeValue": "100"
+      }
+    ],
+    "PriceBreaks": [
+      {
+        "Quantity": 1,
+        "Price": "0,437 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 10,
+        "Price": "0,36 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 100,
+        "Price": "0,34 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 500,
+        "Price": "0,304 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 1000,
+        "Price": "0,29 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 5000,
+        "Price": "0,264 €",
+        "Currency": "EUR"
+      }
+    ],
+    "AlternatePackagings": null,
+    "ProductDetailUrl": "https://www.mouser.es/ProductDetail/Sharp-Microelectronics/GP1S094HCZ0F?qs=5S%2F4hkdqNNdHndqaaxcjaw%3D%3D",
+    "Reeling": false,
+    "ROHSStatus": "RoHS Compliant",
+    "SuggestedReplacement": "",
+    "MultiSimBlue": 0,
+    "UnitWeightKg": {
+      "UnitWeight": 0.0001
+    },
+    "AvailabilityInStock": "9977",
+    "AvailabilityOnOrder": [],
+    "InfoMessages": [],
+    "SurchargeMessages": null,
+    "ProductCompliance": [
+      {
+        "ComplianceName": "TARIC",
+        "ComplianceValue": "8541409090"
+      },
+      {
+        "ComplianceName": "CNHTS",
+        "ComplianceValue": "8541490000"
+      },
+      {
+        "ComplianceName": "CAHTS",
+        "ComplianceValue": "8541490020"
+      },
+      {
+        "ComplianceName": "USHTS",
+        "ComplianceValue": "8541498000"
+      },
+      {
+        "ComplianceName": "KRHTS",
+        "ComplianceValue": "8541409029"
+      },
+      {
+        "ComplianceName": "ECCN",
+        "ComplianceValue": "EAR99"
+      }
+    ]
+  },
+  "595-TLV9062IDR": {
+    "Availability": "16776 En existencias",
+    "DataSheetUrl": "",
+    "Description": "Amplificadores operacionales - Op Amps Dual 5.5-V 10-MHz operational amplifie",
+    "FactoryStock": "0",
+    "ImagePath": "https://www.mouser.com/images/texasinstruments/images/ITP_TI_SOIC-8_D_t.jpg",
+    "Category": "Amplificadores operacionales - Op Amps",
+    "LeadTime": "42 Días",
+    "LifecycleStatus": null,
+    "Manufacturer": "Texas Instruments",
+    "ManufacturerPartNumber": "TLV9062IDR",
+    "Min": "1",
+    "Mult": "1",
+    "MouserPartNumber": "595-TLV9062IDR",
+    "ProductAttributes": [
+      {
+        "AttributeName": "Empaquetado",
+        "AttributeValue": "Reel"
+      },
+      {
+        "AttributeName": "Empaquetado",
+        "AttributeValue": "Cut Tape"
+      },
+      {
+        "AttributeName": "Empaquetado",
+        "AttributeValue": "MouseReel",
+        "AttributeCost": "La tarifa de 5,00 € de MouseReel™ se añadirá y calculará en el carro de compra. Los pedidos de MouseReel™ no se pueden cancelar ni devolver."
+      },
+      {
+        "AttributeName": "Cantidad estándar de paquetes",
+        "AttributeValue": "2500"
+      }
+    ],
+    "PriceBreaks": [
+      {
+        "Quantity": 1,
+        "Price": "0,627 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 10,
+        "Price": "0,452 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 25,
+        "Price": "0,41 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 100,
+        "Price": "0,364 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 250,
+        "Price": "0,329 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 1000,
+        "Price": "0,318 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 2500,
+        "Price": "0,297 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 20000,
+        "Price": "0,282 €",
+        "Currency": "EUR"
+      }
+    ],
+    "AlternatePackagings": [
+      {
+        "APMfrPN": "TLV9062ID"
+      }
+    ],
+    "ProductDetailUrl": "https://www.mouser.es/ProductDetail/Texas-Instruments/TLV9062IDR?qs=u4fy%2FsgLU9PUtszsvUsi6w%3D%3D",
+    "Reeling": true,
+    "ROHSStatus": "RoHS Compliant",
+    "SuggestedReplacement": "",
+    "MultiSimBlue": 0,
+    "UnitWeightKg": {
+      "UnitWeight": 8.72e-05
+    },
+    "AvailabilityInStock": "16776",
+    "AvailabilityOnOrder": [],
+    "InfoMessages": [],
+    "SurchargeMessages": null,
+    "ProductCompliance": [
+      {
+        "ComplianceName": "CNHTS",
+        "ComplianceValue": "8542339000"
+      },
+      {
+        "ComplianceName": "CAHTS",
+        "ComplianceValue": "8542330000"
+      },
+      {
+        "ComplianceName": "USHTS",
+        "ComplianceValue": "8542330001"
+      },
+      {
+        "ComplianceName": "MXHTS",
+        "ComplianceValue": "8542330299"
+      },
+      {
+        "ComplianceName": "ECCN",
+        "ComplianceValue": "EAR99"
+      }
+    ]
+  },
+  "356-ESP32WRVE26464PC": {
+    "Availability": "7093 En existencias",
+    "DataSheetUrl": "https://www.mouser.com/datasheet/2/891/esp32_wrover_e_esp32_wrover_ie_datasheet_en-1855913.pdf",
+    "Description": "Módulos multiprotocolo SMD Module ESP32-WROVER-E, ESP32-D0WD-V3, 3.3V 64Mbit PSRAM, 8 MB SPI flash, PCB Antenna",
+    "FactoryStock": "0",
+    "ImagePath": "https://www.mouser.com/images/espressifsystems/images/ITP_356-ESP32WRVE26464PC_t.jpg",
+    "Category": "Módulos multiprotocolo",
+    "LeadTime": "46 Días",
+    "LifecycleStatus": null,
+    "Manufacturer": "Espressif Systems",
+    "ManufacturerPartNumber": "ESP32-WROVER-E-N8R8",
+    "Min": "1",
+    "Mult": "1",
+    "MouserPartNumber": "356-ESP32WRVE26464PC",
+    "ProductAttributes": [
+      {
+        "AttributeName": "Empaquetado",
+        "AttributeValue": "Reel"
+      },
+      {
+        "AttributeName": "Empaquetado",
+        "AttributeValue": "Cut Tape"
+      },
+      {
+        "AttributeName": "Empaquetado",
+        "AttributeValue": "MouseReel",
+        "AttributeCost": "La tarifa de 5,00 € de MouseReel™ se añadirá y calculará en el carro de compra. Los pedidos de MouseReel™ no se pueden cancelar ni devolver."
+      },
+      {
+        "AttributeName": "Cantidad estándar de paquetes",
+        "AttributeValue": "650"
+      }
+    ],
+    "PriceBreaks": [
+      {
+        "Quantity": 1,
+        "Price": "2,96 €",
+        "Currency": "EUR"
+      },
+      {
+        "Quantity": 650,
+        "Price": "2,96 €",
+        "Currency": "EUR"
+      }
+    ],
+    "AlternatePackagings": null,
+    "ProductDetailUrl": "https://www.mouser.es/ProductDetail/Espressif-Systems/ESP32-WROVER-E-N8R8?qs=Li%252BoUPsLEnv2mctFVAGY3g%3D%3D",
+    "Reeling": true,
+    "ROHSStatus": "RoHS Compliant",
+    "SuggestedReplacement": "",
+    "MultiSimBlue": 0,
+    "AvailabilityInStock": "7093",
+    "AvailabilityOnOrder": [],
+    "InfoMessages": [],
+    "SurchargeMessages": null,
+    "ProductCompliance": [
+      {
+        "ComplianceName": "TARIC",
+        "ComplianceValue": "8517620000"
+      },
+      {
+        "ComplianceName": "CNHTS",
+        "ComplianceValue": "8517629990"
+      },
+      {
+        "ComplianceName": "USHTS",
+        "ComplianceValue": "8517620090"
+      },
+      {
+        "ComplianceName": "JPHTS",
+        "ComplianceValue": "851762090"
+      },
+      {
+        "ComplianceName": "ECCN",
+        "ComplianceValue": "5A992.C"
+      }
+    ]
+  }
+}
