@@ -1,11 +1,24 @@
 // Laser Control for ESP32 xd
 #include "config.h"
+#include <BLEDevice.h>
+#include <BLEServer.h>
+#include <BLEUtils.h>
+#include <BLE2902.h>
 
 volatile unsigned long revolutionStart  = 0;
 volatile unsigned long revolutionPeriod = 0;
 volatile u8 revCount = 0;
 volatile unsigned long period = 0;
 volatile unsigned long sum = 0;
+static uint8_t SCROLL_INTERVAL_REVS = 15;  // scroll cada 3 revs
+
+#define UART_SERVICE_UUID        "6e400001-b5a3-f393-e0a9-e50e24dcca9e"
+#define UART_CHAR_UUID_RX        "6e400002-b5a3-f393-e0a9-e50e24dcca9e"  // escribe móvil→ESP32
+#define UART_CHAR_UUID_TX        "6e400003-b5a3-f393-e0a9-e50e24dcca9e"  // notifica ESP32→móvil
+
+BLECharacteristic *pTxCharacteristic;
+bool deviceConnected = false;
+#define MAX_MESSAGE_LEN 100
 
 
 volatile bool newRevolution = false;
@@ -55,7 +68,6 @@ int compareEvents(const void* pa, const void* pb) {
 // Máximo número de caracteres en el mensaje
 
 // Variables globales
-#define MAX_MESSAGE_LEN 100
 int  messageLen = 0;  
 rowmask_t messageBitmap[MAX_MESSAGE_LEN][NUM_MIRRORS];
 char     fullMessage[MAX_MESSAGE_LEN+1];
@@ -63,11 +75,31 @@ uint8_t  windowStart = 0;
 rowmask_t windowBitmap[MAX_NUM_CHARS][NUM_MIRRORS];
 // Convierte 'A'–'Z' o 'a'–'z' a índice 0–25, y cualquier otro a índice 26 (espacio)
 uint8_t charToIndex(char c) {
+  // Letras
   if (c >= 'A' && c <= 'Z') return c - 'A';
   if (c >= 'a' && c <= 'z') return c - 'a';
-  if (c == '<')             return 26;   // <-- corazón
-  if (c == '>')             return 27;
-  return 28;  // índice 27 para espacio o carácter no válido
+
+  // Corazones
+  if (c == '<') return 26;   // HEART LEFT
+  if (c == '>') return 27;   // HEART RIGHT
+
+  // Dígitos
+  if (c >= '0' && c <= '9') return 28 + (c - '0');
+
+  // Puntuación
+  if (c == ',')  return 38;
+  if (c == '.')  return 39;
+  if (c == ':')  return 40;
+  if (c == ';')  return 41;
+  if (c == '?')  return 42;
+  if (c == '¿')  return 43;  // ojo con la codificación
+  if (c == '!')  return 44;
+  if (c == '¡')  return 45;  // ojo con la codificación
+  if (c == '-')  return 46;
+  if (c == '+')  return 47;
+
+  // Espacio o carácter no soportado
+  return 48;  // aquí puedes poner el índice de tu glyph "espacio" si lo tienes
 }
 
 // Llama a esta función para fijar el mensaje que se va a mostrar.
@@ -94,7 +126,23 @@ static char serialBuf[MAX_MESSAGE_LEN+1];
 static uint8_t serialPos = 0;
 static bool    msgPending = false;
 
+static char bleBuf[MAX_MESSAGE_LEN+1];
 
+class ServerCallbacks: public BLEServerCallbacks {
+  void onConnect(BLEServer* pServer)    { deviceConnected = true; }
+  void onDisconnect(BLEServer* pServer) { deviceConnected = false; }
+};
+
+// Callback cuando el móvil escribe en RX
+class RxCallbacks : public BLECharacteristicCallbacks {
+  void onWrite(BLECharacteristic* pChar) override {
+    String rx = pChar->getValue();
+    if (rx.length() == 0) return;
+    size_t len = min((size_t)rx.length(), (size_t)MAX_MESSAGE_LEN);
+    rx.toCharArray(bleBuf, len + 1);
+    handleCommand(bleBuf);
+  }
+};
 
 // Llamar *una sola* vez por iteración de loop():
 void pollSerial() {
@@ -115,13 +163,17 @@ void pollSerial() {
     }
   }
 }
+// Buffers para Bluetooth
+static char btBuf[MAX_MESSAGE_LEN+1];
+static uint8_t btPos = 0;
+static bool    btMsgPending = false;
 
 void updateWindowScroll() {
   for (uint8_t j = 0; j < num_chars; j++) {
     uint8_t idx = (windowStart + j) % messageLen;
     uint8_t alpha = charToIndex(fullMessage[idx]);
     for (uint8_t i = 0; i < NUM_MIRRORS; i++) {
-      windowBitmap[j][i] = (alpha < 28)
+      windowBitmap[j][i] = (alpha < 48)
         ? pgm_read_word(&alphabet[alpha][i])
         : 0;
     }
@@ -135,6 +187,20 @@ void updateWindowScroll() {
 // // Create debounce instance (default constructor uses active HIGH)
 // PinButton  yellowButton(buttonYellowPin);
 PinButton buttonRST(buttonRSTPin, INPUT_PULLUP);
+
+void updateNumChars(int new_num_chars){
+  if (new_num_chars > 3 && new_num_chars <= MAX_NUM_CHARS) {
+    num_chars = new_num_chars;
+    widthCharTenths  = widthLineTenths / (num_chars + 1);
+    widthBitTenths   = round(widthCharTenths / NUM_BITS);
+    widthSpaceTenths = widthCharTenths / (num_chars - 1);
+    Serial.print("num_chars updated! num_chars = ");
+    Serial.println(num_chars);
+  } else {
+    Serial.print("NUM CHARS MENOR QUE 4 O MAYOR QUE "); Serial.println(MAX_NUM_CHARS);
+  }
+
+}
 
 void blackPressHandle(){
   num_chars = (num_chars + 1) % MAX_NUM_CHARS;
@@ -172,7 +238,88 @@ void rstDoublePressHandle(){
   if (laser_user_on) LASER_ON(); else LASER_OFF();
   Serial.println("boton rst doble presionado");
 }
+// Parsear comando recibido y actualizar estados
+void handleCommand(char* cmdBuf) {
+  String cmd = String(cmdBuf);
+  cmd.trim();
+  cmd.toUpperCase();
 
+  if (cmd == "MOTOR ON") {
+    motor_user_on = true;
+    digitalWrite(motorPin, motor_user_on ? HIGH : LOW);
+  }
+  else if (cmd == "MOTOR OFF") {
+    motor_user_on = false;
+    digitalWrite(motorPin, motor_user_on ? HIGH : LOW);
+  }
+  else if (cmd == "MOTOR TOGGLE"){
+    motor_user_on = !motor_user_on;
+    digitalWrite(motorPin, motor_user_on ? HIGH : LOW);
+  }
+  else if (cmd == "LASER ON") {
+    laser_user_on = true;
+    LASER_ON();
+  }
+  else if (cmd == "LASER OFF") {
+    laser_user_on = false;
+    LASER_OFF();
+  }
+  else if (cmd == "LASER TOGGLE") {
+    laser_user_on = !laser_user_on;
+    if (laser_user_on) LASER_ON(); else LASER_OFF();
+  }
+  else if (cmd == "SCROLL ON") {
+    scroll = true;
+  }
+  else if (cmd == "SCROLL OFF") {
+    scroll = false;
+  } 
+  else if(cmd == "SCROLL TOGGLE"){
+    scroll = !scroll;
+  }
+  else if (cmd == "UP SCROLL"){
+    SCROLL_INTERVAL_REVS++;
+  }
+  else if (cmd == "DOWN SCROLL"){
+    if(SCROLL_INTERVAL_REVS > 3){
+      SCROLL_INTERVAL_REVS--;
+    }
+  }
+  else if (cmd == "UP NUM CHARS"){
+    updateNumChars(num_chars + 1);
+  }
+  else if (cmd == "DOWN NUM CHARS"){
+    updateNumChars(num_chars - 1);
+  }  
+  else if (cmd.startsWith("NUM CHARS ")) {
+    // extrae la parte numérica y la convierte a entero
+    String numStr = cmd.substring(10);      // "10" en "NUM CHARS 10"
+    int n = numStr.toInt();                 // n = 10
+    if (n > 0) {
+      updateNumChars(n);
+    }
+    else {
+      // opcional: notificar parámetro inválido
+      if (deviceConnected) {
+        pTxCharacteristic->setValue("ERR: Bad NUM CHARS\n");
+        pTxCharacteristic->notify();
+      }
+      return;
+    }
+  }
+  
+  // —— FIN de NUM CHARS ——
+  else {
+    // Cualquier otro texto lo mandamos al láser
+    setMessage(cmdBuf);
+  }
+
+  // Opcional: notificar OK al móvil
+  if (deviceConnected) {
+    pTxCharacteristic->setValue("OK\n");
+    pTxCharacteristic->notify();
+  }
+}
 void setup() {
   Serial.begin(115200);
   pinMode(laserPin, OUTPUT);
@@ -183,9 +330,31 @@ void setup() {
   digitalWrite(encoderVCC, HIGH);
   pinMode(encoderGND, OUTPUT);
   digitalWrite(encoderGND, LOW);
-
+// === BLE START ===
   pinMode(buttonRSTPin, INPUT_PULLUP);
   pinMode(motorPin, OUTPUT);
+  BLEDevice::init("ESP32-Laser-BLE");
+  BLEServer *pServer = BLEDevice::createServer();
+  pServer->setCallbacks(new ServerCallbacks());
+  BLEService *pService = pServer->createService(UART_SERVICE_UUID);
+
+  pTxCharacteristic = pService->createCharacteristic(
+    UART_CHAR_UUID_TX,
+    BLECharacteristic::PROPERTY_NOTIFY
+  );
+  pTxCharacteristic->addDescriptor(new BLE2902());
+
+  BLECharacteristic *pRxCharacteristic = pService->createCharacteristic(
+    UART_CHAR_UUID_RX,
+    BLECharacteristic::PROPERTY_WRITE
+  );
+  pRxCharacteristic->setCallbacks(new RxCallbacks());
+
+  pService->start();
+  BLEAdvertising *pAdv = pServer->getAdvertising();
+  pAdv->addServiceUUID(UART_SERVICE_UUID);
+  pAdv->start();
+
   // pinMode(buttonYellowPin, INPUT_PULLDOWN);
   // pinMode(buttonBlackPin, INPUT_PULLDOWN);
   // pinMode(ledPin, OUTPUT);
@@ -208,6 +377,9 @@ void setup() {
   revolutionStart = micros();
 }
 
+// Variable global (fuera de loop / setup)
+static unsigned long lastRpmSendTime = 0;  // registro de la última vez que enviamos
+
 void loop() {
   unsigned long t = micros() - revolutionStart;
   if (newRevolution){
@@ -215,6 +387,31 @@ void loop() {
     //Serial.println(revolutionPeriod);
     newRevolution = false;
     LASER_OFF();
+    // 1) Calcula RPM: 60s / (periodo en s)
+    //    revolutionPeriod µs → revolutionPeriod/1e6 s
+    float rpm = 60.0f * 1e6f / (float)revolutionPeriod;
+
+    // 2) Prepara el mensaje
+    char rpmBuf[32];
+    int len = snprintf(rpmBuf, sizeof(rpmBuf), "RPM: %.1f\n", rpm);
+
+    // 3) Envíalo vía BLE-UART (si está conectado)
+        // Solo envía si ha pasado >= 1000 ms desde el último envío
+    unsigned long now = millis();
+    if (now - lastRpmSendTime >= 1000) {
+      lastRpmSendTime = now;  // actualiza el marcador
+
+      // Prepara el buffer
+      char rpmBuf[32];
+      int len = snprintf(rpmBuf, sizeof(rpmBuf), "RPM: %.1f", rpm);
+
+      // Envío vía BLE-UART (o SerialBT si usas Classic)
+      if (deviceConnected) {
+        pTxCharacteristic->setValue((uint8_t*)rpmBuf, len);
+        pTxCharacteristic->notify();
+      }
+    }
+
     // 1) Solo actualizamos la ventana cuando lleguen a 0
     if (++scrollCounter >= SCROLL_INTERVAL_REVS) {
      scrollCounter = 0;
@@ -299,11 +496,12 @@ void loop() {
     lastSerialPoll = nowMs;
     pollSerial();
   }
-  // 2) Si llegó un mensaje completo, setéalo
+  // 1) Si hay mensaje por USB-Serial
   if (msgPending) {
     setMessage(serialBuf);
     msgPending = false;
   }
+
   // blackButton.update();
   // if (blackButton.isLongClick()) blackPressHandle();
   // if (blackButton.isDoubleClick()) blackDoublePressHandle();
