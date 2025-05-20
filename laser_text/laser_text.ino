@@ -6,7 +6,9 @@ volatile unsigned long revolutionPeriod = 0;
 volatile u8 revCount = 0;
 volatile unsigned long period = 0;
 volatile unsigned long sum = 0;
-static uint8_t SCROLL_INTERVAL_REVS = 15;  // scroll cada 3 revs
+static uint8_t SCROLL_INTERVAL_REVS = 25;  // scroll cada 3 revs
+static float offset_step = (float)(widthCharTenths + widthSpaceTenths) / (float)SCROLL_INTERVAL_REVS;
+static float offset = 0;
 
 
 
@@ -18,6 +20,7 @@ volatile bool newRevolution = false;
 volatile bool laser_user_on = false;
 volatile bool laser_speed_on = false;
 volatile bool motor_user_on = false;
+volatile bool motor_speed_on = true;
 
 u32 startMicro[NUM_MIRRORS];
 u32 endMicro[NUM_MIRRORS];
@@ -67,7 +70,7 @@ String normalizeUTF8(const String &in) {
     // Detectar inicio de ñ (0xC3 0xB1) ó Ñ (0xC3 0x91)
     if (b == 0xC3 && i+1 < in.length()) {
       uint8_t b2 = in[i+1];
-      if (b2 == 0xB1 || b2 === 0x91) {     // ñ
+      if (b2 == 0xB1 || b2 == 0x91) {     // ñ
         out += (char)0xF1;
         i += 2;
         continue;
@@ -213,7 +216,8 @@ void updateNumChars(int new_num_chars){
     num_chars = new_num_chars;
     widthCharTenths  = widthLineTenths / (num_chars + 1);
     widthBitTenths   = round(widthCharTenths / NUM_BITS);
-    widthSpaceTenths = widthCharTenths / (num_chars - 1);
+    widthSpaceTenths = 3 * widthCharTenths / (num_chars - 1);
+    offset_step = (float)(widthCharTenths + widthSpaceTenths) / (float)SCROLL_INTERVAL_REVS;
     Serial.print("num_chars updated! num_chars = ");
     Serial.println(num_chars);
   } else {
@@ -226,7 +230,8 @@ void blackPressHandle(){
   num_chars = (num_chars + 1) % MAX_NUM_CHARS;
   widthCharTenths  = widthLineTenths / (num_chars + 1);
   widthBitTenths   = round(widthCharTenths / NUM_BITS);
-  widthSpaceTenths = widthCharTenths / (num_chars - 1);
+  widthSpaceTenths = 3 * widthCharTenths / (num_chars - 1);
+  offset_step = (float)(widthCharTenths + widthSpaceTenths) / (float)SCROLL_INTERVAL_REVS;
   Serial.print("Button pressed! num_chars = ");
   Serial.println(num_chars);
 }
@@ -239,7 +244,8 @@ void yellowPressHandle(){
   num_chars = (num_chars - 1 + MAX_NUM_CHARS) % MAX_NUM_CHARS;
   widthCharTenths  = widthLineTenths / (num_chars + 1);
   widthBitTenths   = round(widthCharTenths / NUM_BITS);
-  widthSpaceTenths = widthCharTenths / (num_chars - 1);
+  widthSpaceTenths = 3 * widthCharTenths / (num_chars - 1);
+  offset_step = (float)(widthCharTenths + widthSpaceTenths) / (float)SCROLL_INTERVAL_REVS;
   
   Serial.print("Button pressed! num_chars = ");
   Serial.println(num_chars);
@@ -250,7 +256,9 @@ void rstSingleClickHandle(){
 }
 void rstPressHandle(){
   motor_user_on = !motor_user_on;
-  digitalWrite(motorPin, motor_user_on ? HIGH : LOW);
+  // digitalWrite(motorPin, motor_user_on ? HIGH : LOW);
+  if (motor_user_on) ledcWrite(motorPin, 200);
+  else ledcWrite(motorPin, 0);
   Serial.println("boton rst long presionado");
 }
 void rstDoublePressHandle(){
@@ -266,15 +274,18 @@ void handleCommand(char* cmdBuf) {
 
   if (cmd == "MOTOR ON") {
     motor_user_on = true;
-    digitalWrite(motorPin, motor_user_on ? HIGH : LOW);
+    if (motor_user_on) ledcWrite(motorPin, 200);
+    else ledcWrite(motorPin, 0);
   }
   else if (cmd == "MOTOR OFF") {
     motor_user_on = false;
-    digitalWrite(motorPin, motor_user_on ? HIGH : LOW);
+    if (motor_user_on) ledcWrite(motorPin, 200);
+    else ledcWrite(motorPin, 0);
   }
   else if (cmd == "MOTOR TOGGLE"){
     motor_user_on = !motor_user_on;
-    digitalWrite(motorPin, motor_user_on ? HIGH : LOW);
+    if (motor_user_on) ledcWrite(motorPin, 200);
+    else ledcWrite(motorPin, 0);
   }
   else if (cmd == "LASER ON") {
     laser_user_on = true;
@@ -299,10 +310,12 @@ void handleCommand(char* cmdBuf) {
   }
   else if (cmd == "UP SCROLL"){
     SCROLL_INTERVAL_REVS++;
+    offset_step = (float)(widthCharTenths + widthSpaceTenths) / (float)SCROLL_INTERVAL_REVS;
   }
   else if (cmd == "DOWN SCROLL"){
     if(SCROLL_INTERVAL_REVS > 3){
       SCROLL_INTERVAL_REVS--;
+      offset_step = (float)(widthCharTenths + widthSpaceTenths) / (float)SCROLL_INTERVAL_REVS;
     }
   }
   else if (cmd == "UP NUM CHARS"){
@@ -327,7 +340,74 @@ void handleCommand(char* cmdBuf) {
       return;
     }
   }
-  
+  else if (cmd == "DOWN OFFSET"){
+    base_offset -= 1;
+    // Prepara el buffer
+    char offsetBuf[32];
+    int len = snprintf(offsetBuf, sizeof(offsetBuf), "OFFSET: %d", base_offset);
+    // Envío vía BLE-UART (o SerialBT si usas Classic)
+    if (deviceConnected) {
+      pTxCharacteristic->setValue((uint8_t*)offsetBuf, len);
+      pTxCharacteristic->notify();
+    }
+  }
+    else if (cmd == "UP OFFSET"){
+    base_offset += 1;
+    // Prepara el buffer
+    char offsetBuf[32];
+    int len = snprintf(offsetBuf, sizeof(offsetBuf), "OFFSET: %d", base_offset);
+    // Envío vía BLE-UART (o SerialBT si usas Classic)
+    if (deviceConnected) {
+      pTxCharacteristic->setValue((uint8_t*)offsetBuf, len);
+      pTxCharacteristic->notify();
+    }    
+  }
+  else if (cmd.startsWith("OFFSET ")) {
+    // extrae la parte numérica y la convierte a entero
+    String numStr = cmd.substring(10);      // "10" en "NUM CHARS 10"
+    int n = numStr.toInt();                 // n = 10
+    if (n > 0) {
+      base_offset = n;
+    }
+  }
+  else if (cmd == "FLIPH"){
+    flipHorizontal = !flipHorizontal;
+    // Fill rowMap: si flipVertical invierte el orden de los espejos
+    for (u8 i = 0; i < NUM_MIRRORS; i++) {
+      rowMap[i] = flipVertical
+        ? (NUM_MIRRORS - 1 - i)
+        : i;
+    }
+    // Fill bitMap: si flipHorizontal invierte los bits de cada carácter
+    for (u8 k = 0; k < NUM_BITS; k++) {
+      bitMap[k] = flipHorizontal ? k : (NUM_BITS - 1 - k);  // MSB primero
+    }
+  }
+  else if (cmd == "FLIPV"){
+    flipVertical = !flipVertical;
+    // Fill rowMap: si flipVertical invierte el orden de los espejos
+    for (u8 i = 0; i < NUM_MIRRORS; i++) {
+      rowMap[i] = flipVertical
+        ? (NUM_MIRRORS - 1 - i)
+        : i;
+    }
+    // Fill bitMap: si flipHorizontal invierte los bits de cada carácter
+    for (u8 k = 0; k < NUM_BITS; k++) {
+      bitMap[k] = flipHorizontal ? k : (NUM_BITS - 1 - k);  // MSB primero
+    }    
+  }
+  else if (cmd == "FLIPHV" || cmd == "FLIPVH"){
+    flipVertical = !flipVertical;
+    flipHorizontal = !flipHorizontal;
+    // Fill rowMap: si flipVertical invierte el orden de los espejos
+    for (u8 i = 0; i < NUM_MIRRORS; i++) {
+      rowMap[i] = flipVertical ? (NUM_MIRRORS - 1 - i) : i;
+    }
+    // Fill bitMap: si flipHorizontal invierte los bits de cada carácter
+    for (u8 k = 0; k < NUM_BITS; k++) {
+      bitMap[k] = flipHorizontal ? k : (NUM_BITS - 1 - k);  // MSB primero
+    }    
+  }  
   // —— FIN de NUM CHARS ——
   else {
     // Cualquier otro texto lo mandamos al láser
@@ -352,7 +432,11 @@ void setup() {
   digitalWrite(encoderGND, LOW);
 // === BLE START ===
   pinMode(buttonRSTPin, INPUT_PULLUP);
-  pinMode(motorPin, OUTPUT);
+  //pinMode(motorPin, OUTPUT);
+  Serial.print("PWM MOTOR: ");
+  Serial.println(ledcAttach(motorPin, 500, 8));
+  ledcWrite(motorPin, 0);
+
   BLEDevice::init("ESP32-Laser-BLE");
   BLEServer *pServer = BLEDevice::createServer();
   pServer->setCallbacks(new ServerCallbacks());
@@ -403,7 +487,7 @@ static unsigned long lastRpmSendTime = 0;  // registro de la última vez que env
 void loop() {
   unsigned long t = micros() - revolutionStart;
   if (newRevolution){
-    laser_speed_on = revolutionPeriod < 30000;
+    laser_speed_on = revolutionPeriod < 60000;
     //Serial.println(revolutionPeriod);
     newRevolution = false;
     LASER_OFF();
@@ -411,30 +495,48 @@ void loop() {
     //    revolutionPeriod µs → revolutionPeriod/1e6 s
     float rpm = 60.0f * 1e6f / (float)revolutionPeriod;
 
-    // 2) Prepara el mensaje
-    char rpmBuf[32];
-    int len = snprintf(rpmBuf, sizeof(rpmBuf), "RPM: %.1f\n", rpm);
+    // Tiempo transcurrido desde el último control (segundos)
+    unsigned long now_ms = micros();
+    float dt = (now_ms - lastControlTime) / 1000000.0;
+    lastControlTime = now_ms;
+    
+    // === PID ===
+    float error = setpointRPM - rpm;
+    if (motor_user_on) integral = integral + error * dt;
+    float derivative = (error - lastError) / dt;
+    
+    float output = Kp*error + Ki*integral + Kd*derivative;
+    lastError = error;
+    
+    // Convertimos a 0–255 y limitamos
+    int pwm = constrain(int(output), 0, 255);
+    if (motor_user_on) ledcWrite(motorPin, pwm); else ledcWrite(motorPin, 0);
 
-    // 3) Envíalo vía BLE-UART (si está conectado)
-        // Solo envía si ha pasado >= 1000 ms desde el último envío
+    // motor_speed_on = !motor_speed_on;
+    // digitalWrite(motorPin, motor_user_on && motor_speed_on  ? HIGH : LOW);
+
     unsigned long now = millis();
-    if (now - lastRpmSendTime >= 1000) {
+    if (now - lastRpmSendTime >= 2000) {
       lastRpmSendTime = now;  // actualiza el marcador
 
       // Prepara el buffer
       char rpmBuf[32];
-      int len = snprintf(rpmBuf, sizeof(rpmBuf), "RPM: %.1f", rpm);
-
+      int len = snprintf(rpmBuf, sizeof(rpmBuf), "RPM: %.1f, PWM: %d", rpm, pwm);
+      if(motor_user_on) Serial.println(rpmBuf);
       // Envío vía BLE-UART (o SerialBT si usas Classic)
       if (deviceConnected) {
         pTxCharacteristic->setValue((uint8_t*)rpmBuf, len);
         pTxCharacteristic->notify();
       }
     }
-
+    
+    if (scroll){
+      if(flipHorizontal) offset -= offset_step; else offset += offset_step;
+    }
     // 1) Solo actualizamos la ventana cuando lleguen a 0
     if (++scrollCounter >= SCROLL_INTERVAL_REVS) {
      scrollCounter = 0;
+     offset = 0;
      updateWindowScroll();
     }
     // === COMPUTE NEW TIMINGS FOR THE REVOLUTION ===
@@ -446,17 +548,15 @@ void loop() {
           u8 row = rowMap[i];  // ya mapea flipVertical
           for (u8 j = 0; j < num_chars; j++){
             for (u8 k = 0; k < NUM_BITS; k++){
-              u8 bitIdx = bitMap[k];            // ya mapea flipHorizontal
+              u8 bitIdx = bitMap[k];            // ya mapea Horizontal
               rowmask_t mask = 1 << bitIdx;
               u8 j_inv = (num_chars - 1) - j;
-              bool bitIsOne = (pgm_read_byte(&windowBitmap[j_inv][row]) & mask) != 0;
+              bool bitIsOne = (pgm_read_byte(&windowBitmap[flipHorizontal? j_inv : j][row]) & mask) != 0;
               if (bitIsOne) {
-                startBit[k][j][i] = (u32)((pgm_read_word(&startAngleTenths[i]) + j * (widthCharTenths + widthSpaceTenths) + k * widthBitTenths + offset) * step);
-                endBit[k][j][i] = (u32)((pgm_read_word(&startAngleTenths[i]) + j * (widthCharTenths + widthSpaceTenths) + widthBitTenths * (k + 1) + offset) * step);
-                events[currentEvent].timeUs = startBit[k][j][i];
+                events[currentEvent].timeUs = (u32)((pgm_read_word(&startAngleTenths[i]) + j * (widthCharTenths + widthSpaceTenths) + k * widthBitTenths + base_offset - offset) * step);
                 events[currentEvent].on = true;
                 currentEvent++;
-                events[currentEvent].timeUs = endBit[k][j][i];
+                events[currentEvent].timeUs = (u32)((pgm_read_word(&startAngleTenths[i]) + j * (widthCharTenths + widthSpaceTenths) + widthBitTenths * (k + 1) + base_offset - offset) * step);
                 events[currentEvent].on = false;
                 currentEvent++;
               }
@@ -518,9 +618,55 @@ void loop() {
   }
   // 1) Si hay mensaje por USB-Serial
   if (msgPending) {
-    setMessage(serialBuf);
+// 1) copia del buffer
+    char buf[MAX_MESSAGE_LEN + 1];
+    strncpy(buf, serialBuf, sizeof(buf));
+    buf[sizeof(buf)-1] = '\0';
+
+    bool sawCommand = false;
+    const char* sep = " ,;"; 
+    for (char* token = strtok(buf, sep); token; token = strtok(nullptr, sep)) {
+      // 2) identifica y parsea con atof
+      if (strncmp(token, "Kp=", 3) == 0) {
+        Kp = atof(token + 3);
+        sawCommand = true;
+        Serial.print(F("Nuevo Kp = "));
+        Serial.println(Kp, 6);        // muestra hasta 6 decimales
+      }
+      else if (strncmp(token, "Ki=", 3) == 0) {
+        Ki = atof(token + 3);
+        sawCommand = true;
+        Serial.print(F("Nuevo Ki = "));
+        Serial.println(Ki, 6);
+      }
+      else if (strncmp(token, "Kd=", 3) == 0) {
+        Kd = atof(token + 3);
+        sawCommand = true;
+        Serial.print(F("Nuevo Kd = "));
+        Serial.println(Kd, 6);
+      }
+      else if (strncmp(token, "rpm", 3) == 0) {
+        setpointRPM = atof(token + 3);
+        sawCommand = true;
+        Serial.print(F("Nuevo RPM = "));
+        Serial.println(setpointRPM, 6);
+      }
+    }
+    if (sawCommand) {
+      // Mostrar el estado completo tras aplicar cambios
+      Serial.print(F("Estado PID → Kp="));
+      Serial.print(Kp, 6);
+      Serial.print(F("  Ki="));
+      Serial.print(Ki, 6);
+      Serial.print(F("  Kd="));
+      Serial.println(Kd, 6);
+    } else {
+      setMessage(serialBuf);
+    }      
+
     msgPending = false;
   }
+
 
   // blackButton.update();
   // if (blackButton.isLongClick()) blackPressHandle();
