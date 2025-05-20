@@ -1,9 +1,5 @@
 // Laser Control for ESP32 xd
 #include "config.h"
-#include <BLEDevice.h>
-#include <BLEServer.h>
-#include <BLEUtils.h>
-#include <BLE2902.h>
 
 volatile unsigned long revolutionStart  = 0;
 volatile unsigned long revolutionPeriod = 0;
@@ -12,13 +8,10 @@ volatile unsigned long period = 0;
 volatile unsigned long sum = 0;
 static uint8_t SCROLL_INTERVAL_REVS = 15;  // scroll cada 3 revs
 
-#define UART_SERVICE_UUID        "6e400001-b5a3-f393-e0a9-e50e24dcca9e"
-#define UART_CHAR_UUID_RX        "6e400002-b5a3-f393-e0a9-e50e24dcca9e"  // escribe móvil→ESP32
-#define UART_CHAR_UUID_TX        "6e400003-b5a3-f393-e0a9-e50e24dcca9e"  // notifica ESP32→móvil
+
 
 BLECharacteristic *pTxCharacteristic;
 bool deviceConnected = false;
-#define MAX_MESSAGE_LEN 100
 
 
 volatile bool newRevolution = false;
@@ -50,6 +43,7 @@ struct Event { u32 timeUs; bool on; };
 static Event events[2 * NUM_MIRRORS * MAX_NUM_CHARS * NUM_BITS * NUM_REPS];  // ajustar tamaño: planCycles*NUM_MIRRORS*MAX_NUM_CHARS*NUM_BITS*2
 static u16   currentEvent = 0;
 static u16 eventCount    = 0;   // cuántos eventos hay
+
 void IRAM_ATTR sensorISR() {
   unsigned long now = micros();
   revolutionPeriod = now - revolutionStart;
@@ -65,7 +59,32 @@ int compareEvents(const void* pa, const void* pb) {
   return 0;
 }
 
-// Máximo número de caracteres en el mensaje
+String normalizeUTF8(const String &in) {
+  String out;
+  size_t i = 0;
+  while (i < in.length()) {
+    uint8_t b = in[i];
+    // Detectar inicio de ñ (0xC3 0xB1) ó Ñ (0xC3 0x91)
+    if (b == 0xC3 && i+1 < in.length()) {
+      uint8_t b2 = in[i+1];
+      if (b2 == 0xB1) {     // ñ
+        out += (char)0xF1;
+        i += 2;
+        continue;
+      }
+      else if (b2 == 0x91) { // Ñ
+        out += (char)0xD1;
+        i += 2;
+        continue;
+      }
+    }
+    // Sino, copiamos el byte tal cual
+    out += (char)b;
+    i++;
+  }
+  return out;
+}
+
 
 // Variables globales
 int  messageLen = 0;  
@@ -97,9 +116,10 @@ uint8_t charToIndex(char c) {
   if (c == '¡')  return 45;  // ojo con la codificación
   if (c == '-')  return 46;
   if (c == '+')  return 47;
+  if ((uint8_t)c == 0xF1 || (uint8_t)c == 0xD1) return 48;
 
   // Espacio o carácter no soportado
-  return 48;  // aquí puedes poner el índice de tu glyph "espacio" si lo tienes
+  return ALPHABET_SIZE;  // aquí puedes poner el índice de tu glyph "espacio" si lo tienes
 }
 
 // Llama a esta función para fijar el mensaje que se va a mostrar.
@@ -138,11 +158,16 @@ class RxCallbacks : public BLECharacteristicCallbacks {
   void onWrite(BLECharacteristic* pChar) override {
     String rx = pChar->getValue();
     if (rx.length() == 0) return;
-    size_t len = min((size_t)rx.length(), (size_t)MAX_MESSAGE_LEN);
-    rx.toCharArray(bleBuf, len + 1);
+    // 1) Normalizamos UTF-8 -> Latin1
+    String norm = normalizeUTF8(rx);
+    // 2) Lo volcamos a tu buffer c-string
+    size_t len = min((size_t)norm.length(), (size_t)MAX_MESSAGE_LEN);
+    norm.toCharArray(bleBuf, len+1);
     handleCommand(bleBuf);
   }
 };
+
+
 
 // Llamar *una sola* vez por iteración de loop():
 void pollSerial() {
@@ -173,7 +198,7 @@ void updateWindowScroll() {
     uint8_t idx = (windowStart + j) % messageLen;
     uint8_t alpha = charToIndex(fullMessage[idx]);
     for (uint8_t i = 0; i < NUM_MIRRORS; i++) {
-      windowBitmap[j][i] = (alpha < 48)
+      windowBitmap[j][i] = (alpha < ALPHABET_SIZE)
         ? pgm_read_word(&alphabet[alpha][i])
         : 0;
     }
