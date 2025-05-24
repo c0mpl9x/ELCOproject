@@ -23,7 +23,7 @@ static int mode = 0;
 #define MAX_BANDS 16         // Número máximo de bandas que permitiremos
 #define NUM_BANDS 32
 
-#define SAMPLES 512          
+#define SAMPLES 256          
 #define SAMPLING_FREQUENCY 40000 // Hz (Nyquist = 20000 Hz)
 //#define amplitude 200           // Factor de escala
 
@@ -42,20 +42,18 @@ bool prev_boton = true;
 
 // 32 bandas log-espaciadas de 100 a 20000 Hz,
 // redondeadas y con salto mínimo de 1 bin (78.125 Hz)
+// con salto mínimo = 1 bin (156.25 Hz)
 const float normal[NUM_BANDS] = {
-   100.000f,  178.125f,  256.250f,  334.375f,  412.500f,  490.625f,  568.750f,  646.875f,
-   725.000f,  803.125f,  881.250f,  959.375f, 1037.500f, 1115.625f, 1193.750f, 1328.125f,
-  1562.500f, 1796.875f, 2187.500f, 2578.125f, 3046.875f, 3593.750f, 4296.875f, 5078.125f,
-  6015.625f, 7187.500f, 8515.625f,10078.125f,11953.125f,14218.750f,16875.000f,20000.000f
+    100.000f,256.250f,412.500f,568.750f,725.000f,881.250f,1037.500f,1193.750f,1350.000f,1506.250f,1662.500f,1818.750f,1975.000f,2131.250f,2287.500f,2443.750f,2600.000f,2756.250f,2912.500f,3068.750f,3225.000f,3620.448f,4295.256f,5095.840f,6045.644f,7172.480f,8509.345f,10095.385f,11977.045f,14209.423f,16857.890f,20000.000f
 };
 
 // 32 bandas log-espaciadas de 1000 a 4000 Hz,
-// redondeadas y con salto mínimo de 1 bin (78.125 Hz)
+// con salto mínimo = 1 bin (156.25 Hz)
 const float silvar[NUM_BANDS] = {
-  1000.000f, 1078.125f, 1156.250f, 1234.375f, 1312.500f, 1390.625f, 1468.750f, 1546.875f,
-  1625.000f, 1703.125f, 1781.250f, 1859.375f, 1937.500f, 2015.625f, 2093.750f, 2171.875f,
-  2250.000f, 2328.125f, 2406.250f, 2484.375f, 2562.500f, 2640.625f, 2718.750f, 2812.500f,
-  2890.625f, 3046.875f, 3203.125f, 3359.375f, 3515.625f, 3671.875f, 3828.125f, 4000.000f
+    1000.000f,1156.250f,1312.500f,1468.750f,1625.000f,1781.250f,1937.500f,2093.750f,2250.000f,2406.250f,2562.500f,2718.750f,2875.000f,3031.250f,3187.500f,3343.750f,3500.000f,3656.250f,3812.500f,3968.750f,4125.000f,4281.250f,4437.500f,4593.750f,4750.000f,4906.250f,5062.500f,5218.750f,5375.000f,5531.250f,5687.500f,4000.000f
+};
+float bandLimits[NUM_BANDS] = {
+    100.000f,256.250f,412.500f,568.750f,725.000f,881.250f,1037.500f,1193.750f,1350.000f,1506.250f,1662.500f,1818.750f,1975.000f,2131.250f,2287.500f,2443.750f,2600.000f,2756.250f,2912.500f,3068.750f,3225.000f,3620.448f,4295.256f,5095.840f,6045.644f,7172.480f,8509.345f,10095.385f,11977.045f,14209.423f,16857.890f,20000.000f
 };
 
 //-----------Defines for automatic gain control------/
@@ -128,7 +126,7 @@ struct Point {
   float x, y;
 };
 
-const int numOfHistoryValues = 15; 
+const int numOfHistoryValues = 11; 
 float SMOOTHING = 0.5;
 Point controlPoints[NUM_BANDS][numOfHistoryValues];
 float valueHistory[NUM_BANDS][numOfHistoryValues];
@@ -236,7 +234,6 @@ void TaskProcessing(void * parameter) {
     int localBuffer[SAMPLES];
     if (bufferReady[0] || bufferReady[1]) {
 
-      unsigned long procStart = micros();
       LASER_OFF();
       xSemaphoreTake(bufferMutex, portMAX_DELAY);
       int readyBuffer = bufferReady[0] ? 0 : 1;
@@ -272,10 +269,14 @@ void TaskProcessing(void * parameter) {
         }
       }
       
+      unsigned long procStart = micros();
       for (int i = 0; i < NUM_BANDS; i++) {
         updateControlPoints(bandValues[i], i);
         bandValues[i] = getSmoothedValue(i, 0.2);
       }
+
+      unsigned long procCycle = micros() - procStart;
+
       // === DRAWING BANDS ===
       int bandWidth = SPECTRUM_WIDTH / NUM_BANDS;
       for (int band = 0; band < NUM_BANDS; band++) {
@@ -322,7 +323,6 @@ void TaskProcessing(void * parameter) {
         prev_boton = bootButtonState;
 
             
-      unsigned long procCycle = micros() - procStart;
 
       unsigned long nowProcesingTime = micros() - procesingTime;
       procesingTime = micros();

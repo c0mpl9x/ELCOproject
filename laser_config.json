@@ -52,13 +52,13 @@
       "enabled": true
     },
     {
-      "start": 959,
-      "end": 1109,
+      "start": 355,
+      "end": 505,
       "enabled": true
     },
     {
-      "start": 355,
-      "end": 505,
+      "start": 959,
+      "end": 1109,
       "enabled": true
     }
   ]
