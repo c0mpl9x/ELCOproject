@@ -5,7 +5,29 @@
 #include "arduinoFFT.h"
 #include <math.h>
 #include "config.h"
-
+// Buffer y estado
+static char serialBuf[MAX_MESSAGE_LEN+1];
+static uint8_t serialPos = 0;
+static bool    msgPending = false;
+// Llamar una sola vez por iteración de loop():
+void pollSerial() {
+  if (Serial.available() > 0) {
+    char c = Serial.read();
+    if (c == '\n' || c == '\r') {
+      // fin de línea
+      if (serialPos > 0) {
+        serialBuf[serialPos] = '\0';
+        msgPending = true;
+      }
+      serialPos = 0;
+    } else {
+      // acumula caracter, sin overflow
+      if (serialPos < MAX_MESSAGE_LEN) {
+        serialBuf[serialPos++] = c;
+      }
+    }
+  }
+}
 
 #define YIELD_DELAY 1
 static int yield_user_delay = YIELD_DELAY;
@@ -121,12 +143,50 @@ void buttonReleased(){
   tft.fillRect(SPECTRUM_WIDTH + 20, 200, 30, 8, ST77XX_BLACK);
 }
 
+// ------------------- Nuevo suavizado de Bezier precalculado ----------------------------------
+#define ORDER            35
+#define N_CTRL           (ORDER+1)
+float bernstein[N_CTRL];
+const float SMOOTH_T = 0.2f;
+
+float binomCoeffs[N_CTRL];
+void computeBinomCoeffs() {
+  // C(ORDER,0) = 1
+  binomCoeffs[0] = 1.0f;
+  // C(n,k) = C(n,k-1) * (n – (k-1)) / k
+  for (int k = 1; k <= ORDER; k++) {
+    binomCoeffs[k] = binomCoeffs[k - 1] * float(ORDER - (k - 1)) / float(k);
+  }
+}
+void computeBernstein() {
+  float t = SMOOTH_T, u = 1 - t;
+  float tPow = 1.0f;
+  // u^10
+  float uPow = powf(u, ORDER);
+  for (int i = 0; i <= ORDER; i++) {
+    bernstein[i] = binomCoeffs[i] * tPow * uPow;
+    tPow *= t;        // t^i → t^(i+1)
+    uPow /= u;        // u^(10−i) → u^(10−(i+1))
+  }
+}
+
+// y tu nueva versión de getSmoothedValue:
+float bezierFast(const float *p) {
+  float s = 0;
+  for (int i = 0; i <= ORDER; i++) {
+    s += bernstein[i] * p[i];
+  }
+  return s;
+}
+
+
+
 // -------------------- Suavizado con curva Bézier (general, con 11 puntos) --------------------
 struct Point {
   float x, y;
 };
 
-const int numOfHistoryValues = 11; 
+const int numOfHistoryValues = N_CTRL; 
 float SMOOTHING = 0.5;
 Point controlPoints[NUM_BANDS][numOfHistoryValues];
 float valueHistory[NUM_BANDS][numOfHistoryValues];
@@ -161,14 +221,6 @@ void updateControlPoints(float newValue, int barIndex) {
   for (int i = 0; i < numOfHistoryValues; i++) {
     controlPoints[barIndex][i].y = valueHistory[barIndex][i];
   }
-}
-
-float getSmoothedValue(int barIndex, float t) {
-  float p[numOfHistoryValues];
-  for (int i = 0; i < numOfHistoryValues; i++) {
-    p[i] = controlPoints[barIndex][i].y;
-  }
-  return bezierGeneral(p, numOfHistoryValues, t);
 }
 
 // -------------------- Funciones de pantalla --------------------
@@ -221,6 +273,37 @@ void TaskSampling(void * parameter) {
     samplingTime = micros() - lastSamplingTime;
     lastSamplingTime = micros();
     // yield();
+
+
+      // Lectura del serial
+static uint32_t lastSerialPoll = 0;
+uint32_t nowMs = millis();
+// 1) Sólo pollear el Serial cada 100 ms
+if (nowMs - lastSerialPoll >= SERIAL_POLL_INTERVAL_MS) {
+  lastSerialPoll = nowMs;
+  pollSerial();
+}
+
+// 2) Si hay mensaje por USB-Serial
+if (msgPending) {
+  // Copia del buffer y asegúrate de que está C-terminado
+  char buf[MAX_MESSAGE_LEN + 1];
+  strncpy(buf, serialBuf, sizeof(buf));
+  buf[sizeof(buf)-1] = '\0';
+
+  // Comprueba si es exactamente "r"
+  if (strcmp(buf, "r") == 0) {
+    Serial.println(F("Rebooting..."));
+    delay(200);
+    ESP.restart();   // reinicio
+  } else {
+    // Cualquier otro texto lo mandamos al láser
+    setMessage(buf);
+  }
+
+  // Restablece la bandera para la próxima línea
+  msgPending = false;
+}
     vTaskDelay(yield_user_delay);
   }
   vTaskDelay(1);
@@ -270,11 +353,19 @@ void TaskProcessing(void * parameter) {
       }
       
       unsigned long procStart = micros();
-      for (int i = 0; i < NUM_BANDS; i++) {
-        updateControlPoints(bandValues[i], i);
-        bandValues[i] = getSmoothedValue(i, 0.2);
-      }
-
+      // for (int i = 0; i < NUM_BANDS; i++) {
+      //   updateControlPoints(bandValues[i], i);
+      //   bandValues[i] = getSmoothedValue(i, 0.2);
+      // }
+        for (int i = 0; i < NUM_BANDS; i++) {
+          updateControlPoints(bandValues[i], i);
+          // controlPoints[i][*].y ya contiene el historial de 11 valores
+          // pero podemos leerlo directo en un array float p[11]
+          float p[N_CTRL];
+          for (int k = 0; k < N_CTRL; k++)
+            p[k] = controlPoints[i][k].y;
+          bandValues[i] = bezierFast(p);
+        }
       unsigned long procCycle = micros() - procStart;
 
       // === DRAWING BANDS ===
@@ -502,10 +593,7 @@ void setMessage(char* msg) {
   windowStart = 0;
   // 3) Si el mensaje no cabe, activar scroll. Desactivarlo si sí cabe
 }
-// Buffer y estado
-static char serialBuf[MAX_MESSAGE_LEN+1];
-static uint8_t serialPos = 0;
-static bool    msgPending = false;
+
 
 static char bleBuf[MAX_MESSAGE_LEN+1];
 
@@ -513,122 +601,6 @@ class ServerCallbacks: public BLEServerCallbacks {
   void onConnect(BLEServer* pServer)    { deviceConnected = true; }
   void onDisconnect(BLEServer* pServer) { deviceConnected = false; }
 };
-
-// Callback cuando el móvil escribe en RX
-class RxCallbacks : public BLECharacteristicCallbacks {
-  void onWrite(BLECharacteristic* pChar) override {
-    String rx = pChar->getValue();
-    if (rx.length() == 0) return;
-    // 1) Normalizamos UTF-8 -> Latin1
-    String norm = normalizeUTF8(rx);
-    // 2) Lo volcamos a tu buffer c-string
-    size_t len = min((size_t)norm.length(), (size_t)MAX_MESSAGE_LEN);
-    norm.toCharArray(bleBuf, len+1);
-    handleCommand(bleBuf);
-  }
-};
-
-
-
-// Llamar una sola vez por iteración de loop():
-void pollSerial() {
-  if (Serial.available() > 0) {
-    char c = Serial.read();
-    if (c == '\n' || c == '\r') {
-      // fin de línea
-      if (serialPos > 0) {
-        serialBuf[serialPos] = '\0';
-        msgPending = true;
-      }
-      serialPos = 0;
-    } else {
-      // acumula caracter, sin overflow
-      if (serialPos < MAX_MESSAGE_LEN) {
-        serialBuf[serialPos++] = c;
-      }
-    }
-  }
-}
-// Buffers para Bluetooth
-static char btBuf[MAX_MESSAGE_LEN+1];
-static uint8_t btPos = 0;
-static bool    btMsgPending = false;
-
-void updateWindowScroll() {
-  for (uint8_t j = 0; j < num_chars; j++) {
-    uint8_t idx = (windowStart + j) % messageLen;
-    uint8_t alpha = charToIndex(fullMessage[idx]);
-    for (uint8_t i = 0; i < NUM_MIRRORS; i++) {
-      windowBitmap[j][i] = (alpha < ALPHABET_SIZE)
-        ? pgm_read_word(&alphabet[alpha][i])
-        : 0;
-    }
-  }
-  if (scroll) windowStart = (windowStart + 1) % messageLen;
-}
-
-
-// // Create debounce instance (default constructor uses active HIGH)
-// PinButton  blackButton(buttonBlackPin);
-// // Create debounce instance (default constructor uses active HIGH)
-// PinButton  yellowButton(buttonYellowPin);
-PinButton buttonRST(buttonRSTPin, INPUT_PULLUP);
-
-void updateNumChars(int new_num_chars){
-  if (new_num_chars > 3 && new_num_chars <= MAX_NUM_CHARS) {
-    num_chars = new_num_chars;
-    widthCharTenths  = widthLineTenths / (num_chars + 1);
-    widthBitTenths   = round(widthCharTenths / NUM_BITS);
-    widthSpaceTenths = 3 * widthCharTenths / (num_chars - 1);
-    offset_step = (float)(widthCharTenths + widthSpaceTenths) / (float)SCROLL_INTERVAL_REVS;
-    Serial.print("num_chars updated! num_chars = ");
-    Serial.println(num_chars);
-  } else {
-    Serial.print("NUM CHARS MENOR QUE 4 O MAYOR QUE "); Serial.println(MAX_NUM_CHARS);
-  }
-
-}
-
-void blackPressHandle(){
-  num_chars = (num_chars + 1) % MAX_NUM_CHARS;
-  widthCharTenths  = widthLineTenths / (num_chars + 1);
-  widthBitTenths   = round(widthCharTenths / NUM_BITS);
-  widthSpaceTenths = 3 * widthCharTenths / (num_chars - 1);
-  offset_step = (float)(widthCharTenths + widthSpaceTenths) / (float)SCROLL_INTERVAL_REVS;
-  Serial.print("Button pressed! num_chars = ");
-  Serial.println(num_chars);
-}
-// void blackDoublePressHandle(){
-//   Serial.println("Button long pressed!");
-//   scroll = !scroll;
-//   digitalWrite(ledPin, scroll);
-// }
-void yellowPressHandle(){
-  num_chars = (num_chars - 1 + MAX_NUM_CHARS) % MAX_NUM_CHARS;
-  widthCharTenths  = widthLineTenths / (num_chars + 1);
-  widthBitTenths   = round(widthCharTenths / NUM_BITS);
-  widthSpaceTenths = 3 * widthCharTenths / (num_chars - 1);
-  offset_step = (float)(widthCharTenths + widthSpaceTenths) / (float)SCROLL_INTERVAL_REVS;
-  
-  Serial.print("Button pressed! num_chars = ");
-  Serial.println(num_chars);
-}
-void rstSingleClickHandle(){
-  scroll = !scroll;
-  Serial.println("boton rst presionado");
-}
-void rstPressHandle(){
-  motor_user_on = !motor_user_on;
-  // digitalWrite(motorPin, motor_user_on ? HIGH : LOW);
-  if (motor_user_on) ledcWrite(motorPin, 200);
-  else ledcWrite(motorPin, 0);
-  Serial.println("boton rst long presionado");
-}
-void rstDoublePressHandle(){
-  laser_user_on = !laser_user_on;
-  if (laser_user_on) LASER_ON(); else LASER_OFF();
-  Serial.println("boton rst doble presionado");
-}
 // Parsear comando recibido y actualizar estados
 void handleCommand(char* cmdBuf) {
   String cmd = String(cmdBuf);
@@ -796,6 +768,104 @@ void handleCommand(char* cmdBuf) {
     pTxCharacteristic->notify();
   }
 }
+// Callback cuando el móvil escribe en RX
+class RxCallbacks : public BLECharacteristicCallbacks {
+  void onWrite(BLECharacteristic* pChar) override {
+    String rx = pChar->getValue();
+    if (rx.length() == 0) return;
+    // 1) Normalizamos UTF-8 -> Latin1
+    String norm = normalizeUTF8(rx);
+    // 2) Lo volcamos a tu buffer c-string
+    size_t len = min((size_t)norm.length(), (size_t)MAX_MESSAGE_LEN);
+    norm.toCharArray(bleBuf, len+1);
+    handleCommand(bleBuf);
+  }
+};
+
+
+
+
+// Buffers para Bluetooth
+static char btBuf[MAX_MESSAGE_LEN+1];
+static uint8_t btPos = 0;
+static bool    btMsgPending = false;
+
+void updateWindowScroll() {
+  for (uint8_t j = 0; j < num_chars; j++) {
+    uint8_t idx = (windowStart + j) % messageLen;
+    uint8_t alpha = charToIndex(fullMessage[idx]);
+    for (uint8_t i = 0; i < NUM_MIRRORS; i++) {
+      windowBitmap[j][i] = (alpha < ALPHABET_SIZE)
+        ? pgm_read_word(&alphabet[alpha][i])
+        : 0;
+    }
+  }
+  if (scroll) windowStart = (windowStart + 1) % messageLen;
+}
+
+
+// // Create debounce instance (default constructor uses active HIGH)
+// PinButton  blackButton(buttonBlackPin);
+// // Create debounce instance (default constructor uses active HIGH)
+// PinButton  yellowButton(buttonYellowPin);
+PinButton buttonRST(buttonRSTPin, INPUT_PULLUP);
+
+void updateNumChars(int new_num_chars){
+  if (new_num_chars > 3 && new_num_chars <= MAX_NUM_CHARS) {
+    num_chars = new_num_chars;
+    widthCharTenths  = widthLineTenths / (num_chars + 1);
+    widthBitTenths   = round(widthCharTenths / NUM_BITS);
+    widthSpaceTenths = 3 * widthCharTenths / (num_chars - 1);
+    offset_step = (float)(widthCharTenths + widthSpaceTenths) / (float)SCROLL_INTERVAL_REVS;
+    Serial.print("num_chars updated! num_chars = ");
+    Serial.println(num_chars);
+  } else {
+    Serial.print("NUM CHARS MENOR QUE 4 O MAYOR QUE "); Serial.println(MAX_NUM_CHARS);
+  }
+
+}
+
+void blackPressHandle(){
+  num_chars = (num_chars + 1) % MAX_NUM_CHARS;
+  widthCharTenths  = widthLineTenths / (num_chars + 1);
+  widthBitTenths   = round(widthCharTenths / NUM_BITS);
+  widthSpaceTenths = 3 * widthCharTenths / (num_chars - 1);
+  offset_step = (float)(widthCharTenths + widthSpaceTenths) / (float)SCROLL_INTERVAL_REVS;
+  Serial.print("Button pressed! num_chars = ");
+  Serial.println(num_chars);
+}
+// void blackDoublePressHandle(){
+//   Serial.println("Button long pressed!");
+//   scroll = !scroll;
+//   digitalWrite(ledPin, scroll);
+// }
+void yellowPressHandle(){
+  num_chars = (num_chars - 1 + MAX_NUM_CHARS) % MAX_NUM_CHARS;
+  widthCharTenths  = widthLineTenths / (num_chars + 1);
+  widthBitTenths   = round(widthCharTenths / NUM_BITS);
+  widthSpaceTenths = 3 * widthCharTenths / (num_chars - 1);
+  offset_step = (float)(widthCharTenths + widthSpaceTenths) / (float)SCROLL_INTERVAL_REVS;
+  
+  Serial.print("Button pressed! num_chars = ");
+  Serial.println(num_chars);
+}
+void rstSingleClickHandle(){
+  scroll = !scroll;
+  Serial.println("boton rst presionado");
+}
+void rstPressHandle(){
+  motor_user_on = !motor_user_on;
+  // digitalWrite(motorPin, motor_user_on ? HIGH : LOW);
+  if (motor_user_on) ledcWrite(motorPin, 200);
+  else ledcWrite(motorPin, 0);
+  Serial.println("boton rst long presionado");
+}
+void rstDoublePressHandle(){
+  laser_user_on = !laser_user_on;
+  if (laser_user_on) LASER_ON(); else LASER_OFF();
+  Serial.println("boton rst doble presionado");
+}
+
 
 static unsigned long lastRpmSendTime = 0;  // registro de la última vez que enviamos
 static int numRevs = 0;
@@ -1022,7 +1092,10 @@ void setup() {
   tft.fillScreen(ST77XX_BLACK);
   tft.setTextColor(ST77XX_WHITE);
   tft.setTextSize(1);
-  
+
+  computeBinomCoeffs();
+  computeBernstein();
+
   drawStaticInfo();
   
 

@@ -68,7 +68,7 @@ static int32_t base_offset = 817;
 // Timing geometry (in tenths of a degree)
 static const u16 startAngleTenths[NUM_MIRRORS] PROGMEM = {
     9089,  7280, 5525, 3705, 1853,
-    8265, 10022, 6357, 4550, 997, 2807
+    8260, 10025, 6357, 4550, 997, 2807
 };
 static const u16 endAngleTenths[NUM_MIRRORS] PROGMEM = {
     9609,  7800, 6042, 4221, 2373,

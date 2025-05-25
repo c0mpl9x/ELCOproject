@@ -1,0 +1,6 @@
+Adafruit GFX Library
+Adafruit BusIO
+Adafruit ST7735 and ST7789 Library
+TFT_eSPI
+arduinoFFT
+MultiButton
